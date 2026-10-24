@@ -43,6 +43,11 @@ jobs:
           path: data/
           retention-days: 7
           if-no-files-found: warn
+      - name: 显示数据完整性摘要
+        if: always()
+        env:
+          COLLECT_SUMMARY_FILE: ${{ steps.collect.outputs.summary_path }}
+        run: python -m collector.ci_summary
       - name: 校验归档结构
         id: quality
         if: always()

@@ -17,6 +17,22 @@ def daily_price(rows, target):
                 adjustment='none', source='AKShare / 腾讯')
 
 
+def collect_index(c, symbol, target):
+    d = target.replace('-', '')
+    attempts = [('index_' + symbol, 'stock_zh_index_daily_em'),
+                ('index_retry_' + symbol, 'stock_zh_index_daily_em')]
+    if symbol.startswith(('sh', 'sz')):
+        attempts.append(('index_fallback_' + symbol, 'stock_zh_index_daily_tx'))
+    for key, function in attempts:
+        rows = c.call(key, function, symbol=symbol, start_date=d, end_date=d)
+        matched = [r for r in (rows or []) if str(r.get('date', ''))[:10] == target]
+        if len(matched) == 1 and number(matched[0].get('close')) is not None and number(matched[0]['close']) > 0:
+            return matched[0]
+        if rows:
+            c.calls[key]['status'] = 'date_or_schema_error'
+    return None
+
+
 def candidate_prices(c, pool, quotes, target, budget, cached=()):
     deadline = time.monotonic() + max(0, budget)
     prices, missing = [], []
@@ -66,9 +82,12 @@ def coverage(summary):
     result = {'pool'} if v.get('mainboard_limit_up_count') is not None else set()
     result.update('index:' + r['symbol'] for r in v.get('indices', []))
     result.update('price:' + code for code in summary.get('price_coverage', []))
+    result.update('followup:' + code for code in summary.get('followup_price_coverage', []))
     result.update(k for k in ('broken_count', 'limit_down_count') if v.get(k) is not None)
     if summary.get('estimates', {}).get('market'):
         result.add('market')
+        if summary['estimates']['market'].get('source') != '新浪':
+            result.add('market:includes_beijing')
     if summary.get('promotion', {}).get('observation_rate') is not None:
         result.add('promotion')
     return result

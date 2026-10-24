@@ -3,6 +3,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import subprocess
 import sys
 import time
@@ -11,7 +12,8 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from .model import normalize, number, promotion, theme_score
-from .quality import candidate_prices, select_snapshot
+from .quality import candidate_prices, select_snapshot, collect_index
+from .followup import archived_cohorts, followup_rows, normalize_sina_spot
 
 TZ = ZoneInfo('Asia/Shanghai')
 
@@ -39,7 +41,7 @@ class Collector:
         path = self.root / 'raw' / f'{key}.json'
         path.parent.mkdir(parents=True, exist_ok=True)
         started = datetime.now(TZ).isoformat()
-        provider = '新浪' if 'sina' in function else '腾讯' if function.endswith('_tx') else '东方财富'
+        provider = '新浪' if 'sina' in function or function == 'stock_zh_a_spot' else '腾讯' if function.endswith('_tx') else '东方财富'
         meta = dict(function=function, provider='AKShare / ' + provider,
                     parameters=kwargs, fetched_at=started, status='error', rows=None, missing_fields=[])
         meta['documentation'] = 'https://akshare.akfamily.xyz/data/stock/stock.html'
@@ -88,6 +90,8 @@ def main():
     p.add_argument('--timeout', type=int, default=45)
     p.add_argument('--price-budget', type=int, default=180,
                    help='候选股历史价格补采总秒数，0为关闭；超预算保留缺失')
+    p.add_argument('--followup-budget', type=int, default=90,
+                   help='前两个交易日首板后续价格补采总秒数，0为关闭')
     args = p.parse_args()
     now = datetime.now(TZ)
     target = args.date or now.date()
@@ -117,9 +121,18 @@ def main():
             required = ['代码','名称'] + (['连板数','首次封板时间','最后封板时间','炸板次数'] if key == 'limit_up' else [])
             frames[key] = check_rows(c, key, rows, required)
         spot = None
+        spot_source, spot_scope = '东方财富', '沪深北（未独立核验完整性）'
         # Live spot has no reliable historical date. Never use today's OHLC for another day.
         if target == now.date() and closed:
             spot = check_rows(c, 'spot', c.call('spot', 'stock_zh_a_spot_em'), ['代码','名称','涨跌幅','成交额','今开','最高','最低','最新价'])
+            if spot is None:
+                rows = c.call('spot_fallback', 'stock_zh_a_spot')
+                normalized = normalize_sina_spot(rows) if rows is not None else None
+                if rows and not normalized:
+                    c.calls['spot_fallback']['status'] = 'schema_error'
+                spot = check_rows(c, 'spot_fallback', normalized or None,
+                                  ['代码','名称','涨跌幅','成交额','今开','最高','最低','最新价'])
+                spot_source, spot_scope = '新浪', '沪深A股子集（不含北交所，未核验完整性）'
         quotes = {str(r['代码']).zfill(6): r for r in (spot or [])}
         if spot:
             changes = [number(r['涨跌幅']) for r in spot]
@@ -127,7 +140,10 @@ def main():
             summary['estimates']['market'] = dict(up=sum(v > 0 for v in changes if v is not None),
                 down=sum(v < 0 for v in changes if v is not None), flat=sum(v == 0 for v in changes if v is not None),
                 turnover_yuan=sum(v for v in amounts if v is not None), records=len(spot),
-                note='收盘后实时快照汇总，含沪深北；分页完整性和行情日期未获独立验证，可能含停牌平盘')
+                source=spot_source, scope=spot_scope,
+                note='收盘后实时快照汇总；分页完整性和行情日期未获独立验证，可能含停牌平盘')
+            if spot_source == '新浪':
+                summary['missing_data'].append('全市场沪深北汇总缺失；当前仅有新浪沪深子集估算')
         else:
             summary['missing_data'].append('全市场收盘快照；不跨日套用实时数据')
         cached_prices = []
@@ -148,6 +164,29 @@ def main():
             note='首板优先；历史价格为不复权日线，不能证明实际成交；实时快照仍为未独立核验估算')
         if missing_prices:
             summary['missing_data'].append(f'候选股同日OHLC缺失{len(missing_prices)}只（含预算未执行）')
+        cohorts, missing_cohorts = archived_cohorts(args.output, days, target.isoformat())
+        followup_pool = [{'代码': r['code'], '名称': r['name'], '连板数': 1} for r in
+                         {r['code']: r for r in cohorts}.values()]
+        historical_quotes = {r['code']: {'今开': r['open'], '最高': r['high'],
+                            '最低': r['low'], '最新价': r['close']} for r in prices}
+        followup_cache = []
+        if previous_pointer.exists():
+            cache = root.parent / ptr['run_id'] / 'clean' / 'followup_prices.json'
+            if cache.exists():
+                followup_cache = json.loads(cache.read_text(encoding='utf-8'))
+        followup_prices, missing_followup = candidate_prices(c, followup_pool, historical_quotes,
+            target.isoformat(), args.followup_budget, cached_prices + followup_cache)
+        all_historical = {r['code']: r for r in prices + followup_prices}
+        table(root / 'clean' / 'followup_prices',
+              [all_historical[r['代码']] for r in followup_pool if r['代码'] in all_historical])
+        tracked = followup_rows(cohorts, all_historical, target.isoformat())
+        table(root / 'clean' / 'first_board_followup', tracked)
+        summary['followup'] = dict(rows=len(tracked), prices_available=sum(r['status'] == 'price_available' for r in tracked),
+            missing_archive_dates=missing_cohorts, missing_price_codes=missing_followup,
+            budget_seconds=args.followup_budget, note='按交易日追踪首板后第1/2个交易日，不推断成交或策略收益')
+        summary['followup_price_coverage'] = sorted(all_historical.keys() & {r['code'] for r in cohorts})
+        if missing_cohorts or missing_followup:
+            summary['missing_data'].append('首板后续跟踪存在历史名单或价格缺失，详见followup')
         clean = {}
         for key, rows in frames.items():
             clean[key] = normalize(rows, quotes) if rows is not None else None
@@ -169,20 +208,11 @@ def main():
             summary['verified'][key + '_count'] = len(clean[key]) if clean[key] is not None else None
         indices = []
         for name, symbol in [('上证指数','sh000001'), ('深证成指','sz399001'), ('创业板指','sz399006'), ('中证2000','csi932000')]:
-            rows = c.call('index_' + symbol, 'stock_zh_index_daily_em', symbol=symbol, start_date=d, end_date=d)
-            if rows is None:
-                rows = c.call('index_retry_' + symbol, 'stock_zh_index_daily_em', symbol=symbol, start_date=d, end_date=d)
-            if rows is None and symbol.startswith(('sh', 'sz')):
-                rows = c.call('index_fallback_' + symbol, 'stock_zh_index_daily_tx', symbol=symbol,
-                              start_date=d, end_date=d)
-                c.calls['index_fallback_' + symbol]['provider'] = 'AKShare / 腾讯'
-            matched = [r for r in (rows or []) if str(r.get('date',''))[:10] == target.isoformat()]
-            if len(matched) == 1 and number(matched[0].get('close')) is not None:
-                indices.append(dict(name=name, symbol=symbol, **matched[0]))
+            matched = collect_index(c, symbol, target.isoformat())
+            if matched is not None:
+                indices.append(dict(name=name, symbol=symbol, **matched))
             else:
                 summary['missing_data'].append(name + '指定日期收盘值')
-                if rows:
-                    c.calls['index_' + symbol]['status'] = 'date_or_schema_error'
         table(root / 'clean' / 'indices', indices)
         summary['verified']['indices'] = indices
         previous = None
@@ -214,6 +244,7 @@ def main():
               '观察样本仅排除已知一字板，T字/短暂开板不保证成交。实际可交易晋级率与真实策略收益均缺失。', '',
               '## 缺失数据', *['- ' + s for s in summary['missing_data']], '',
               '## 候选股价格覆盖', json.dumps(summary.get('candidate_price_quality', {}), ensure_ascii=False), '',
+              '## 前两交易日首板后续跟踪', json.dumps(summary.get('followup', {}), ensure_ascii=False), '',
               '主观题材三问及新鲜度均待人工证据与评分；总分限制0–15。收益字段待验证买入与第三交易日行情后补充。', '',
               '## 接口状态', *[f'- {k}: {v["status"]}，行数={v["rows"]}' for k,v in c.calls.items()]]
     if not valid:
@@ -225,6 +256,9 @@ def main():
     if valid and today is not None:
         summary['selected_as_latest'] = select_snapshot(daily, summary)
         dump(root / 'summary.json', summary)
+    if os.environ.get('GITHUB_OUTPUT'):
+        with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as f:
+            f.write(f'summary_path={root / "summary.json"}\n')
     print(str(root), flush=True)
     return 0 if summary['status'] in ('complete', 'skipped') else 2
 
