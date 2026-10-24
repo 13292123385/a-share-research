@@ -1,6 +1,6 @@
 # 2026-10-23 A股收盘复盘
 
-状态：partial；抓取时间：2026-10-24T13:54:25.646677+08:00
+状态：partial；抓取时间：2026-10-24T14:14:39.606970+08:00
 
 ## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）
 {"mainboard_limit_up_count": 64, "mainboard_height": 6.0, "first_board_candidates": 53, "all_day_one_word_excluded": 0, "one_word_unknown": 64, "broken_count": 11, "limit_down_count": 6, "indices": []}
