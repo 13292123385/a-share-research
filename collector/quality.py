@@ -23,8 +23,18 @@ def collect_index(c, symbol, target):
                 ('index_retry_' + symbol, 'stock_zh_index_daily_em')]
     if symbol.startswith(('sh', 'sz')):
         attempts.append(('index_fallback_' + symbol, 'stock_zh_index_daily_tx'))
+    if symbol == 'csi932000':
+        attempts.append(('index_official_' + symbol, 'stock_zh_index_hist_csindex'))
     for key, function in attempts:
-        rows = c.call(key, function, symbol=symbol, start_date=d, end_date=d)
+        rows = c.call(key, function, symbol='932000' if function.endswith('_csindex') else symbol,
+                      start_date=d, end_date=d)
+        if function.endswith('_csindex'):
+            original = rows
+            rows = [dict(date=r.get('日期'), close=r.get('收盘'), source='中证指数官网',
+                         index_code=r.get('指数代码')) for r in (rows or [])
+                    if str(r.get('指数代码')) == '932000']
+            if original and not rows:
+                c.calls[key]['status'] = 'date_or_schema_error'
         matched = [r for r in (rows or []) if str(r.get('date', ''))[:10] == target]
         if len(matched) == 1 and number(matched[0].get('close')) is not None and number(matched[0]['close']) > 0:
             return matched[0]
@@ -86,8 +96,11 @@ def coverage(summary):
     result.update(k for k in ('broken_count', 'limit_down_count') if v.get(k) is not None)
     if summary.get('estimates', {}).get('market'):
         result.add('market')
-        if summary['estimates']['market'].get('source') != '新浪':
-            result.add('market:includes_beijing')
+    check = summary.get('market_reconciliation', {})
+    if check.get('status') == 'code_coverage_matched':
+        result.add('market:roster_matched')
+    if check.get('szse_turnover_check', {}).get('status') == 'within_tolerance':
+        result.add('market:szse_turnover_matched')
     if summary.get('promotion', {}).get('observation_rate') is not None:
         result.add('promotion')
     return result

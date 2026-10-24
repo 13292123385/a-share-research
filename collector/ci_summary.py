@@ -16,6 +16,7 @@ def render(summary):
              f'- 历史候选价格：{prices.get("historical_available", 0)}只；待补{len(prices.get("missing_codes", []))}只',
              f'- 首板后续跟踪：{followup.get("prices_available", 0)}/{followup.get("rows", 0)}条有价格',
              f'- 市场行情来源：{market.get("source", "缺失")}；范围：{market.get("scope", "缺失")}',
+             f'- 官方名单核验：{summary.get("market_reconciliation", {}).get("status", "未执行")}',
              '', '### 缺失项目', '']
     lines += ['- ' + item for item in summary.get('missing_data', [])] or ['- 无']
     lines += ['', '### 失败尝试（备用源成功后仍保留证据）', '']

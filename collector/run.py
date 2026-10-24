@@ -14,6 +14,7 @@ from zoneinfo import ZoneInfo
 from .model import normalize, number, promotion, theme_score
 from .quality import candidate_prices, select_snapshot, collect_index
 from .followup import archived_cohorts, followup_rows, normalize_sina_spot
+from .reconcile import collect_reconciliation
 
 TZ = ZoneInfo('Asia/Shanghai')
 
@@ -41,7 +42,12 @@ class Collector:
         path = self.root / 'raw' / f'{key}.json'
         path.parent.mkdir(parents=True, exist_ok=True)
         started = datetime.now(TZ).isoformat()
-        provider = '新浪' if 'sina' in function or function == 'stock_zh_a_spot' else '腾讯' if function.endswith('_tx') else '东方财富'
+        provider = ('中证指数官网' if function.endswith('_csindex') else
+                    '上海证券交易所' if function.startswith(('stock_sse_', 'stock_info_sh_')) else
+                    '深圳证券交易所' if function.startswith(('stock_szse_', 'stock_info_sz_')) else
+                    '北京证券交易所' if function.startswith('stock_info_bj_') else
+                    '新浪' if 'sina' in function or function == 'stock_zh_a_spot' else
+                    '腾讯' if function.endswith('_tx') else '东方财富')
         meta = dict(function=function, provider='AKShare / ' + provider,
                     parameters=kwargs, fetched_at=started, status='error', rows=None, missing_fields=[])
         meta['documentation'] = 'https://akshare.akfamily.xyz/data/stock/stock.html'
@@ -127,12 +133,23 @@ def main():
             spot = check_rows(c, 'spot', c.call('spot', 'stock_zh_a_spot_em'), ['代码','名称','涨跌幅','成交额','今开','最高','最低','最新价'])
             if spot is None:
                 rows = c.call('spot_fallback', 'stock_zh_a_spot')
-                normalized = normalize_sina_spot(rows) if rows is not None else None
+                normalized = normalize_sina_spot(rows, include_beijing=True) if rows is not None else None
                 if rows and not normalized:
                     c.calls['spot_fallback']['status'] = 'schema_error'
                 spot = check_rows(c, 'spot_fallback', normalized or None,
                                   ['代码','名称','涨跌幅','成交额','今开','最高','最低','最新价'])
-                spot_source, spot_scope = '新浪', '沪深A股子集（不含北交所，未核验完整性）'
+                spot_source, spot_scope = '新浪', '沪深北候选范围（以官方名单核验结果为准）'
+        if target == now.date() and valid:
+            reconciliation = collect_reconciliation(c, spot, target.isoformat())
+            dump(root / 'clean' / 'market_reconciliation.json', reconciliation)
+            summary['market_reconciliation'] = reconciliation
+            if reconciliation['status'] != 'code_coverage_matched':
+                summary['missing_data'].append('行情与官方名单代码覆盖不一致或无法核验，详见market_reconciliation')
+            if reconciliation['szse_turnover_check']['status'] != 'within_tolerance':
+                summary['missing_data'].append('深圳A股成交额交叉核验未通过或不可比较')
+        else:
+            summary['market_reconciliation'] = dict(status='not_applicable_historical',
+                all_market_verified=False, note='当前上市名单不能冒充历史名单；只对当日有效采集执行自动核验')
         quotes = {str(r['代码']).zfill(6): r for r in (spot or [])}
         if spot:
             changes = [number(r['涨跌幅']) for r in spot]
@@ -140,10 +157,13 @@ def main():
             summary['estimates']['market'] = dict(up=sum(v > 0 for v in changes if v is not None),
                 down=sum(v < 0 for v in changes if v is not None), flat=sum(v == 0 for v in changes if v is not None),
                 turnover_yuan=sum(v for v in amounts if v is not None), records=len(spot),
+                unknown_direction=sum(v is None for v in changes),
+                unknown_amount=sum(v is None for v in amounts),
                 source=spot_source, scope=spot_scope,
                 note='收盘后实时快照汇总；分页完整性和行情日期未获独立验证，可能含停牌平盘')
-            if spot_source == '新浪':
-                summary['missing_data'].append('全市场沪深北汇总缺失；当前仅有新浪沪深子集估算')
+            if None in changes or None in amounts:
+                summary['missing_data'].append('市场汇总含未知涨跌方向或成交额，汇总只计已知项，不能视为完整总量')
+            table(root / 'clean' / 'market_quotes', spot)
         else:
             summary['missing_data'].append('全市场收盘快照；不跨日套用实时数据')
         cached_prices = []
@@ -245,6 +265,7 @@ def main():
               '## 缺失数据', *['- ' + s for s in summary['missing_data']], '',
               '## 候选股价格覆盖', json.dumps(summary.get('candidate_price_quality', {}), ensure_ascii=False), '',
               '## 前两交易日首板后续跟踪', json.dumps(summary.get('followup', {}), ensure_ascii=False), '',
+              '## 市场交叉核验', json.dumps(summary.get('market_reconciliation', {}), ensure_ascii=False), '',
               '主观题材三问及新鲜度均待人工证据与评分；总分限制0–15。收益字段待验证买入与第三交易日行情后补充。', '',
               '## 接口状态', *[f'- {k}: {v["status"]}，行数={v["rows"]}' for k,v in c.calls.items()]]
     if not valid:

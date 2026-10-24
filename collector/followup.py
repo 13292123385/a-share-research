@@ -40,14 +40,15 @@ def followup_rows(cohorts, prices, target):
     return rows
 
 
-def normalize_sina_spot(rows):
+def normalize_sina_spot(rows, include_beijing=False):
     result = []
     for r in rows or []:
         code = str(r.get('代码', ''))
-        if not re.fullmatch(r'(?:sh|sz)?\d{6}', code):
+        if not re.fullmatch(r'(?:sh|sz|bj)?\d{6}', code):
             continue
-        code = code.removeprefix('sh').removeprefix('sz')
-        if not code.startswith(('60', '68', '00', '30')):
+        code = code.removeprefix('sh').removeprefix('sz').removeprefix('bj')
+        prefixes = ('60', '68', '00', '30') + (('43', '83', '87', '88', '92') if include_beijing else ())
+        if not code.startswith(prefixes):
             continue
         result.append(dict(r, **{'代码': code, '今开': r.get('今开', r.get('开盘'))}))
     return result
