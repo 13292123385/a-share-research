@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "trade_date": "2026-10-23",
+  "fetched_at": "2026-10-24T13:52:02.501949+08:00",
+  "run_id": "20261024T135202501949+0800",
+  "calendar_covered": true,
+  "trading_day": true,
+  "status": "partial",
+  "missing_data": [
+    "全市场收盘快照及历史OHLC；不跨日套用实时数据",
+    "深证成指指定日期收盘值",
+    "创业板指指定日期收盘值",
+    "中证2000指定日期收盘值",
+    "index_sz399001:error",
+    "index_sz399006:error",
+    "index_csi932000:error",
+    "上一交易日已归档涨停池；昨日涨停接口不提供昨日连板高度，不能替代该依赖"
+  ],
+  "estimates": {},
+  "verified": {
+    "mainboard_limit_up_count": 64,
+    "mainboard_height": 6.0
+  },
+  "theme": {
+    "industrial_space": null,
+    "catalyst_persistence": null,
+    "market_recognition": null,
+    "freshness": null,
+    "total": null,
+    "evidence": [],
+    "reviewer": null
+  },
+  "promotion": {
+    "status": "missing_dependency",
+    "observation_rate": null,
+    "verified_tradable_rate": null
+  }
+}
