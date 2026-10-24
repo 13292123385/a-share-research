@@ -11,6 +11,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from .model import normalize, number, promotion, theme_score
+from .quality import candidate_prices, select_snapshot
 
 TZ = ZoneInfo('Asia/Shanghai')
 
@@ -38,7 +39,8 @@ class Collector:
         path = self.root / 'raw' / f'{key}.json'
         path.parent.mkdir(parents=True, exist_ok=True)
         started = datetime.now(TZ).isoformat()
-        meta = dict(function=function, provider='AKShare / 新浪' if 'sina' in function else 'AKShare / 东方财富',
+        provider = '新浪' if 'sina' in function else '腾讯' if function.endswith('_tx') else '东方财富'
+        meta = dict(function=function, provider='AKShare / ' + provider,
                     parameters=kwargs, fetched_at=started, status='error', rows=None, missing_fields=[])
         meta['documentation'] = 'https://akshare.akfamily.xyz/data/stock/stock.html'
         meta['raw_format'] = 'AKShare返回表（非原始HTTP响应）'
@@ -62,7 +64,8 @@ class Collector:
         meta['finished_at'] = datetime.now(TZ).isoformat()
         self.calls[key] = meta
         dump(self.root / 'sources.json', self.calls)
-        print(f'{key}: {meta["status"]} rows={meta["rows"]}', flush=True)
+        print(f'{key}: {meta["status"]} rows={meta["rows"]}' +
+              (f' error={meta["error"]}' if meta.get('error') else ''), flush=True)
         return rows if meta['status'] == 'ok' else None
 
 
@@ -83,6 +86,8 @@ def main():
     p.add_argument('--probe', action='store_true', help='诊断模式：日历失败仍尝试指定日接口，但数据不得成为每日有效快照')
     p.add_argument('--output', default='data')
     p.add_argument('--timeout', type=int, default=45)
+    p.add_argument('--price-budget', type=int, default=180,
+                   help='候选股历史价格补采总秒数，0为关闭；超预算保留缺失')
     args = p.parse_args()
     now = datetime.now(TZ)
     target = args.date or now.date()
@@ -124,7 +129,25 @@ def main():
                 turnover_yuan=sum(v for v in amounts if v is not None), records=len(spot),
                 note='收盘后实时快照汇总，含沪深北；分页完整性和行情日期未获独立验证，可能含停牌平盘')
         else:
-            summary['missing_data'].append('全市场收盘快照及历史OHLC；不跨日套用实时数据')
+            summary['missing_data'].append('全市场收盘快照；不跨日套用实时数据')
+        cached_prices = []
+        previous_pointer = root.parents[1] / 'latest.json'
+        if previous_pointer.exists():
+            ptr = json.loads(previous_pointer.read_text(encoding='utf-8'))
+            cache = root.parent / ptr['run_id'] / 'clean' / 'candidate_prices.json'
+            if cache.exists():
+                cached_prices = json.loads(cache.read_text(encoding='utf-8'))
+        prices, missing_prices = candidate_prices(c, frames['limit_up'], quotes,
+                                                  target.isoformat(), args.price_budget, cached_prices)
+        table(root / 'clean' / 'candidate_prices', prices)
+        summary['price_coverage'] = sorted(quotes)
+        summary['candidate_price_quality'] = dict(historical_available=len(prices),
+            historical_fetched=sum(not r.get('reused_from_prior_run') for r in prices),
+            reused=sum(bool(r.get('reused_from_prior_run')) for r in prices),
+            missing_codes=missing_prices, budget_seconds=args.price_budget,
+            note='首板优先；历史价格为不复权日线，不能证明实际成交；实时快照仍为未独立核验估算')
+        if missing_prices:
+            summary['missing_data'].append(f'候选股同日OHLC缺失{len(missing_prices)}只（含预算未执行）')
         clean = {}
         for key, rows in frames.items():
             clean[key] = normalize(rows, quotes) if rows is not None else None
@@ -151,7 +174,7 @@ def main():
                 rows = c.call('index_retry_' + symbol, 'stock_zh_index_daily_em', symbol=symbol, start_date=d, end_date=d)
             if rows is None and symbol.startswith(('sh', 'sz')):
                 rows = c.call('index_fallback_' + symbol, 'stock_zh_index_daily_tx', symbol=symbol,
-                              start_date=target.isoformat(), end_date=target.isoformat())
+                              start_date=d, end_date=d)
                 c.calls['index_fallback_' + symbol]['provider'] = 'AKShare / 腾讯'
             matched = [r for r in (rows or []) if str(r.get('date',''))[:10] == target.isoformat()]
             if len(matched) == 1 and number(matched[0].get('close')) is not None:
@@ -176,7 +199,8 @@ def main():
         dump(root / 'clean' / 'promotion.json', result)
         table(root / 'clean' / 'promotion_rows', result['rows'])
         summary['promotion'] = {k:v for k,v in result.items() if k != 'rows'}
-        summary['missing_data'] += [k + ':' + v['status'] for k,v in c.calls.items() if v['status'] != 'ok']
+        summary['source_failures'] = {k: v for k, v in c.calls.items() if v['status'] != 'ok'}
+        summary['missing_data'] += [k + ':' + c.calls[k]['status'] for k, rows in frames.items() if rows is None]
         if previous is None:
             summary['missing_data'].append('上一交易日已归档涨停池；昨日涨停接口不提供昨日连板高度，不能替代该依赖')
         summary['status'] = ('complete' if not summary['missing_data'] else 'partial') if valid else 'diagnostic_unverified'
@@ -189,6 +213,7 @@ def main():
               '## 一进二', json.dumps(summary.get('promotion', {}), ensure_ascii=False), '',
               '观察样本仅排除已知一字板，T字/短暂开板不保证成交。实际可交易晋级率与真实策略收益均缺失。', '',
               '## 缺失数据', *['- ' + s for s in summary['missing_data']], '',
+              '## 候选股价格覆盖', json.dumps(summary.get('candidate_price_quality', {}), ensure_ascii=False), '',
               '主观题材三问及新鲜度均待人工证据与评分；总分限制0–15。收益字段待验证买入与第三交易日行情后补充。', '',
               '## 接口状态', *[f'- {k}: {v["status"]}，行数={v["rows"]}' for k,v in c.calls.items()]]
     if not valid:
@@ -197,13 +222,9 @@ def main():
     daily = Path(args.output) / target.isoformat()
     (daily / 'report.md').write_text('\n'.join(report) + '\n', encoding='utf-8')
     # Preserve every attempt. Only promote valid, reasonably complete snapshots.
-    if summary['status'] == 'complete':
-        dump(Path(args.output) / target.isoformat() / 'latest.json', {'run_id': run_id})
-    elif valid and today is not None:
-        # Useful prior-day limit-up cohort may exist even when other sources failed.
-        pointer = Path(args.output) / target.isoformat() / 'latest.json'
-        if not pointer.exists():
-            dump(pointer, {'run_id': run_id, 'status': 'partial'})
+    if valid and today is not None:
+        summary['selected_as_latest'] = select_snapshot(daily, summary)
+        dump(root / 'summary.json', summary)
     print(str(root), flush=True)
     return 0 if summary['status'] in ('complete', 'skipped') else 2
 
