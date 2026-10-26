@@ -99,6 +99,25 @@ def check_rows(c, key, rows, required):
     return rows
 
 
+def collect_sina_spot(c):
+    # The paginated full universe needs more time than a one-symbol endpoint.
+    original_timeout = c.timeout
+    try:
+        c.timeout = max(original_timeout, 120)
+        for key in ('spot_fallback', 'spot_fallback_retry'):
+            rows = c.call(key, 'stock_zh_a_spot')
+            normalized = normalize_sina_spot(rows, include_beijing=True) if rows is not None else None
+            if rows and not normalized:
+                c.calls[key]['status'] = 'schema_error'
+            spot = check_rows(c, key, normalized or None,
+                              ['代码','名称','涨跌幅','成交额','今开','最高','最低','最新价'])
+            if spot is not None:
+                return spot
+        return None
+    finally:
+        c.timeout = original_timeout
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--date', type=date.fromisoformat)
@@ -145,12 +164,7 @@ def main():
         if target == now.date() and closed:
             spot = check_rows(c, 'spot', c.call('spot', 'stock_zh_a_spot_em'), ['代码','名称','涨跌幅','成交额','今开','最高','最低','最新价'])
             if spot is None:
-                rows = c.call('spot_fallback', 'stock_zh_a_spot')
-                normalized = normalize_sina_spot(rows, include_beijing=True) if rows is not None else None
-                if rows and not normalized:
-                    c.calls['spot_fallback']['status'] = 'schema_error'
-                spot = check_rows(c, 'spot_fallback', normalized or None,
-                                  ['代码','名称','涨跌幅','成交额','今开','最高','最低','最新价'])
+                spot = collect_sina_spot(c)
                 spot_source, spot_scope = '新浪', '沪深北候选范围（以官方名单核验结果为准）'
         if target == now.date() and valid:
             reconciliation = collect_reconciliation(c, spot, target.isoformat())

@@ -6,12 +6,31 @@ import unittest
 from unittest.mock import patch
 from collector.inventory import classify, inventory
 from collector.providers import parse_tencent_quote
-from collector.run import check_rows, dump, table, main, TZ
+from collector.run import check_rows, collect_sina_spot, dump, table, main, TZ
 from collector.model import normalize
 from collector.validate import validate
 
 
 class RepairTests(unittest.TestCase):
+    def test_market_timeout_budget_and_retry_are_separate(self):
+        class Fake:
+            timeout = 45
+            def __init__(self):
+                self.calls = {}
+            def call(self, key, function, **kwargs):
+                self.calls[key] = {'status': 'error' if key == 'spot_fallback' else 'ok',
+                                   'timeout_used': self.timeout}
+                if key == 'spot_fallback':
+                    return None
+                return [{'代码': '600001', '名称': '测试', '涨跌幅': 1, '成交额': 100,
+                         '今开': 10, '最高': 11, '最低': 9, '最新价': 10}]
+        c = Fake()
+        with patch('collector.run.normalize_sina_spot', side_effect=lambda rows, **kw: rows):
+            self.assertEqual(len(collect_sina_spot(c)), 1)
+        self.assertEqual(c.timeout, 45)
+        self.assertEqual(c.calls['spot_fallback']['status'], 'error')
+        self.assertEqual(c.calls['spot_fallback_retry']['timeout_used'], 120)
+
     def test_historical_scope_is_explicit_and_limits_are_not_hidden(self):
         s = dict(verified={'mainboard_limit_up_count': 64, 'indices': [1, 2, 3, 4]},
                  missing_data=['无法恢复历史实时快照'], source_failures={}, candidate_price_quality={'missing_codes': []})
