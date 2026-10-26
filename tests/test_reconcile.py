@@ -31,6 +31,27 @@ class ReconcileTests(unittest.TestCase):
         self.assertIsNone(result['expected_count'])
         self.assertEqual(result['status'], 'unavailable')
 
+    def test_official_roster_retry_preserves_first_failure(self):
+        spot, rosters, official = self.fixtures()
+        class Fake:
+            timeout = 45
+            def __init__(self):
+                self.calls = {}
+            def call(self, key, function, **kwargs):
+                self.calls[key] = {'status': 'ok'}
+                if key == 'official_roster_sz':
+                    self.calls[key]['status'] = 'error'
+                    return None
+                if key.startswith('official_roster_'):
+                    name = key.removeprefix('official_roster_').split('_retry')[0]
+                    return rosters[name]
+                return official
+        c = Fake()
+        result = collect_reconciliation(c, spot, '2026-10-23')
+        self.assertEqual(result['status'], 'code_coverage_matched')
+        self.assertEqual(c.calls['official_roster_sz']['status'], 'error')
+        self.assertEqual(c.calls['official_roster_sz_retry1']['status'], 'ok')
+
     def test_duplicates_and_missing_amount_are_not_verified(self):
         spot, rosters, official = self.fixtures()
         result = reconcile_market(spot + [spot[0]], rosters, '2026-10-23', official)

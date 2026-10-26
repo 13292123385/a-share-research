@@ -74,11 +74,18 @@ def reconcile_market(spot, rosters, target, szse=None):
 def collect_reconciliation(c, spot, target):
     rosters = {}
     for name, function, kwargs, code_key, date_key in ROSTERS:
-        rows = c.call('official_roster_' + name, function, **kwargs)
+        rows = None
+        for attempt in range(3):
+            key = 'official_roster_' + name + (f'_retry{attempt}' if attempt else '')
+            rows = c.call(key, function, **kwargs)
+            if roster_codes(rows, code_key, date_key, target) is not None:
+                break
+            if rows:
+                c.calls[key]['status'] = 'schema_error'
         rosters[name] = rows
-        if rows and roster_codes(rows, code_key, date_key, target) is None:
-            c.calls['official_roster_' + name]['status'] = 'schema_error'
     szse = c.call('official_szse_summary', 'stock_szse_summary', date=target.replace('-', ''))
+    if not szse:
+        szse = c.call('official_szse_summary_retry', 'stock_szse_summary', date=target.replace('-', ''))
     result = reconcile_market(spot, rosters, target, szse)
     initial_missing, supplements = result['missing_codes'], []
     # Bound requests; enrich only an existing snapshot with small roster gaps.
