@@ -11,6 +11,8 @@ def render(summary):
     market = summary.get('estimates', {}).get('market', {})
     lines = [f'## {summary["trade_date"]} 收盘采集', '',
              f'数据状态：**{summary["status"]}**（测试通过不代表数据齐全）', '',
+             f'- 采集状态：{summary.get("collection_status", "旧版未区分")}；范围：{summary.get("collection_scope", "旧版未区分")}',
+             f'- 研究状态：{summary.get("research_status", "旧版未区分")}',
              f'- 主板涨停：{v.get("mainboard_limit_up_count", "缺失")}',
              f'- 指数：{len(v.get("indices", []))}/4',
              f'- 历史候选价格：{prices.get("historical_available", 0)}只；待补{len(prices.get("missing_codes", []))}只',
@@ -22,7 +24,8 @@ def render(summary):
     lines += ['', '### 失败尝试（备用源成功后仍保留证据）', '']
     lines += [f'- {key}: {meta.get("status")} / {meta.get("error", "无异常类别")}'
               for key, meta in summary.get('source_failures', {}).items()] or ['- 无']
-    lines += ['', '完整文件见本次运行的 Artifacts；未验证实际成交，不提供真实策略收益。', '']
+    lines += ['', '逐文件记录数、缺失字段、来源与SHA256见本次归档 files.md / files.json。',
+              '完整文件见本次运行的 Artifacts；未验证实际成交，不提供真实策略收益。', '']
     return '\n'.join(lines)
 
 

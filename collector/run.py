@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -15,6 +16,7 @@ from .model import normalize, number, promotion, theme_score
 from .quality import candidate_prices, select_snapshot, collect_index
 from .followup import archived_cohorts, followup_rows, normalize_sina_spot
 from .reconcile import collect_reconciliation
+from .inventory import inventory, classify
 
 TZ = ZoneInfo('Asia/Shanghai')
 
@@ -47,12 +49,15 @@ class Collector:
                     '深圳证券交易所' if function.startswith(('stock_szse_', 'stock_info_sz_')) else
                     '北京证券交易所' if function.startswith('stock_info_bj_') else
                     '新浪' if 'sina' in function or function == 'stock_zh_a_spot' else
-                    '腾讯' if function.endswith('_tx') else '东方财富')
-        meta = dict(function=function, provider='AKShare / ' + provider,
+                    '腾讯' if function.endswith('_tx') or function == 'tencent_quote' else '东方财富')
+        meta = dict(function=function, provider=('直接请求 / ' if function == 'tencent_quote' else 'AKShare / ') + provider,
                     parameters=kwargs, fetched_at=started, status='error', rows=None, missing_fields=[])
         meta['documentation'] = 'https://akshare.akfamily.xyz/data/stock/stock.html'
-        meta['raw_format'] = 'AKShare返回表（非原始HTTP响应）'
-        meta['requested_trade_date'] = kwargs.get('date') or kwargs.get('end_date')
+        meta['raw_format'] = ('腾讯免费报价解析表（非HTTP原文）' if function == 'tencent_quote'
+                              else 'AKShare返回表（非原始HTTP响应）')
+        if function == 'tencent_quote':
+            meta['documentation'] = 'https://gu.qq.com/' + kwargs['symbol'] + '/gp'
+        meta['requested_trade_date'] = kwargs.get('date') or kwargs.get('end_date') or kwargs.get('trade_date')
         rows = None
         try:
             time.sleep(self.delay)
@@ -80,10 +85,16 @@ class Collector:
 def check_rows(c, key, rows, required):
     if rows is None:
         return None
+    if not rows:
+        c.calls[key].update(status='empty_unverified', rows=0)
+        return None
     missing = [k for k in required if any(k not in r or r[k] is None for r in rows)]
-    codes = [str(r.get('代码')) for r in rows]
-    if missing or len(codes) != len(set(codes)):
+    codes = [str(r.get('代码', '')).zfill(6) for r in rows]
+    invalid = [code for code in codes if not re.fullmatch(r'\d{6}', code)]
+    if missing or invalid or len(codes) != len(set(codes)):
         c.calls[key].update(status='schema_error', missing_fields=missing, duplicate_codes=len(codes) != len(set(codes)))
+        if invalid:
+            c.calls[key]['invalid_codes'] = invalid
         return None
     return rows
 
@@ -94,11 +105,13 @@ def main():
     p.add_argument('--probe', action='store_true', help='诊断模式：日历失败仍尝试指定日接口，但数据不得成为每日有效快照')
     p.add_argument('--output', default='data')
     p.add_argument('--timeout', type=int, default=45)
-    p.add_argument('--price-budget', type=int, default=180,
+    p.add_argument('--price-budget', type=int, default=420,
                    help='候选股历史价格补采总秒数，0为关闭；超预算保留缺失')
-    p.add_argument('--followup-budget', type=int, default=90,
+    p.add_argument('--followup-budget', type=int, default=300,
                    help='前两个交易日首板后续价格补采总秒数，0为关闭')
     args = p.parse_args()
+    if args.timeout <= 0 or args.price_budget < 0 or args.followup_budget < 0:
+        p.error('timeout必须大于0，补采预算不得为负数')
     now = datetime.now(TZ)
     target = args.date or now.date()
     run_id = now.strftime('%Y%m%dT%H%M%S%f%z')
@@ -110,11 +123,11 @@ def main():
     except (KeyError, ValueError, TypeError):
         days = []
         c.calls['calendar'].update(status='schema_error', missing_fields=['trade_date'])
-    covered = bool(days and days[-1] >= target.isoformat())
+    covered = bool(days and days[0] <= target.isoformat() <= days[-1])
     trading = covered and target.isoformat() in days
     closed = target < now.date() or (target == now.date() and now.hour >= 15)
     valid = trading and closed and target <= now.date()
-    summary = dict(schema_version=1, trade_date=target.isoformat(), fetched_at=now.isoformat(), run_id=run_id,
+    summary = dict(schema_version=2, trade_date=target.isoformat(), fetched_at=now.isoformat(), run_id=run_id,
                    calendar_covered=covered, trading_day=trading if covered else None,
                    status='collecting' if valid else 'calendar_unknown' if not covered else 'skipped',
                    missing_data=[], estimates={}, verified={}, theme=theme_score())
@@ -172,7 +185,8 @@ def main():
             ptr = json.loads(previous_pointer.read_text(encoding='utf-8'))
             cache = root.parent / ptr['run_id'] / 'clean' / 'candidate_prices.json'
             if cache.exists():
-                cached_prices = json.loads(cache.read_text(encoding='utf-8'))
+                cached_prices = [dict(r, origin_run=r.get('origin_run') or ptr['run_id'])
+                                 for r in json.loads(cache.read_text(encoding='utf-8'))]
         prices, missing_prices = candidate_prices(c, frames['limit_up'], quotes,
                                                   target.isoformat(), args.price_budget, cached_prices)
         table(root / 'clean' / 'candidate_prices', prices)
@@ -193,7 +207,8 @@ def main():
         if previous_pointer.exists():
             cache = root.parent / ptr['run_id'] / 'clean' / 'followup_prices.json'
             if cache.exists():
-                followup_cache = json.loads(cache.read_text(encoding='utf-8'))
+                followup_cache = [dict(r, origin_run=r.get('origin_run') or ptr['run_id'])
+                                  for r in json.loads(cache.read_text(encoding='utf-8'))]
         followup_prices, missing_followup = candidate_prices(c, followup_pool, historical_quotes,
             target.isoformat(), args.followup_budget, cached_prices + followup_cache)
         all_historical = {r['code']: r for r in prices + followup_prices}
@@ -253,10 +268,14 @@ def main():
         summary['missing_data'] += [k + ':' + c.calls[k]['status'] for k, rows in frames.items() if rows is None]
         if previous is None:
             summary['missing_data'].append('上一交易日已归档涨停池；昨日涨停接口不提供昨日连板高度，不能替代该依赖')
-        summary['status'] = ('complete' if not summary['missing_data'] else 'partial') if valid else 'diagnostic_unverified'
+        if valid:
+            classify(summary, target < now.date())
+        else:
+            summary['status'] = 'diagnostic_unverified'
     dump(root / 'sources.json', c.calls)
     dump(root / 'summary.json', summary)
     report = [f'# {target} A股收盘复盘', '', f'状态：{summary["status"]}；抓取时间：{now.isoformat()}', '',
+              f'采集范围：{summary.get("collection_scope", "未有效采集")}；采集状态：{summary.get("collection_status", "未执行")}；研究状态：{summary.get("research_status", "未执行")}', '',
               '## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）',
               json.dumps(summary['verified'], ensure_ascii=False), '',
               '## 估算值', json.dumps(summary['estimates'], ensure_ascii=False), '',
@@ -270,18 +289,19 @@ def main():
               '## 接口状态', *[f'- {k}: {v["status"]}，行数={v["rows"]}' for k,v in c.calls.items()]]
     if not valid:
         report.append('日历未确认、非交易日或未收盘，本次不得解释为有效收盘快照。')
-    (root / 'report.md').write_text('\n'.join(report) + '\n', encoding='utf-8')
+    (root / 'report.md').write_text('\n'.join(report) + '\n', encoding='utf-8', newline='\n')
     daily = Path(args.output) / target.isoformat()
-    (daily / 'report.md').write_text('\n'.join(report) + '\n', encoding='utf-8')
+    (daily / 'report.md').write_text('\n'.join(report) + '\n', encoding='utf-8', newline='\n')
     # Preserve every attempt. Only promote valid, reasonably complete snapshots.
     if valid and today is not None:
         summary['selected_as_latest'] = select_snapshot(daily, summary)
         dump(root / 'summary.json', summary)
+    inventory(root, c.calls)
     if os.environ.get('GITHUB_OUTPUT'):
         with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as f:
             f.write(f'summary_path={root / "summary.json"}\n')
     print(str(root), flush=True)
-    return 0 if summary['status'] in ('complete', 'skipped') else 2
+    return 0 if summary['status'] in ('complete', 'complete_with_limitations', 'skipped') else 2
 
 
 if __name__ == '__main__':

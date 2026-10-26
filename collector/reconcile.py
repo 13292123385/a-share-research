@@ -91,8 +91,14 @@ def collect_reconciliation(c, spot, target):
             for code in initial_missing[:5]:
                 if not code.startswith(('60', '68', '00', '30')):
                     continue
+                symbol = ('sh' if code.startswith(('60', '68')) else 'sz') + code
+                quoted = c.call('market_quote_' + code, 'tencent_quote', symbol=symbol, trade_date=target)
+                if quoted and len(quoted) == 1 and quoted[0].get('代码') == code and quoted[0].get('quote_date') == target:
+                    spot.append(quoted[0])
+                    supplements.append(code)
+                    continue
                 rows = c.call('market_supplement_' + code, 'stock_zh_a_hist_tx',
-                    symbol=('sh' if code.startswith(('60', '68')) else 'sz') + code,
+                    symbol=symbol,
                     start_date=target.replace('-', ''), end_date=target.replace('-', ''), adjust='', timeout=10)
                 price = daily_price(rows, target)
                 if price is None or price['amount'] is None or price['amount'] < 0:

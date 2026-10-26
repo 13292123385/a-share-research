@@ -26,8 +26,15 @@ def normalize(rows, spot=None):
         quote = (spot or {}).get(code, {})
         o, h, low, close = [number(quote.get(k)) for k in ('今开', '最高', '最低', '最新价')]
         # Only apply to a confirmed closing limit-up pool. Missing OHLC is unknown.
-        one_word = None if None in (o, h, low, close) else o == h == low == close
+        valid_ohlc = (None not in (o, h, low, close) and
+                      0 < low <= min(o, close) <= max(o, close) <= h)
+        one_word = o == h == low == close if valid_ohlc else None
         fields = {'code': code, 'name': name, 'height': number(r.get('连板数')),
+                  'open': o, 'high': h, 'low': low, 'close': close,
+                  'volume': number(quote.get('成交量')), 'amount': number(quote.get('成交额')),
+                  'price_date': quote.get('quote_date'),
+                  'price_source': quote.get('supplement_source') or quote.get('source') or
+                                  ('实时快照估算，日期未独立验证' if quote else None),
                   'first_seal': r.get('首次封板时间'), 'last_seal': r.get('最后封板时间'),
                   'open_count': number(r.get('炸板次数')), 'industry': r.get('所属行业'),
                   'all_day_one_word': one_word, 'execution_verified': False,

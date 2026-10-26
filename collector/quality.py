@@ -55,16 +55,19 @@ def candidate_prices(c, pool, quotes, target, budget, cached=()):
         code = row.get('code')
         price = daily_price([row], target) if row.get('adjustment') == 'none' else None
         if code in codes and code not in quotes and price is not None:
-            prices.append(dict(code=code, **price, reused_from_prior_run=True))
+            prices.append(dict(code=code, **price, reused_from_prior_run=True,
+                               origin_run=row.get('origin_run')))
             quotes[code] = {'今开': price['open'], '最高': price['high'],
-                            '最低': price['low'], '最新价': price['close']}
+                            '最低': price['low'], '最新价': price['close'],
+                            '成交量': price['volume'], '成交额': price['amount'],
+                            'quote_date': target, 'source': price['source']}
     try:
         for r in candidates:
             code = str(r['代码']).zfill(6)
             if code in quotes:
                 continue
             remaining = deadline - time.monotonic() - c.delay
-            if remaining <= 1:
+            if remaining <= 5:
                 missing.append(code)
                 continue
             c.timeout = min(original_timeout, 15, remaining)
@@ -80,7 +83,9 @@ def candidate_prices(c, pool, quotes, target, budget, cached=()):
                 continue
             prices.append(dict(code=code, **price))
             quotes[code] = {'今开': price['open'], '最高': price['high'],
-                            '最低': price['low'], '最新价': price['close']}
+                            '最低': price['low'], '最新价': price['close'],
+                            '成交量': price['volume'], '成交额': price['amount'],
+                            'quote_date': target, 'source': price['source']}
     finally:
         c.timeout = original_timeout
     return prices, missing
@@ -113,6 +118,8 @@ def select_snapshot(daily, summary):
         prior = daily / 'runs' / old['run_id'] / 'summary.json'
         if prior.exists():
             previous = json.loads(prior.read_text(encoding='utf-8'))
+            if previous.get('collection_status') == 'complete' and summary.get('collection_status', 'partial') != 'complete':
+                return False
             if previous.get('status') == 'complete' and summary['status'] != 'complete':
                 return False
             if not coverage(summary).issuperset(coverage(previous)):

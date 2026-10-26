@@ -1,13 +1,17 @@
 """Offline archive invariants; partial upstream availability is not structural corruption."""
 import hashlib
 import json
+import csv
 from pathlib import Path
 from .model import ordinary
 
 
 def validate(root):
     errors = []
-    for path in Path(root).glob('*/runs/*/summary.json'):
+    paths = list(Path(root).glob('*/runs/*/summary.json'))
+    if not paths:
+        return [str(root) + ':no archived summaries']
+    for path in paths:
         summary = json.loads(path.read_text(encoding='utf-8'))
         sources = json.loads((path.parent / 'sources.json').read_text(encoding='utf-8'))
         if path.parents[2].name != summary['trade_date']:
@@ -28,6 +32,41 @@ def validate(root):
                     errors.append(str(file) + ':unverified return')
                 if r.get('all_day_one_word') is True and r.get('eligible_observation'):
                     errors.append(str(file) + ':one-word eligible')
+        manifest = path.parent / 'files.json'
+        if summary.get('schema_version', 1) >= 2 and not manifest.exists():
+            errors.append(str(manifest) + ':missing file inventory')
+        if manifest.exists():
+            entries = json.loads(manifest.read_text(encoding='utf-8'))
+            listed = {entry['path'] for entry in entries}
+            actual = {p.relative_to(path.parent).as_posix() for p in path.parent.rglob('*')
+                      if p.is_file() and p.name not in ('files.json', 'files.md')}
+            if listed != actual or len(listed) != len(entries):
+                errors.append(str(manifest) + ':file inventory mismatch')
+            for entry in entries:
+                file = path.parent / entry['path']
+                if not file.resolve().is_relative_to(path.parent.resolve()):
+                    errors.append(str(manifest) + ':unsafe path')
+                    continue
+                if not file.is_file() or hashlib.sha256(file.read_bytes()).hexdigest() != entry['sha256']:
+                    errors.append(str(file) + ':inventory checksum mismatch')
+        for file in list((path.parent / 'raw').glob('*.json')) + list((path.parent / 'clean').glob('*.json')):
+            def reject_constant(value):
+                raise ValueError('nonfinite JSON number')
+            try:
+                value = json.loads(file.read_text(encoding='utf-8'), parse_constant=reject_constant)
+            except (ValueError, OSError):
+                errors.append(str(file) + ':invalid JSON')
+                continue
+            paired = file.with_suffix('.csv')
+            if not isinstance(value, list):
+                continue
+            if not paired.is_file():
+                errors.append(str(paired) + ':missing CSV pair')
+                continue
+            with paired.open(encoding='utf-8-sig', newline='') as f:
+                rows = list(csv.DictReader(f))
+            if len(rows) != len(value):
+                errors.append(str(paired) + ':CSV/JSON record count mismatch')
     return errors
 
 
