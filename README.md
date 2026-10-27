@@ -1,5 +1,7 @@
 # A股免费收盘采集（第一版）
 
+手机GPT免登录读取：[最新行情报告](https://raw.githubusercontent.com/13292123385/a-share-market-data/main/latest.md) · [公开行情首页](https://github.com/13292123385/a-share-market-data) · [JSON摘要](https://raw.githubusercontent.com/13292123385/a-share-market-data/main/latest.json)。先核对交易日和缺失状态。原仓库保持私有，公开入口只发布筛选后的行情数据。自动补采、发布及本机备用说明见 [PUBLIC_ACCESS.md](PUBLIC_ACCESS.md)。
+
 Python 3.11+、AKShare、GitHub Actions；无数据库、付费 API 或常驻服务器。仅供数据研究。所有采集异常保留，不把异常、空表或缺失解释成“0只涨停”。
 
 ## 本地运行

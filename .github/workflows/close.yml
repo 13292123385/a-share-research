@@ -2,6 +2,7 @@ name: A股收盘采集
 on:
   schedule:
     - cron: '5,20,40 7 * * 1-5' # UTC -> 北京时间15:05/15:20/15:40
+    - cron: '17 8-14 * * 1-5' # 北京时间16:17至22:17，每小时补采
   workflow_dispatch:
     inputs:
       date:
@@ -61,8 +62,16 @@ jobs:
           git add data
           if ! git diff --cached --quiet; then
             git commit -m 'data: archive close collection attempt'
+            git pull --rebase origin main
             git push
           fi
+      - name: 发布手机免登录行情入口
+        if: always() && steps.quality.outcome == 'success'
+        env:
+          PUBLIC_FEED_GIST_ID: ${{ vars.PUBLIC_FEED_GIST_ID }}
+          PUBLIC_FEED_REPOSITORY: ${{ vars.PUBLIC_FEED_REPOSITORY }}
+          PUBLIC_FEED_TOKEN: ${{ secrets.PUBLIC_FEED_TOKEN }}
+        run: python -m collector.public_feed --publish
       - name: 必需采集失败时标红（研究限制另列）
         if: steps.collect.outcome == 'failure'
         run: exit 1
