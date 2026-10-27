@@ -1,6 +1,6 @@
 # 2026-10-27 A股收盘复盘
 
-状态：complete；抓取时间：2026-10-27T21:06:13.604302+08:00
+状态：complete；抓取时间：2026-10-27T21:24:51.954472+08:00
 
 采集范围：closing_snapshot；采集状态：complete；研究状态：available
 
@@ -43,21 +43,6 @@
 - official_roster_bj: ok，行数=353
 - official_szse_summary: ok，行数=14
 - market_quote_689009: ok，行数=1
-- price_603448: ok，行数=1
-- price_603466: ok，行数=1
-- price_603657: ok，行数=1
-- price_603677: ok，行数=1
-- price_603683: ok，行数=1
-- price_603713: ok，行数=1
-- price_603716: ok，行数=1
-- price_603719: ok，行数=1
-- price_603721: ok，行数=1
-- price_603838: ok，行数=1
-- price_603859: ok，行数=1
-- price_603901: ok，行数=1
-- price_603955: ok，行数=1
-- price_605333: ok，行数=1
-- price_605488: ok，行数=1
 - index_sh000001: error，行数=None
 - index_retry_sh000001: error，行数=None
 - index_fallback_sh000001: ok，行数=1
