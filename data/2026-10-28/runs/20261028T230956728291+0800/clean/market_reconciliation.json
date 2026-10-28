@@ -1,0 +1,48 @@
+{
+  "trade_date": "2026-10-28",
+  "status": "code_coverage_matched",
+  "expected_count": 5576,
+  "observed_count": 5576,
+  "missing_codes": [],
+  "unexpected_codes": [],
+  "duplicate_codes": [],
+  "unavailable_rosters": [],
+  "exchanges": {
+    "sh_main": {
+      "expected": 1700,
+      "observed": 1700,
+      "missing_codes": []
+    },
+    "sh_star": {
+      "expected": 618,
+      "observed": 618,
+      "missing_codes": []
+    },
+    "sz": {
+      "expected": 2905,
+      "observed": 2905,
+      "missing_codes": []
+    },
+    "bj": {
+      "expected": 353,
+      "observed": 353,
+      "missing_codes": []
+    }
+  },
+  "all_market_verified": false,
+  "note": "官方当前上市名单核对代码覆盖，不独立证明每只行情日期/收盘时点；停牌仍应保留且不能把缺失当平盘",
+  "szse_turnover_check": {
+    "status": "within_tolerance",
+    "date_basis": "官方接口请求日期；返回表无独立日期列",
+    "tolerance": 0.005,
+    "official_yuan": 878559843759.9199,
+    "snapshot_yuan": 877431225639.0,
+    "relative_difference": 0.0012846229302830897
+  },
+  "initial_missing_codes": [
+    "689009"
+  ],
+  "daily_supplement_codes": [
+    "689009"
+  ]
+}

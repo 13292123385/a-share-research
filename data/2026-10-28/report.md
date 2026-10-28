@@ -1,6 +1,6 @@
 # 2026-10-28 A股收盘复盘
 
-状态：complete；抓取时间：2026-10-28T21:56:53.592992+08:00
+状态：complete；抓取时间：2026-10-28T23:09:56.728291+08:00
 
 采集范围：closing_snapshot；采集状态：complete；研究状态：available
 
@@ -43,64 +43,6 @@
 - official_roster_bj: ok，行数=353
 - official_szse_summary: ok，行数=14
 - market_quote_689009: ok，行数=1
-- price_000058: ok，行数=1
-- price_000411: ok，行数=1
-- price_000635: ok，行数=1
-- price_000888: ok，行数=1
-- price_000995: ok，行数=1
-- price_001219: ok，行数=1
-- price_001225: ok，行数=1
-- price_001317: ok，行数=1
-- price_001318: ok，行数=1
-- price_001331: ok，行数=1
-- price_001400: ok，行数=1
-- price_002011: ok，行数=1
-- price_002086: ok，行数=1
-- price_002093: ok，行数=1
-- price_002095: ok，行数=1
-- price_002178: ok，行数=1
-- price_002187: ok，行数=1
-- price_002205: ok，行数=1
-- price_002249: ok，行数=1
-- price_002284: ok，行数=1
-- price_002578: ok，行数=1
-- price_002623: ok，行数=1
-- price_002696: ok，行数=1
-- price_002708: ok，行数=1
-- price_002724: ok，行数=1
-- price_002795: ok，行数=1
-- price_002820: ok，行数=1
-- price_002823: ok，行数=1
-- price_002869: ok，行数=1
-- price_600303: ok，行数=1
-- price_600558: ok，行数=1
-- price_600626: ok，行数=1
-- price_600715: ok，行数=1
-- price_600785: ok，行数=1
-- price_600822: ok，行数=1
-- price_600826: ok，行数=1
-- price_600828: ok，行数=1
-- price_600980: ok，行数=1
-- price_601086: ok，行数=1
-- price_601566: ok，行数=1
-- price_601900: ok，行数=1
-- price_601956: ok，行数=1
-- price_603037: ok，行数=1
-- price_603138: ok，行数=1
-- price_603200: ok，行数=1
-- price_603258: ok，行数=1
-- price_603331: ok，行数=1
-- price_603370: ok，行数=1
-- price_603376: ok，行数=1
-- price_603565: ok，行数=1
-- price_603657: ok，行数=1
-- price_603683: ok，行数=1
-- price_603716: ok，行数=1
-- price_603719: ok，行数=1
-- price_603758: ok，行数=1
-- price_603813: ok，行数=1
-- price_603955: ok，行数=1
-- price_605333: ok，行数=1
 - index_sh000001: error，行数=None
 - index_retry_sh000001: error，行数=None
 - index_fallback_sh000001: ok，行数=1
