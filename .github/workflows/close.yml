@@ -1,8 +1,8 @@
 name: A股收盘采集
 on:
   schedule:
-    - cron: '5,20,40 7 * * 1-5' # UTC -> 北京时间15:05/15:20/15:40
-    - cron: '17 8-14 * * 1-5' # 北京时间16:17至22:17，每小时补采
+    - cron: '5,15,25,35,45,55 7-9 * * 1-5' # 北京时间15:05至17:55，每10分钟
+    - cron: '17 * * * *' # 全天重试，跨日继续处理未完成交易日
   workflow_dispatch:
     inputs:
       date:
@@ -35,7 +35,7 @@ jobs:
         run: |
           args=()
           if [ -n "$REQUEST_DATE" ]; then args+=(--date "$REQUEST_DATE"); fi
-          python -m collector.run "${args[@]}"
+          python -m collector.retry "${args[@]}"
       - name: 上传全部结果供诊断
         if: always()
         uses: actions/upload-artifact@v4
