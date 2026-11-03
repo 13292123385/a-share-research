@@ -1,77 +1,154 @@
 name: A股收盘采集
+
 on:
+
   schedule:
+
     - cron: '5,15,25,35,45,55 7-9 * * 1-5' # 北京时间15:05至17:55，每10分钟
+
     - cron: '17 * * * *' # 全天重试，跨日继续处理未完成交易日
+
   workflow_dispatch:
+
     inputs:
+
       date:
+
         description: '交易日 YYYY-MM-DD，留空为北京时间今天；历史接口有保留期限'
+
         required: false
+
         type: string
+
 permissions:
+
   contents: write
+
 concurrency:
+
   group: close-data
+
   cancel-in-progress: false
+
 jobs:
+
   collect:
+
     runs-on: ubuntu-24.04
+
     timeout-minutes: 35
+
     steps:
+
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
+
         with:
+
           python-version: '3.11'
+
           cache: pip
+
       - run: pip install -r requirements.txt
+
       - run: python -m unittest discover -s tests -v
+
       - name: 采集（保留失败证据）
+
         id: collect
+
         continue-on-error: true
+
         env:
+
           REQUEST_DATE: ${{ inputs.date }}
+
         shell: bash
+
         run: |
+
           args=()
+
           if [ -n "$REQUEST_DATE" ]; then args+=(--date "$REQUEST_DATE"); fi
+
           python -m collector.retry "${args[@]}"
+
       - name: 上传全部结果供诊断
+
         if: always()
+
         uses: actions/upload-artifact@v4
+
         with:
+
           name: close-data-${{ github.run_id }}-${{ github.run_attempt }}
+
           path: data/
+
           retention-days: 7
+
           if-no-files-found: warn
+
       - name: 显示数据完整性摘要
+
         if: always()
+
         env:
+
           COLLECT_SUMMARY_FILE: ${{ steps.collect.outputs.summary_path }}
+
         run: python -m collector.ci_summary
+
       - name: 校验归档结构
+
         id: quality
+
         if: always()
+
         run: python -m collector.validate data
+
       - name: 保存每日采集文件
+
         if: always() && steps.quality.outcome == 'success'
+
         run: |
+
           if [ ! -d data ]; then exit 0; fi
+
           git config user.name 'github-actions[bot]'
+
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
           git add data
+
           if ! git diff --cached --quiet; then
+
             git commit -m 'data: archive close collection attempt'
+
             git pull --rebase --autostash origin main
+
             git push
+
           fi
+
       - name: 发布手机免登录行情入口
+
         if: always() && steps.quality.outcome == 'success'
+
         env:
+
           PUBLIC_FEED_GIST_ID: ${{ vars.PUBLIC_FEED_GIST_ID }}
+
           PUBLIC_FEED_REPOSITORY: ${{ vars.PUBLIC_FEED_REPOSITORY }}
+
           PUBLIC_FEED_TOKEN: ${{ secrets.PUBLIC_FEED_TOKEN }}
+
         run: python -m collector.public_feed --publish
+
       - name: 必需采集失败时标红（研究限制另列）
+
         if: steps.collect.outcome == 'failure'
+
         run: exit 1
+

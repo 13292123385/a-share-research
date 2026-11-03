@@ -107,7 +107,29 @@ def publish_repository(files, repository, token):
     ref = api('/git/ref/heads/main')
     head = ref['object']['sha']
     previous = api('/git/commits/' + head)
-    exported = dict(files)
+    payload = json.loads(files['latest.json'])
+    stamp = payload['published_at'].replace(':', '').replace('+', '_')
+    archive = 'archive/' + payload['trade_date'] + '/' + stamp + '/'
+    exported = {archive + name: content for name, content in files.items()}
+    old_response = session.get(base + '/contents/latest.json', params={'ref': head}, timeout=45)
+    if old_response.status_code == 200:
+        import base64
+        old = json.loads(base64.b64decode(old_response.json()['content']))
+        rank = {'complete': 3, 'complete_with_limitations': 2, 'partial': 1}
+        promote = payload['trade_date'] > old['trade_date'] or (payload['trade_date'] == old['trade_date'] and
+            rank.get(payload.get('status'), 0) >= rank.get(old.get('status'), 0) and
+            set(payload.get('missing_data', [])).issubset(old.get('missing_data', [])))
+    elif old_response.status_code == 404:
+        promote = True
+    else:
+        raise RuntimeError('Cannot verify existing latest')
+    if not promote:
+        tree = api('/git/trees', 'POST', {'base_tree': previous['tree']['sha'],
+            'tree': [dict(path=n, mode='100644', type='blob', content=c) for n,c in exported.items()]})
+        commit = api('/git/commits', 'POST', {'message': 'data: preserve historical attempt', 'tree': tree['sha'], 'parents': [head]})
+        api('/git/refs/heads/main', 'PATCH', {'sha': commit['sha'], 'force': False})
+        return False
+    exported.update(files)
     exported['.nojekyll'] = ''
     exported['README.md'] = files['latest.md']
     # Plain, server-delivered HTML: no JavaScript, login, or API tool needed to read.
@@ -122,6 +144,7 @@ def publish_repository(files, repository, token):
         'tree': tree['sha'], 'parents': [head]})
     api('/git/refs/heads/main', 'PATCH', {'sha': commit['sha'], 'force': False})
     print('Public data repository updated:', repository, commit['sha'][:7], flush=True)
+    return True
 
 
 def main():
@@ -137,10 +160,10 @@ def main():
         (out / name).write_text(content, encoding='utf-8', newline='\n')
     if args.publish:
         token = os.environ.get('PUBLIC_FEED_TOKEN')
-        publish(files, os.environ.get('PUBLIC_FEED_GIST_ID'), token)
         repository = os.environ.get('PUBLIC_FEED_REPOSITORY')
         if repository:
-            publish_repository(files, repository, token)
+            if publish_repository(files, repository, token):
+                publish(files, os.environ.get('PUBLIC_FEED_GIST_ID'), token)
 
 
 if __name__ == '__main__':
