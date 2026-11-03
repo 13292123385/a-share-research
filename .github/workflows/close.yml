@@ -62,7 +62,7 @@ jobs:
           git add data
           if ! git diff --cached --quiet; then
             git commit -m 'data: archive close collection attempt'
-            git pull --rebase origin main
+            git pull --rebase --autostash origin main
             git push
           fi
       - name: 发布手机免登录行情入口

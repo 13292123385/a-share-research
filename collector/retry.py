@@ -14,7 +14,7 @@ def pending_date(days, now, root):
     start = existing[0] if existing else now.date().isoformat()
     closed = [d for d in days if d >= start and
               (d < now.date().isoformat() or (d == now.date().isoformat() and now.hour >= 15))]
-    def complete(day):
+    def complete(day, collection_only=False):
         pointer = root / day / 'latest.json'
         if not pointer.exists():
             return False
@@ -23,10 +23,10 @@ def pending_date(days, now, root):
         if not summary.exists():
             return False
         data = json.loads(summary.read_text(encoding='utf-8'))
-        return data.get('trade_date') == day and data.get('status') == 'complete'
+        return data.get('trade_date') == day and (data.get('collection_status') == 'complete' if collection_only else data.get('status') == 'complete')
     # Get today's live snapshot first; afterwards drain older outstanding dates.
     today = now.date().isoformat()
-    if today in closed and not complete(today):
+    if today in closed and not complete(today, collection_only=True):
         return today
     pending = [d for d in closed if not complete(d)]
     def last_attempt(day):
