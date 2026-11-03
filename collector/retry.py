@@ -28,7 +28,12 @@ def pending_date(days, now, root):
     today = now.date().isoformat()
     if today in closed and not complete(today):
         return today
-    return next((d for d in closed if not complete(d)), None)
+    pending = [d for d in closed if not complete(d)]
+    def last_attempt(day):
+        runs = root / day / 'runs'
+        return max((p.name for p in runs.iterdir() if p.is_dir()), default='') if runs.exists() else ''
+    # Rotate backlog so one unavailable historical endpoint cannot starve other dates.
+    return min(pending, key=lambda d: (last_attempt(d), d)) if pending else None
 
 
 def main():
