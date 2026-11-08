@@ -159,15 +159,35 @@ def main():
             required = ['代码','名称'] + (['连板数','首次封板时间','最后封板时间','炸板次数'] if key == 'limit_up' else [])
             frames[key] = check_rows(c, key, rows, required)
         spot = None
+        historical = target < now.date()
         spot_source, spot_scope = '东方财富', '沪深北（未独立核验完整性）'
-        # Live spot has no reliable historical date. Never use today's OHLC for another day.
-        if target == now.date() and closed:
+        pointer = root.parents[1] / 'latest.json'
+        if pointer.exists():
+            saved_id = json.loads(pointer.read_text(encoding='utf-8'))['run_id']
+            saved = root.parent / saved_id
+            snapshot = saved / 'clean' / 'market_quotes.json'
+            if snapshot.exists():
+                original = json.loads((saved / 'summary.json').read_text(encoding='utf-8'))
+                prior_market = original.get('estimates', {}).get('market')
+                prior_check = original.get('market_reconciliation', {}).get('status')
+                reuse_snapshot = historical or (prior_check != 'differences_found' and prior_market
+                    and not prior_market.get('unknown_direction') and not prior_market.get('unknown_amount'))
+                if original.get('trade_date') == target.isoformat() and prior_market and reuse_snapshot:
+                    spot = json.loads(snapshot.read_text(encoding='utf-8'))
+                    market = original['estimates']['market']
+                    spot_source, spot_scope = market.get('source'), market.get('scope')
+                    summary['market_snapshot_origin'] = original.get('market_snapshot_origin', saved_id)
+        # Retry with the saved closing snapshot; never fetch live quotes for a past date.
+        if spot is None and target == now.date() and closed:
             spot = check_rows(c, 'spot', c.call('spot', 'stock_zh_a_spot_em'), ['代码','名称','涨跌幅','成交额','今开','最高','最低','最新价'])
             if spot is None:
                 spot = collect_sina_spot(c)
                 spot_source, spot_scope = '新浪', '沪深北候选范围（以官方名单核验结果为准）'
-        if target == now.date() and valid:
-            reconciliation = collect_reconciliation(c, spot, target.isoformat())
+        if valid and (not historical or spot):
+            if historical:
+                reconciliation = collect_reconciliation(c, spot, target.isoformat(), historical=True)
+            else:
+                reconciliation = collect_reconciliation(c, spot, target.isoformat())
             dump(root / 'clean' / 'market_reconciliation.json', reconciliation)
             summary['market_reconciliation'] = reconciliation
             if reconciliation['status'] != 'code_coverage_matched':
@@ -283,7 +303,7 @@ def main():
         if previous is None:
             summary['missing_data'].append('上一交易日已归档涨停池；昨日涨停接口不提供昨日连板高度，不能替代该依赖')
         if valid:
-            classify(summary, target < now.date())
+            classify(summary, historical and not spot)
         else:
             summary['status'] = 'diagnostic_unverified'
     dump(root / 'sources.json', c.calls)

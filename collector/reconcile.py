@@ -1,4 +1,6 @@
 """Compare snapshot membership to exchange rosters, without inferring timestamps."""
+import hashlib
+import json
 import re
 from collections import Counter
 from datetime import date
@@ -71,11 +73,36 @@ def reconcile_market(spot, rosters, target, szse=None):
     return result
 
 
-def collect_reconciliation(c, spot, target):
-    rosters = {}
+def archived_roster(c, name, code_key, date_key, target):
+    # A current listing endpoint cannot establish past membership after delistings.
+    root = getattr(c, 'root', None)
+    for manifest in sorted(root.parent.glob('*/sources.json'), reverse=True) if root else ():
+        if manifest.parent == root:
+            continue
+        for key, meta in json.loads(manifest.read_text(encoding='utf-8')).items():
+            if key != 'official_roster_' + name and not key.startswith('official_roster_' + name + '_retry'):
+                continue
+            if meta.get('status') != 'ok' or meta.get('fetched_at', '')[:10] != target:
+                continue
+            raw = manifest.parent / 'raw' / (key + '.json')
+            if not raw.is_file():
+                continue
+            content = raw.read_bytes()
+            if hashlib.sha256(content).hexdigest() != meta.get('sha256'):
+                continue
+            rows = json.loads(content)
+            if roster_codes(rows, code_key, date_key, target) is not None:
+                return rows, manifest.parent.name + '/raw/' + raw.name
+    return None, None
+
+
+def collect_reconciliation(c, spot, target, historical=False):
+    rosters, reused = {}, {}
     for name, function, kwargs, code_key, date_key in ROSTERS:
-        rows = None
-        for attempt in range(3):
+        rows, origin = archived_roster(c, name, code_key, date_key, target)
+        if origin:
+            reused[name] = origin
+        for attempt in range(3 if rows is None and not historical else 0):
             key = 'official_roster_' + name + (f'_retry{attempt}' if attempt else '')
             rows = c.call(key, function, **kwargs)
             if roster_codes(rows, code_key, date_key, target) is not None:
@@ -89,7 +116,7 @@ def collect_reconciliation(c, spot, target):
     result = reconcile_market(spot, rosters, target, szse)
     initial_missing, supplements = result['missing_codes'], []
     # Bound requests; enrich only an existing snapshot with small roster gaps.
-    if spot and not result['unavailable_rosters']:
+    if spot and not historical and not result['unavailable_rosters']:
         names = {str(r.get(code_key)): r.get('证券简称', r.get('A股简称'))
                  for name, _, _, code_key, _ in ROSTERS for r in (rosters.get(name) or [])}
         original_timeout = c.timeout
@@ -119,5 +146,5 @@ def collect_reconciliation(c, spot, target):
         finally:
             c.timeout = original_timeout
         result = reconcile_market(spot, rosters, target, szse)
-    result.update(initial_missing_codes=initial_missing, daily_supplement_codes=supplements)
+    result.update(initial_missing_codes=initial_missing, daily_supplement_codes=supplements, archived_roster_sources=reused)
     return result
