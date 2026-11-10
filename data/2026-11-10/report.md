@@ -1,6 +1,6 @@
 # 2026-11-10 A股收盘复盘
 
-状态：partial；抓取时间：2026-11-10T17:56:18.142836+08:00
+状态：partial；抓取时间：2026-11-10T23:29:09.419160+08:00
 
 采集范围：closing_snapshot；采集状态：partial；研究状态：limited
 
@@ -25,7 +25,7 @@
 {"rows": 60, "prices_available": 60, "missing_archive_dates": [], "missing_price_codes": [], "budget_seconds": 300, "note": "按交易日追踪首板后第1/2个交易日，不推断成交或策略收益"}
 
 ## 市场交叉核验
-{"trade_date": "2026-11-10", "status": "code_coverage_matched", "expected_count": 5580, "observed_count": 5580, "missing_codes": [], "unexpected_codes": [], "duplicate_codes": [], "unavailable_rosters": [], "exchanges": {"sh_main": {"expected": 1700, "observed": 1700, "missing_codes": []}, "sh_star": {"expected": 619, "observed": 619, "missing_codes": []}, "sz": {"expected": 2906, "observed": 2906, "missing_codes": []}, "bj": {"expected": 355, "observed": 355, "missing_codes": []}}, "all_market_verified": false, "note": "官方当前上市名单核对代码覆盖，不独立证明每只行情日期/收盘时点；停牌仍应保留且不能把缺失当平盘", "szse_turnover_check": {"status": "within_tolerance", "date_basis": "官方接口请求日期；返回表无独立日期列", "tolerance": 0.005, "official_yuan": 831908668027.2, "snapshot_yuan": 830819945243.0, "relative_difference": 0.001308704700459203}, "initial_missing_codes": ["689009"], "daily_supplement_codes": ["689009"], "archived_roster_sources": {}}
+{"trade_date": "2026-11-10", "status": "code_coverage_matched", "expected_count": 5580, "observed_count": 5580, "missing_codes": [], "unexpected_codes": [], "duplicate_codes": [], "unavailable_rosters": [], "exchanges": {"sh_main": {"expected": 1700, "observed": 1700, "missing_codes": []}, "sh_star": {"expected": 619, "observed": 619, "missing_codes": []}, "sz": {"expected": 2906, "observed": 2906, "missing_codes": []}, "bj": {"expected": 355, "observed": 355, "missing_codes": []}}, "all_market_verified": false, "note": "官方当前上市名单核对代码覆盖，不独立证明每只行情日期/收盘时点；停牌仍应保留且不能把缺失当平盘", "szse_turnover_check": {"status": "within_tolerance", "date_basis": "官方接口请求日期；返回表无独立日期列", "tolerance": 0.005, "official_yuan": 831908668027.2, "snapshot_yuan": 830819945243.0, "relative_difference": 0.001308704700459203}, "initial_missing_codes": [], "daily_supplement_codes": [], "archived_roster_sources": {"sh_main": "20261110T175618142836+0800/raw/official_roster_sh_main.json", "sh_star": "20261110T175618142836+0800/raw/official_roster_sh_star.json", "sz": "20261110T175618142836+0800/raw/official_roster_sz_retry1.json", "bj": "20261110T175618142836+0800/raw/official_roster_bj.json"}}
 
 主观题材三问及新鲜度均待人工证据与评分；总分限制0–15。收益字段待验证买入与第三交易日行情后补充。
 
@@ -35,75 +35,8 @@
 - yesterday_pool: ok，行数=55
 - broken: ok，行数=19
 - limit_down: empty_unverified，行数=0
-- spot: error，行数=None
-- spot_fallback: ok，行数=5579
-- official_roster_sh_main: ok，行数=1700
-- official_roster_sh_star: ok，行数=619
-- official_roster_sz: error，行数=None
-- official_roster_sz_retry1: ok，行数=2906
-- official_roster_bj: ok，行数=355
-- official_szse_summary: ok，行数=14
-- market_quote_689009: ok，行数=1
-- price_000026: ok，行数=1
-- price_000525: ok，行数=1
-- price_000530: ok，行数=1
-- price_000595: ok，行数=1
-- price_000823: ok，行数=1
-- price_001226: ok，行数=1
-- price_001258: ok，行数=1
-- price_001308: ok，行数=1
-- price_001316: ok，行数=1
-- price_001331: ok，行数=1
-- price_001379: ok，行数=1
-- price_001388: ok，行数=1
-- price_001390: ok，行数=1
-- price_002037: ok，行数=1
-- price_002124: ok，行数=1
-- price_002149: ok，行数=1
-- price_002172: ok，行数=1
-- price_002310: ok，行数=1
-- price_002347: ok，行数=1
-- price_002488: ok，行数=1
-- price_002565: ok，行数=1
-- price_002596: ok，行数=1
-- price_002638: ok，行数=1
-- price_002639: ok，行数=1
-- price_002708: ok，行数=1
-- price_002712: ok，行数=1
-- price_002811: ok，行数=1
-- price_002864: ok，行数=1
-- price_002889: ok，行数=1
-- price_002913: ok，行数=1
-- price_002931: ok，行数=1
-- price_002973: ok，行数=1
-- price_003004: ok，行数=1
-- price_600121: ok，行数=1
-- price_600156: ok，行数=1
-- price_600207: ok，行数=1
-- price_600229: ok，行数=1
-- price_600278: ok，行数=1
-- price_600327: ok，行数=1
-- price_600371: ok，行数=1
-- price_600408: ok，行数=1
-- price_600540: ok，行数=1
-- price_600609: ok，行数=1
-- price_600715: ok，行数=1
-- price_600776: ok，行数=1
-- price_600792: ok，行数=1
-- price_600838: ok，行数=1
-- price_600853: ok，行数=1
-- price_600892: ok，行数=1
-- price_601188: ok，行数=1
-- price_601595: ok，行数=1
-- price_603121: ok，行数=1
-- price_603286: ok，行数=1
-- price_603366: ok，行数=1
-- price_603389: ok，行数=1
-- price_603660: ok，行数=1
-- price_603683: ok，行数=1
-- price_603703: ok，行数=1
-- price_603706: ok，行数=1
-- price_603920: ok，行数=1
+- official_szse_summary: error，行数=None
+- official_szse_summary_retry: ok，行数=14
 - index_sh000001: ok，行数=1
 - index_sz399001: ok，行数=1
 - index_sz399006: ok，行数=1
