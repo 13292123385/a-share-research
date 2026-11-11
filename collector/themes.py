@@ -11,15 +11,23 @@ def collect_themes(c, target, today, budget, prior=()):
     original_timeout = c.timeout
 
     def call(key, function, **kwargs):
-        remaining = deadline - time.monotonic() - c.delay
-        if remaining <= 1:
-            return None, 'budget_exhausted'
-        c.timeout = min(original_timeout, 15, remaining)
-        rows = c.call(key, function, **kwargs)
-        return rows, 'available' if rows else c.calls[key]['status']
+        last_status = 'budget_exhausted'
+        last_key = key
+        for attempt in range(2):
+            remaining = deadline - time.monotonic() - c.delay
+            if remaining <= 1:
+                return None, last_status, last_key
+            # Each attempt remains inside the shared theme budget.
+            c.timeout = min(45, remaining)
+            last_key = key if attempt == 0 else key + '_retry'
+            rows = c.call(last_key, function, **kwargs)
+            if rows:
+                return rows, 'available', last_key
+            last_status = c.calls[last_key]['status']
+        return None, last_status, last_key
 
     try:
-        raw, status = call('concept_catalog', 'stock_board_concept_name_em')
+        raw, status, catalog_key = call('concept_catalog', 'stock_board_concept_name_em')
         if raw is None:
             return [], [], [], status
         ids = [str(r.get('板块代码', '')) for r in raw]
@@ -33,17 +41,17 @@ def collect_themes(c, target, today, budget, prior=()):
                 last[r['theme_id']] = max(last.get(r['theme_id'], ''), r['observed_at'])
         for r in sorted(raw, key=lambda r: (last.get(r['板块代码'], ''), r['板块代码'])):
             ident, name = r['板块代码'], r.get('板块名称')
-            stamp = c.calls['concept_catalog']['fetched_at']
+            stamp = c.calls[catalog_key]['fetched_at']
             catalog.append(dict(theme_id=ident, name=name, observation_date=target,
                 observed_at=stamp, source='AKShare / 东方财富',
                 close=number(r.get('最新价')), change_pct=number(r.get('涨跌幅')),
                 rising_count=number(r.get('上涨家数')), falling_count=number(r.get('下跌家数')),
                 lifecycle_stage=None, stage_status='not_inferred'))
-            rows, state = call('concept_members_' + ident, 'stock_board_concept_cons_em', symbol=ident)
+            rows, state, members_key = call('concept_members_' + ident, 'stock_board_concept_cons_em', symbol=ident)
             codes = [str(x.get('代码', '')) for x in rows or []]
             if rows and (len(codes) != len(set(codes)) or any(not re.fullmatch(r'\d{6}', x) for x in codes)):
                 rows, state = None, 'schema_error'
-            observed = c.calls.get('concept_members_' + ident, {}).get('fetched_at', stamp)
+            observed = c.calls.get(members_key, {}).get('fetched_at', stamp)
             coverage.append(dict(theme_id=ident, observation_date=target, observed_at=observed,
                                  status=state, member_count=len(rows) if rows else None))
             for member in rows or []:
