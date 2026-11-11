@@ -1,0 +1,1491 @@
+[
+  {
+    "path": "archive_inputs.json",
+    "records": 14,
+    "bytes": 1479697,
+    "sha256": "4cfa9a85f6296ce334f27fbebb105da11c746be96cc309c7eae5c0a30ff36c90",
+    "fields": [
+      "date",
+      "raw_json",
+      "rows",
+      "run_id",
+      "sha256"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "calendar_inputs.json",
+    "records": 14,
+    "bytes": 226,
+    "sha256": "d950551e0f133c4b8ef5b21e1dd1479128de95131eabc06650a9ed567c536c6c",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/leader_prices.csv",
+    "records": 179,
+    "bytes": 54508,
+    "sha256": "ad8a4119e4470dd9cdcbdff6921d59634287f4feb449606a0caa7578367f4a6a",
+    "fields": [
+      "attempted_at",
+      "code",
+      "entry_price",
+      "execution_verified",
+      "missing_reason",
+      "observation_date",
+      "price",
+      "status",
+      "volume_unit"
+    ],
+    "missing_fields": {
+      "entry_price": 179,
+      "missing_reason": 179
+    },
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/leader_prices.json",
+    "records": 179,
+    "bytes": 96823,
+    "sha256": "0845118ff362e0a6dd937a058985de2fed466583319b6fb6579970dc165c734c",
+    "fields": [
+      "attempted_at",
+      "code",
+      "entry_price",
+      "execution_verified",
+      "missing_reason",
+      "observation_date",
+      "price",
+      "status",
+      "volume_unit"
+    ],
+    "missing_fields": {
+      "entry_price": 179,
+      "missing_reason": 179
+    },
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/leader_watch.csv",
+    "records": 17,
+    "bytes": 2254,
+    "sha256": "f5e46fc0f3d2c6c2e58f806f7f77a9902c50af99c6a275c57c4c515ee7f3a3d4",
+    "fields": [
+      "candidate_basis",
+      "code",
+      "current_pool_status",
+      "entry_price",
+      "execution_verified",
+      "first_observed",
+      "last_confirmed_break_date",
+      "leader_confirmed",
+      "name",
+      "observation_date",
+      "sessions_after_break",
+      "theme_ids",
+      "theme_status"
+    ],
+    "missing_fields": {
+      "entry_price": 17,
+      "last_confirmed_break_date": 2,
+      "leader_confirmed": 17,
+      "sessions_after_break": 2
+    },
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/leader_watch.json",
+    "records": 17,
+    "bytes": 7695,
+    "sha256": "2cf6e30362834bd7a223bd2bc22285bf06927b08ccd0c579fe39280db5eb2acd",
+    "fields": [
+      "candidate_basis",
+      "code",
+      "current_pool_status",
+      "entry_price",
+      "execution_verified",
+      "first_observed",
+      "last_confirmed_break_date",
+      "leader_confirmed",
+      "name",
+      "observation_date",
+      "sessions_after_break",
+      "theme_ids",
+      "theme_status"
+    ],
+    "missing_fields": {
+      "entry_price": 17,
+      "last_confirmed_break_date": 2,
+      "leader_confirmed": 17,
+      "sessions_after_break": 2
+    },
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_catalog.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_catalog.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_coverage.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_coverage.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_history.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_history.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_lifecycle.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_lifecycle.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_members.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_members.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "implementation.json",
+    "records": 1,
+    "bytes": 656,
+    "sha256": "e034bcb0ca59b645ded7d476c13ee408b7f2d26f3c9b516baf7c57a3e16af07d",
+    "fields": [
+      "akshare",
+      "modules",
+      "price_budget",
+      "python",
+      "theme_budget"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "manual_inputs.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "raw/calendar.csv",
+    "records": 8797,
+    "bytes": 219940,
+    "sha256": "66017c2f2edb84cadd35813649a6c14179a618e97b9fb6919f3bd383a54df40f",
+    "fields": [
+      "trade_date"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/calendar.json",
+    "records": 8797,
+    "bytes": 466243,
+    "sha256": "552e6d424c049845be3d46eeddf0f82347140c35ba8c14ad9948831dff55d9aa",
+    "fields": [
+      "trade_date"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_000678.csv",
+    "records": 14,
+    "bytes": 1156,
+    "sha256": "351d71b473fa06f49d5497213be1a4d7ecf59eacfc64a7c6514ab79bfde1a586",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_000678"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_000678.json",
+    "records": 14,
+    "bytes": 2800,
+    "sha256": "0dd9c62ea7fc68f52341080ce9f20f977f527a5e889d4664b3e83eec57847d81",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_000678"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_001219.csv",
+    "records": 13,
+    "bytes": 1086,
+    "sha256": "feda1e5b19dc238255b7fa8f491ef94fb6570e6240d2772434b2dae32eaeccaf",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_001219"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_001219.json",
+    "records": 13,
+    "bytes": 2609,
+    "sha256": "231845545d97ffee827572b3564667fb83ec3fd99188990d657ea17ad60a61fe",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_001219"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002086.csv",
+    "records": 10,
+    "bytes": 826,
+    "sha256": "862970cbfb95b012974b2458ef852a4f4d522e8e135defd6a5d2a74a2fc4bf58",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002086"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002086.json",
+    "records": 10,
+    "bytes": 1986,
+    "sha256": "d0e7e3ce65605104ca167761b18473962494d7ed7a1c8b9f8dff567d1b6fb421",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002086"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002088.csv",
+    "records": 7,
+    "bytes": 595,
+    "sha256": "812c0551b752f2fa0a80e90f5cfc94c131fab12efcdbdefeb89bb842a4801e8e",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002088"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002088.json",
+    "records": 7,
+    "bytes": 1392,
+    "sha256": "fedef8d60e965cb3e497a74db8b8515fb45af3bdb516373f9ab8dfdcfa3da70b",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002088"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002172.csv",
+    "records": 11,
+    "bytes": 893,
+    "sha256": "b2dc00b85404e08432a1b7f3a1c1aea78d62c48df17f850aafe6e6652f6a3ade",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002172"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002172.json",
+    "records": 11,
+    "bytes": 2174,
+    "sha256": "a7958d00f806ab9a0f8649c50848d7d0c80702d4d16f76ba9727dbe568686950",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002172"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002578.csv",
+    "records": 8,
+    "bytes": 667,
+    "sha256": "2a029b0723aaa14aa3e5a2eef82103bca0c3a7c9f7c22e51bb28612fd47a294d",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002578"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002578.json",
+    "records": 8,
+    "bytes": 1585,
+    "sha256": "031199f17d84e47a7e3063be5aa156f8d56e00d6df830f58bbc9d8bb158cd78d",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002578"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002708.csv",
+    "records": 13,
+    "bytes": 1082,
+    "sha256": "5b7e040519d376b024103827f906ff79ecf0177497c462bc986b6e1e251f5017",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002708"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002708.json",
+    "records": 13,
+    "bytes": 2605,
+    "sha256": "534cf14ca778c826e552db950fd52086be75c569a3f5d53ce33193b03a631f75",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002708"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002724.csv",
+    "records": 14,
+    "bytes": 1177,
+    "sha256": "c60105c8b7fb6864711fe5284a729bee95b3d964f93e33eab37eccb673c46fd0",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002724"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_002724.json",
+    "records": 14,
+    "bytes": 2821,
+    "sha256": "f3511389ba784cab10ae0f25dbf5ff6431a9c47fd645e1ce395fe7c838e98640",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_002724"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_600261.csv",
+    "records": 10,
+    "bytes": 810,
+    "sha256": "a2ece164b30b5dfa7e1a659013d96ae3a1c8e7d0cb5a4a3f77a048d6291c0712",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_600261"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_600261.json",
+    "records": 10,
+    "bytes": 1970,
+    "sha256": "e1a492e86316835f514b1af3ada5805a4b941a0894bc1a6169a74281371bed0b",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_600261"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_600327.csv",
+    "records": 4,
+    "bytes": 357,
+    "sha256": "8ddaa53b4e45cc524f4a5842c55d1517d5a62a74aa5f1c734d2fc2e6e286fe36",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_600327"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_600327.json",
+    "records": 4,
+    "bytes": 791,
+    "sha256": "9f096b1ad5a75cce1f604063f958baebbc52029691508e7ce68cbe3a0e6b6a86",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_600327"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_600838.csv",
+    "records": 14,
+    "bytes": 1165,
+    "sha256": "345e662fe3aa8dbb370ad53c1fea15f628815338af5a6143452e25d78c995d9e",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_600838"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_600838.json",
+    "records": 14,
+    "bytes": 2809,
+    "sha256": "38d43e5096987f267b3193fe2b66fa99769bb5d549f82b3b3c0f4894a106116b",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_600838"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_601599.csv",
+    "records": 8,
+    "bytes": 656,
+    "sha256": "4f800309c9c004c164417c180662f8e6300069322389c9e0ca7326bfe769541c",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_601599"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_601599.json",
+    "records": 8,
+    "bytes": 1574,
+    "sha256": "d70e4fd90aec405963dad1fb3af52f5fb0d481160c80fcdba9c9c338f60e1135",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_601599"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603028.csv",
+    "records": 14,
+    "bytes": 1098,
+    "sha256": "4954c8e88885e33292d033882a2d6449a64dba55e34ed9172b0d843c28263fc9",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603028"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603028.json",
+    "records": 14,
+    "bytes": 2742,
+    "sha256": "2ccb01f9f3677146ea91746ce7595c86e5426abf90db38e3860518b8f56c5a5d",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603028"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603278.csv",
+    "records": 14,
+    "bytes": 1164,
+    "sha256": "02f75f19321fd3f9fbe80f74f971798716b03bbf59f201ac436dba7732716507",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603278"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603278.json",
+    "records": 14,
+    "bytes": 2808,
+    "sha256": "1c7f3f8e35e3076072b0a8833d0a65acdc26e835311791d54231740e92fc7af6",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603278"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603366.csv",
+    "records": 4,
+    "bytes": 362,
+    "sha256": "aa36d3927df8d8f690eaaeddffed679fbdcfae34cbddf6d9036fb2295cf3aea0",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603366"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603366.json",
+    "records": 4,
+    "bytes": 796,
+    "sha256": "8916068025a009d4fa9291f8109ae61f756a368831b711d67d27e361df220417",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603366"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603381.csv",
+    "records": 7,
+    "bytes": 597,
+    "sha256": "1efb393991ff9291d93e92fa19095b0472edd545a415c276eb72b87b6dbb6bfe",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603381"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603381.json",
+    "records": 7,
+    "bytes": 1394,
+    "sha256": "0fcfd612d5763c76a609a9a3e75afd4acaca6766557693abbace35bf36a6ee61",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603381"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603528.csv",
+    "records": 14,
+    "bytes": 1106,
+    "sha256": "d78c55a9748e1bf3fd5577ab20527e0eae9ef5fa560f8d9c7f08614ae898dcd3",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/lifecycle_price_603528.json",
+    "records": 14,
+    "bytes": 2750,
+    "sha256": "9cc17f1613aeef63ef448466b7644bcd71c8b329ccfc745faf8ce6fb1b316290",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "sources.json",
+    "records": 1,
+    "bytes": 12895,
+    "sha256": "49746b8455e3fd6ebf2a7ac9b1f487175a8b10bddcb99602c1f7872915956899",
+    "fields": [
+      "calendar",
+      "concept_catalog",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "summary.json",
+    "records": 1,
+    "bytes": 575,
+    "sha256": "d144d050476aff85b79097ae6d22e006fd571b7aa76fc0268604865a489ca5e4",
+    "fields": [
+      "fetched_at",
+      "min_post_break_sessions",
+      "missing_archive_dates",
+      "missing_price_rows",
+      "note",
+      "price_budget",
+      "price_rows",
+      "run_id",
+      "schema_version",
+      "status",
+      "theme_budget",
+      "theme_status",
+      "trade_date",
+      "watch_count"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "lifecycle_price_000678",
+      "lifecycle_price_001219",
+      "lifecycle_price_002086",
+      "lifecycle_price_002088",
+      "lifecycle_price_002172",
+      "lifecycle_price_002578",
+      "lifecycle_price_002708",
+      "lifecycle_price_002724",
+      "lifecycle_price_600261",
+      "lifecycle_price_600327",
+      "lifecycle_price_600838",
+      "lifecycle_price_601599",
+      "lifecycle_price_603028",
+      "lifecycle_price_603278",
+      "lifecycle_price_603366",
+      "lifecycle_price_603381",
+      "lifecycle_price_603528"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  }
+]
