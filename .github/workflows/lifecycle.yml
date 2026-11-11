@@ -41,19 +41,23 @@ jobs:
       - name: 保存独立归档
         id: archive
         if: always() && steps.quality.outcome == 'success'
+        env:
+          RUN_PATH: ${{ steps.collect.outputs.run_path }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add lifecycle-data
-          if ! git diff --cached --quiet; then
-            git commit -m 'data: archive lifecycle collection attempt'
-            for attempt in 1 2 3; do
-              git fetch origin main
-              git rebase --autostash origin/main
-              if git push origin HEAD:main; then exit 0; fi
-            done
-            exit 1
-          fi
+          for attempt in 1 2 3; do
+            git fetch origin main
+            parent=$(git rev-parse origin/main)
+            export GIT_INDEX_FILE="$RUNNER_TEMP/lifecycle-index-$GITHUB_RUN_ID-$attempt"
+            git read-tree "$parent"
+            git add -- "$RUN_PATH"
+            if git diff --cached --quiet "$parent"; then exit 0; fi
+            tree=$(git write-tree)
+            commit=$(printf 'data: archive lifecycle collection attempt\n' | git commit-tree "$tree" -p "$parent")
+            if git push origin "$commit:refs/heads/main"; then exit 0; fi
+          done
+          exit 1
       - name: 发布独立公开目录
         if: always() && steps.quality.outcome == 'success' && steps.archive.outcome == 'success'
         env:
