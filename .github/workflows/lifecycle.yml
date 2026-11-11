@@ -1,0 +1,72 @@
+name: 题材与龙头独立采集
+on:
+  schedule:
+    - cron: '20 10,13 * * 1-5' # 北京时间18:20、21:20；不占用收盘采集作业
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 交易日YYYY-MM-DD；留空为北京时间今天
+        required: false
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: lifecycle-data
+  cancel-in-progress: false
+jobs:
+  lifecycle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - name: 独立采集并保留缺失
+        id: collect
+        continue-on-error: true
+        env:
+          REQUEST_DATE: ${{ inputs.date }}
+        shell: bash
+        run: |
+          target="${REQUEST_DATE:-$(TZ=Asia/Shanghai date +%F)}"
+          python -m collector.lifecycle --date "$target" --budget 600 --theme-budget 600
+      - name: 验证生命周期归档
+        id: quality
+        if: always() && steps.collect.outputs.run_path != ''
+        run: python -m collector.lifecycle_validate lifecycle-data
+      - name: 保存独立归档
+        id: archive
+        if: always() && steps.quality.outcome == 'success'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add lifecycle-data
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: archive lifecycle collection attempt'
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then exit 0; fi
+            done
+            exit 1
+          fi
+      - name: 发布独立公开目录
+        if: always() && steps.quality.outcome == 'success' && steps.archive.outcome == 'success'
+        env:
+          RUN_PATH: ${{ steps.collect.outputs.run_path }}
+          PUBLIC_FEED_REPOSITORY: ${{ vars.PUBLIC_FEED_REPOSITORY }}
+          PUBLIC_FEED_TOKEN: ${{ secrets.PUBLIC_FEED_TOKEN }}
+        run: python -m collector.lifecycle_public "$RUN_PATH" --publish
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lifecycle-${{ github.run_id }}-${{ github.run_attempt }}
+          path: lifecycle-data/
+          retention-days: 7
+      - name: 缺失保持可见
+        if: always() && steps.collect.outcome == 'failure'
+        run: exit 1
