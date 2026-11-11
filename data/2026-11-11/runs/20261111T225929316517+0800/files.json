@@ -1,0 +1,6583 @@
+[
+  {
+    "path": "clean/broken.csv",
+    "records": 19,
+    "bytes": 6065,
+    "sha256": "0360aa93fc7428d7d950a80257ae9a1db8bfa78716b8435e7dd1814b514e0419",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 19,
+      "entry_price": 19,
+      "height": 19,
+      "last_seal": 19,
+      "max_adverse_excursion": 19,
+      "price_date": 19,
+      "third_day_return": 19
+    },
+    "source_refs": [
+      "broken"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/broken.json",
+    "records": 19,
+    "bytes": 15502,
+    "sha256": "27d8522fdfa74bc8028c07c3b6f1cbc16cdfb2fa21f737095494f63dd5c6b2e0",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 19,
+      "entry_price": 19,
+      "height": 19,
+      "last_seal": 19,
+      "max_adverse_excursion": 19,
+      "price_date": 19,
+      "third_day_return": 19
+    },
+    "source_refs": [
+      "broken"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/candidate_prices.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/candidate_prices.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/first_board_candidates.csv",
+    "records": 57,
+    "bytes": 16864,
+    "sha256": "7c9ecaa48eca9369d13d06ff3429e1aa2821a8eb8d7526c69022c5cbd549bab9",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "entry_price": 57,
+      "max_adverse_excursion": 57,
+      "price_date": 57,
+      "third_day_return": 57
+    },
+    "source_refs": [
+      "limit_up",
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/first_board_candidates.json",
+    "records": 57,
+    "bytes": 44655,
+    "sha256": "32fd2105305d27e96f53dbceba1c996f788f0abb999df3db66051b304e324a55",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "entry_price": 57,
+      "max_adverse_excursion": 57,
+      "price_date": 57,
+      "third_day_return": 57
+    },
+    "source_refs": [
+      "limit_up",
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/first_board_followup.csv",
+    "records": 105,
+    "bytes": 30041,
+    "sha256": "4578da8fa418ab53431e85304161486b67d100d8684bf5057bb216c1f73a2790",
+    "fields": [
+      "code",
+      "entry_price",
+      "execution_verified",
+      "first_board_date",
+      "max_adverse_excursion",
+      "name",
+      "note",
+      "observation_date",
+      "original_eligible_observation",
+      "price",
+      "sessions_since_first",
+      "status",
+      "third_day_return"
+    ],
+    "missing_fields": {
+      "entry_price": 105,
+      "max_adverse_excursion": 105,
+      "price": 30,
+      "third_day_return": 105
+    },
+    "source_refs": [
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/first_board_followup.json",
+    "records": 105,
+    "bytes": 65916,
+    "sha256": "fc30962d05ed65e3c3b713307262db6096aacb838ce0c0ba66399f3df9bd487c",
+    "fields": [
+      "code",
+      "entry_price",
+      "execution_verified",
+      "first_board_date",
+      "max_adverse_excursion",
+      "name",
+      "note",
+      "observation_date",
+      "original_eligible_observation",
+      "price",
+      "sessions_since_first",
+      "status",
+      "third_day_return"
+    ],
+    "missing_fields": {
+      "entry_price": 105,
+      "max_adverse_excursion": 105,
+      "price": 30,
+      "third_day_return": 105
+    },
+    "source_refs": [
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/followup_prices.csv",
+    "records": 75,
+    "bytes": 6541,
+    "sha256": "af69ff9b92d5cc105768d200b636f870c77d8ebd18bcbd01be098e7ffc478c11",
+    "fields": [
+      "adjustment",
+      "amount",
+      "close",
+      "code",
+      "date",
+      "high",
+      "low",
+      "open",
+      "source",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/followup_prices.json",
+    "records": 75,
+    "bytes": 18252,
+    "sha256": "d000af03d25e70da5605b0d9866d0cc864f406f193d83ce9e8bc6cc8a4100d99",
+    "fields": [
+      "adjustment",
+      "amount",
+      "close",
+      "code",
+      "date",
+      "high",
+      "low",
+      "open",
+      "source",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/indices.csv",
+    "records": 3,
+    "bytes": 323,
+    "sha256": "795e5295f3582bd37eb6c3c5a5d2448834c41442a3aa4e96b1795c2a0ee3430d",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "name",
+      "open",
+      "symbol"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/indices.json",
+    "records": 3,
+    "bytes": 640,
+    "sha256": "02ee66afc2fc50c240a826cd69f974ad46f18ad7a2cd29f9376f47a5e7c019c2",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "name",
+      "open",
+      "symbol"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/limit_up.csv",
+    "records": 76,
+    "bytes": 22419,
+    "sha256": "c465d9787c3f3a46a539d9d4e17ce5b438e1aacc8a9a9bc1b85804649d5ec1c1",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "entry_price": 76,
+      "max_adverse_excursion": 76,
+      "price_date": 76,
+      "third_day_return": 76
+    },
+    "source_refs": [
+      "limit_up",
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/limit_up.json",
+    "records": 76,
+    "bytes": 59558,
+    "sha256": "b830286397b1bb3dcfa4b7d5cd55d58087817820bbf33283cd82f7ba8ae83921",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "entry_price": 76,
+      "max_adverse_excursion": 76,
+      "price_date": 76,
+      "third_day_return": 76
+    },
+    "source_refs": [
+      "limit_up",
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/market_quotes.csv",
+    "records": 5355,
+    "bytes": 554344,
+    "sha256": "694a3209e77bc845678e3631e238812542da4ffba6e500ee08d1b62ede91e779",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "买入",
+      "今开",
+      "代码",
+      "卖出",
+      "名称",
+      "成交量",
+      "成交额",
+      "时间戳",
+      "昨收",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅",
+      "涨跌额"
+    ],
+    "missing_fields": {
+      "quote_date": 5350,
+      "quote_timestamp": 5350,
+      "supplement_source": 5350,
+      "volume_unit": 5350,
+      "买入": 5,
+      "卖出": 5,
+      "成交量": 5,
+      "时间戳": 5,
+      "昨收": 5,
+      "涨跌额": 5
+    },
+    "source_refs": [
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/market_quotes.json",
+    "records": 5355,
+    "bytes": 1823389,
+    "sha256": "ad4aac67cfcad1d530a773c283b274e376ccbf44e3fd3cb461ac51319de2c2d8",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "买入",
+      "今开",
+      "代码",
+      "卖出",
+      "名称",
+      "成交量",
+      "成交额",
+      "时间戳",
+      "昨收",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅",
+      "涨跌额"
+    ],
+    "missing_fields": {
+      "quote_date": 5350,
+      "quote_timestamp": 5350,
+      "supplement_source": 5350,
+      "volume_unit": 5350,
+      "买入": 5,
+      "卖出": 5,
+      "成交量": 5,
+      "时间戳": 5,
+      "昨收": 5,
+      "涨跌额": 5
+    },
+    "source_refs": [
+      "spot_fallback",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/market_reconciliation.json",
+    "records": 1,
+    "bytes": 32343,
+    "sha256": "a848b399f33e28edcb3ce6ec53fc75f5ea580c5a7d4ffe2c24547debe0c39086",
+    "fields": [
+      "all_market_verified",
+      "archived_roster_sources",
+      "daily_supplement_codes",
+      "duplicate_codes",
+      "exchanges",
+      "expected_count",
+      "initial_missing_codes",
+      "missing_codes",
+      "note",
+      "observed_count",
+      "status",
+      "szse_turnover_check",
+      "trade_date",
+      "unavailable_rosters",
+      "unexpected_codes"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "spot_fallback",
+      "official_roster_sh_main",
+      "official_roster_sh_star",
+      "official_roster_sz_retry1",
+      "official_roster_bj",
+      "official_szse_summary",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595",
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/promotion.json",
+    "records": 1,
+    "bytes": 16821,
+    "sha256": "dd94c8bc35f4425336e11c512b935cf165a4da5dc66d8a2e41e08da3e6bf6106",
+    "fields": [
+      "broken_count",
+      "denominator",
+      "observation_rate",
+      "promoted_count",
+      "rows",
+      "status",
+      "verified_tradable_rate"
+    ],
+    "missing_fields": {
+      "verified_tradable_rate": 1
+    },
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "spot_fallback",
+      "official_roster_sh_main",
+      "official_roster_sh_star",
+      "official_roster_sz_retry1",
+      "official_roster_bj",
+      "official_szse_summary",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595",
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/promotion_rows.csv",
+    "records": 64,
+    "bytes": 2289,
+    "sha256": "45bf9dfaacbccc3a855e023bace0254b5bc529c9f1383cc20c26e0a3a5f5a70b",
+    "fields": [
+      "broken_at_close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "max_adverse_excursion",
+      "promoted",
+      "third_day_return"
+    ],
+    "missing_fields": {
+      "entry_price": 64,
+      "max_adverse_excursion": 64,
+      "third_day_return": 64
+    },
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "spot_fallback",
+      "official_roster_sh_main",
+      "official_roster_sh_star",
+      "official_roster_sz_retry1",
+      "official_roster_bj",
+      "official_szse_summary",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595",
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/promotion_rows.json",
+    "records": 64,
+    "bytes": 15350,
+    "sha256": "0884c29cd2ebef2ffe38adefebf256f2973ba976aaf4328fff426f70ca5987e9",
+    "fields": [
+      "broken_at_close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "max_adverse_excursion",
+      "promoted",
+      "third_day_return"
+    ],
+    "missing_fields": {
+      "entry_price": 64,
+      "max_adverse_excursion": 64,
+      "third_day_return": 64
+    },
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "spot_fallback",
+      "official_roster_sh_main",
+      "official_roster_sh_star",
+      "official_roster_sz_retry1",
+      "official_roster_bj",
+      "official_szse_summary",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595",
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/yesterday_pool.csv",
+    "records": 84,
+    "bytes": 27933,
+    "sha256": "6273eb3eb13dfa6df8412526c592aa60164ef279d2f46efad7a478a415668d6e",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 84,
+      "amount": 1,
+      "close": 1,
+      "entry_price": 84,
+      "first_seal": 84,
+      "height": 84,
+      "high": 1,
+      "last_seal": 84,
+      "low": 1,
+      "max_adverse_excursion": 84,
+      "open": 1,
+      "open_count": 84,
+      "price_date": 83,
+      "price_source": 1,
+      "third_day_return": 84,
+      "volume": 2
+    },
+    "source_refs": [
+      "yesterday_pool"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/yesterday_pool.json",
+    "records": 84,
+    "bytes": 71756,
+    "sha256": "bb36f5b18a10b48d4e4cf19891b0115f458d2b048478c345a12743ead3647f4e",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 84,
+      "amount": 1,
+      "close": 1,
+      "entry_price": 84,
+      "first_seal": 84,
+      "height": 84,
+      "high": 1,
+      "last_seal": 84,
+      "low": 1,
+      "max_adverse_excursion": 84,
+      "open": 1,
+      "open_count": 84,
+      "price_date": 83,
+      "price_source": 1,
+      "third_day_return": 84,
+      "volume": 2
+    },
+    "source_refs": [
+      "yesterday_pool"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "raw/broken.csv",
+    "records": 19,
+    "bytes": 2853,
+    "sha256": "3606b233b72bb01a58bdb61408befbe2af90eb5d874856f0a6f145c291bd3c31",
+    "fields": [
+      "代码",
+      "名称",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "振幅",
+      "换手率",
+      "最新价",
+      "流通市值",
+      "涨停价",
+      "涨停统计",
+      "涨跌幅",
+      "涨速",
+      "炸板次数",
+      "首次封板时间"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "broken"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/broken.json",
+    "records": 19,
+    "bytes": 8594,
+    "sha256": "1785f206958b2f10abdeb32005762525c34df40b2f1c4f3fbd32efa9d34a2463",
+    "fields": [
+      "代码",
+      "名称",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "振幅",
+      "换手率",
+      "最新价",
+      "流通市值",
+      "涨停价",
+      "涨停统计",
+      "涨跌幅",
+      "涨速",
+      "炸板次数",
+      "首次封板时间"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "broken"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/calendar.csv",
+    "records": 8797,
+    "bytes": 219940,
+    "sha256": "66017c2f2edb84cadd35813649a6c14179a618e97b9fb6919f3bd383a54df40f",
+    "fields": [
+      "trade_date"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/calendar.json",
+    "records": 8797,
+    "bytes": 466243,
+    "sha256": "552e6d424c049845be3d46eeddf0f82347140c35ba8c14ad9948831dff55d9aa",
+    "fields": [
+      "trade_date"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_fallback_sh000001.csv",
+    "records": 1,
+    "bytes": 105,
+    "sha256": "9102594839574f89c80178a63bf2e51584cc4cc95df19bbe5505dd7d914367d7",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sh000001"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_fallback_sh000001.json",
+    "records": 1,
+    "bytes": 160,
+    "sha256": "44d40660118bf125f712f860d7187a42d3bb47c2eb1f5233caf41e90eee08907",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sh000001"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_fallback_sz399001.csv",
+    "records": 1,
+    "bytes": 109,
+    "sha256": "32b30d58a3b5774b8d0ebe8ed85029a201239e349bf0c1ab644edaeb99a467be",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sz399001"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_fallback_sz399001.json",
+    "records": 1,
+    "bytes": 164,
+    "sha256": "121b2b245cf9fb104612ac344656cb63cd0aef35d86cbbc26bf6899772e94a1c",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sz399001"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_fallback_sz399006.csv",
+    "records": 1,
+    "bytes": 103,
+    "sha256": "8523229f5620946ce5305d125d5d0bf88a5da280e0ab9a0fdd6fc65991e19911",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_fallback_sz399006.json",
+    "records": 1,
+    "bytes": 158,
+    "sha256": "7953d852de3055a5201f98e28775f3f8d3530efd968aac48ede0400e4e737cfe",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/limit_down.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "limit_down"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/limit_down.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "limit_down"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/limit_up.csv",
+    "records": 85,
+    "bytes": 11917,
+    "sha256": "f583b6e04f3767c863c5ac7de392ec65f52b67321d67158c7770f1891f063961",
+    "fields": [
+      "代码",
+      "名称",
+      "封板资金",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "换手率",
+      "最后封板时间",
+      "最新价",
+      "流通市值",
+      "涨停统计",
+      "涨跌幅",
+      "炸板次数",
+      "连板数",
+      "首次封板时间"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "limit_up"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/limit_up.json",
+    "records": 85,
+    "bytes": 39866,
+    "sha256": "8dce3f727b5d52dbaa94d58df1cdb256f908a399542265998e82fcb74af78e3d",
+    "fields": [
+      "代码",
+      "名称",
+      "封板资金",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "换手率",
+      "最后封板时间",
+      "最新价",
+      "流通市值",
+      "涨停统计",
+      "涨跌幅",
+      "炸板次数",
+      "连板数",
+      "首次封板时间"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "limit_up"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001220.csv",
+    "records": 1,
+    "bytes": 324,
+    "sha256": "9b83f7bbdd9b270b342df16509578f6748e764aa25cae2cc040a66969b659748",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001220"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001220.json",
+    "records": 1,
+    "bytes": 449,
+    "sha256": "10216bba299fe69d8ea9b73f5fb584559b89e3ee98e1c4aa45c666899a9ddb1f",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001220"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001221.csv",
+    "records": 1,
+    "bytes": 324,
+    "sha256": "cbc63113c1fe1a8749b6f388b88cfc31164d46d4a620fdf9c4df7152f521be23",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001221"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001221.json",
+    "records": 1,
+    "bytes": 449,
+    "sha256": "206d8a5820605c1173da15c8277bc949690c166fa01570bec03f2b5a2bfb0e7b",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001221"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001232.csv",
+    "records": 1,
+    "bytes": 324,
+    "sha256": "2e23cacb21bf0cd44918c3511c49f66588a1cd37241a5a840bf79b04b79e3c3f",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001232"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001232.json",
+    "records": 1,
+    "bytes": 449,
+    "sha256": "1eef4807a46cee342411c3a43e2023a4b6cca03df9fc3cb6f7ec54fbe8b88d32",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001232"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001233.csv",
+    "records": 1,
+    "bytes": 322,
+    "sha256": "2a72c3badde02d211e1e764b86b30a6bcb526f29702ed5e4518248caa09ce331",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001233"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001233.json",
+    "records": 1,
+    "bytes": 447,
+    "sha256": "d9a2765469cb50d319175a1c6693b53592b9c4bc109269ae3fb701de5295454b",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001233"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001237.csv",
+    "records": 1,
+    "bytes": 322,
+    "sha256": "d74e111f8f5e9499b9284315bc36c090dd0729c96c91c2e53f469c69d8418946",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001237"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/market_quote_001237.json",
+    "records": 1,
+    "bytes": 447,
+    "sha256": "dbe9431fbcf941362e954014937809dd25090bc65201ce8094a97887bbf98fda",
+    "fields": [
+      "quote_date",
+      "quote_timestamp",
+      "supplement_source",
+      "volume_unit",
+      "今开",
+      "代码",
+      "名称",
+      "成交量",
+      "成交额",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅"
+    ],
+    "missing_fields": {
+      "成交量": 1
+    },
+    "source_refs": [
+      "market_quote_001237"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_roster_bj.csv",
+    "records": 355,
+    "bytes": 44337,
+    "sha256": "e9e69f5fe59689c735db5190833e60efbe7bc711db4c5c8e9a9c13093971949b",
+    "fields": [
+      "上市日期",
+      "地区",
+      "总股本",
+      "所属行业",
+      "报告日期",
+      "流通股本",
+      "证券代码",
+      "证券简称"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "official_roster_bj"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_roster_bj.json",
+    "records": 355,
+    "bytes": 107430,
+    "sha256": "81186152397b0cf49607a8f3bb706c1482fb1e4804f0343ab9af60558fea0ce2",
+    "fields": [
+      "上市日期",
+      "地区",
+      "总股本",
+      "所属行业",
+      "报告日期",
+      "流通股本",
+      "证券代码",
+      "证券简称"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "official_roster_bj"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_roster_sh_main.csv",
+    "records": 1700,
+    "bytes": 184418,
+    "sha256": "f1e75b82af2c2c2e56ed03278b9a7b791fd6b93ea430164e4aed8724b4773fe2",
+    "fields": [
+      "上市日期",
+      "公司全称",
+      "公司简称",
+      "证券代码",
+      "证券全称",
+      "证券简称"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "official_roster_sh_main"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_roster_sh_main.json",
+    "records": 1700,
+    "bytes": 430838,
+    "sha256": "4979d2c8b0d1b73b9179c584315fa18e4e48ca3988a140f960b6ccedc2f734ca",
+    "fields": [
+      "上市日期",
+      "公司全称",
+      "公司简称",
+      "证券代码",
+      "证券全称",
+      "证券简称"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "official_roster_sh_main"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_roster_sh_star.csv",
+    "records": 619,
+    "bytes": 70563,
+    "sha256": "cf17c5372ae214d1f3e7a84121110136b0ce511a977060925d0da51926d18f6d",
+    "fields": [
+      "上市日期",
+      "公司全称",
+      "公司简称",
+      "证券代码",
+      "证券全称",
+      "证券简称"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "official_roster_sh_star"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_roster_sh_star.json",
+    "records": 619,
+    "bytes": 160238,
+    "sha256": "54878430c983a48b8f96dde553e9650dd1ca0b4a1757ce8c89d796effb3d3da3",
+    "fields": [
+      "上市日期",
+      "公司全称",
+      "公司简称",
+      "证券代码",
+      "证券全称",
+      "证券简称"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "official_roster_sh_star"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_roster_sz_retry1.csv",
+    "records": 2906,
+    "bytes": 236591,
+    "sha256": "b60d4674946396330c5f077e598eec2413927d6ec217aa1fb8b1014b5066b1be",
+    "fields": [
+      "A股上市日期",
+      "A股代码",
+      "A股总股本",
+      "A股流通股本",
+      "A股简称",
+      "所属行业",
+      "板块"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "official_roster_sz_retry1"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_roster_sz_retry1.json",
+    "records": 2906,
+    "bytes": 710177,
+    "sha256": "d821a8a9c35a5337c4a171b9072f46e11e3ce629af2d268ca64460cb4a23b17f",
+    "fields": [
+      "A股上市日期",
+      "A股代码",
+      "A股总股本",
+      "A股流通股本",
+      "A股简称",
+      "所属行业",
+      "板块"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "official_roster_sz_retry1"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_szse_summary.csv",
+    "records": 14,
+    "bytes": 806,
+    "sha256": "264ac5cd1398253977ac4319e1a51a04a433741e74fb104431e8dc213356d08f",
+    "fields": [
+      "总市值",
+      "成交金额",
+      "数量",
+      "流通市值",
+      "证券类别"
+    ],
+    "missing_fields": {
+      "总市值": 3,
+      "流通市值": 3
+    },
+    "source_refs": [
+      "official_szse_summary"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/official_szse_summary.json",
+    "records": 14,
+    "bytes": 2242,
+    "sha256": "505dc7dae2a0e85434397c55c937e25fe245d48734362adddb5822fe39a17962",
+    "fields": [
+      "总市值",
+      "成交金额",
+      "数量",
+      "流通市值",
+      "证券类别"
+    ],
+    "missing_fields": {
+      "总市值": 3,
+      "流通市值": 3
+    },
+    "source_refs": [
+      "official_szse_summary"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000026.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "244383920a8696af27fd47cf1be6ad2d2a0fa3279bb03a60fbc6f4e2d6dc34e4",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000026"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000026.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "2434ab0ccbdbf406c563633433b23b46c1df7ee5f7ee30a27200132d2a517417",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000026"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000530.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "a0ca5662e6eb5cff13a030019c575fdfbe8b955a9ba154e1e16d50c923c2f5b9",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000530"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000530.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "ccf50a737354ea9cc612dbd9a96cbd729fbcc4f62beb1a4856918de81a4d29b2",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000530"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000593.csv",
+    "records": 1,
+    "bytes": 129,
+    "sha256": "afc0cd457252616d7f68526f2ca0d1ff45e8d46cf484d380f90b27b67c40558b",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000593"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000593.json",
+    "records": 1,
+    "bytes": 200,
+    "sha256": "42598abba4e870d9cf8c0524e9d9046a83a3847e9563f7743de4107081ca7adf",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000593"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000678.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "694d49ad67c974c8ebd403c81c1e7b5821029799c70b3fdac9610a84c79c5b46",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000678"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000678.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "f3be7eebcf9858ed8bd4c589d394a3dbb7fb258ac15167bffb8c2f9d909e6fce",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000678"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000782.csv",
+    "records": 1,
+    "bytes": 125,
+    "sha256": "d99e1ef03d0d47c2fa53e02218d73f4bcad7846206fda21da34ce7c9a891002b",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000782"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000782.json",
+    "records": 1,
+    "bytes": 196,
+    "sha256": "0d7fce83312c4599ea03bab1456d9c479b93f13e8a11bcecd185206935fa6c85",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000782"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000810.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "56a4576bb2c6862ffaaf927c0e276b48e4d5a01fd1a9b68cbf8f7bea0cca4e86",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000810"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000810.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "9fd59eb4867e10862fb57c7281dce3a932c62c4db1e8315d16c10b001615c555",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000810"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000823.csv",
+    "records": 1,
+    "bytes": 130,
+    "sha256": "c365d571005ad8901a9379d0964dc274c3e605de41a63e919e5131cbad4d0686",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000823"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_000823.json",
+    "records": 1,
+    "bytes": 201,
+    "sha256": "dcc1ce9ed443f549b49ec66e57c37469634f8ebe102a146158d4af2eaae86aa2",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_000823"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001226.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "35c1b6a328c58c1021348abf8db97854e65e2075ee5b5a04ab7dd06553c6b347",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001226"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001226.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "fe5f1ff511f3d66c3fff77786aaec42c9a3cd9d28efca335432bd7bdea9741ff",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001226"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001232.csv",
+    "records": 1,
+    "bytes": 133,
+    "sha256": "a1494ea630da34764721be5836cc89a643abd86638318530e7bea0c1748b592e",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001232"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001232.json",
+    "records": 1,
+    "bytes": 204,
+    "sha256": "0366ba8e37ba4be392a06d6b87e8dafad29c4abcf45dd432a629e8116e7b53d4",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001232"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001308.csv",
+    "records": 1,
+    "bytes": 130,
+    "sha256": "b89d24050528c1dd75ed8bf0027bb6396a31a716ab8a6cc067fd49d4a6433257",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001308"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001308.json",
+    "records": 1,
+    "bytes": 201,
+    "sha256": "b1bc815736fd2b6649439ddb623ad92e53b0d2d91e7027ab7a41ac4770a66e13",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001308"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001314.csv",
+    "records": 1,
+    "bytes": 130,
+    "sha256": "7a8031853074f192f4e249c6214abbe99619554d6703aa85be5639a40b841fce",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001314"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001314.json",
+    "records": 1,
+    "bytes": 201,
+    "sha256": "db8f7f859fb118fbf3b2a703a8efabdbfd8faf621bc8ede37760a91ecbca49e1",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001314"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001318.csv",
+    "records": 1,
+    "bytes": 129,
+    "sha256": "eb97f4cdc4f74516ca93002621f5979721cdc2996973ebccc5fed83019646141",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001318"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001318.json",
+    "records": 1,
+    "bytes": 200,
+    "sha256": "b3433a8b4177f906d094e20f4b210b2d6c1a866019eff3fb5e596cd315637871",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001318"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001331.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "0bd93b86166b334bb1c70dc2e96cb020365dc7083d595b7878933fbd5a23e1bb",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001331"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001331.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "a045d9cbb3cbbb2f448570e7c594c0700be2743e899bee1da51d241829d696c6",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001331"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001339.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "de5fd678001b07877cb27613501704422f0386d155b2e13722214e620c9e277c",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001339"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001339.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "eda0be138582f12e3ddfb139e518ca1ad0ffb694895c8f359c0420032301353c",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001339"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001379.csv",
+    "records": 1,
+    "bytes": 130,
+    "sha256": "3f38009bc36375f5ffc4f03885559d3e579b84a3ef325906ebd5e7e24aeb0855",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001379"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001379.json",
+    "records": 1,
+    "bytes": 201,
+    "sha256": "82aa432ab09eec58c17b00c39d22791b78eaf9e4518cb32c6dfab9479ed17052",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001379"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001388.csv",
+    "records": 1,
+    "bytes": 130,
+    "sha256": "606c533b49e14a2de771d1cba724bc203e6550ce55262b1433b49060cae207d2",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001388"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001388.json",
+    "records": 1,
+    "bytes": 201,
+    "sha256": "600278c17c4cee85177af138ad1d7f57ed981e40da54fd29f48b1070e48e0516",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001388"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001390.csv",
+    "records": 1,
+    "bytes": 135,
+    "sha256": "d60c243c8c8ba2d391859eae0ce1540e288676048c986cde1426911f084d51c5",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001390"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_001390.json",
+    "records": 1,
+    "bytes": 206,
+    "sha256": "e56fcb98f02169c39856b08a030f4ef654c8822b4baeb3ff961449a50732b0aa",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_001390"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002009.csv",
+    "records": 1,
+    "bytes": 132,
+    "sha256": "de5020549d4972a23345bd03f77e704a6174a8ef2f0a318acc4ef252b5218bcd",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002009"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002009.json",
+    "records": 1,
+    "bytes": 203,
+    "sha256": "2bf5a4cdc5497f638c0eba2c3c1b9bbb71dae752e034d370725ddec445eed525",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002009"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002021.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "6658999115756f0b006cec20336a6f17eeb4d3696c7e87d08f74217d1200cc00",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002021"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002021.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "78c1b55244fab5751cf6d4a854e2f9bb10d20c25a9749cae8fc101ed96af1298",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002021"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002036.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "50a0bbb1a7a68a9cca822b00fb5cd80f71736614e62f1c0cbb2129d528bb1d94",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002036"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002036.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "6f9c4724bc2c7d9a4c701ca57d78dfe7a703958f76b44d3108d54a7de00550a2",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002036"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002037.csv",
+    "records": 1,
+    "bytes": 126,
+    "sha256": "936d7419e502c6e9c5cd82ff131901f6e29a7fafe746b1e669b96b09c8c0dc5a",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002037"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002037.json",
+    "records": 1,
+    "bytes": 197,
+    "sha256": "0c646738f8df66ef5b5ee45f05fa591239ce42ef61a50b4264547e1ad5ab1ba9",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002037"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002045.csv",
+    "records": 1,
+    "bytes": 132,
+    "sha256": "69eadbac0615126bc392c3c65875f2f95987761219a820630b1bdc1ba7306afa",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002045"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002045.json",
+    "records": 1,
+    "bytes": 203,
+    "sha256": "710750a93882d99ab5e4eb330e5c82b5ba793c70e4a6c3fb0114e3cdb1ba6960",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002045"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002048.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "dd85cdfe32b4c39954177d986994cc651ae28b6df91c34f6a41b391082943249",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002048"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002048.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "042ad7bf73a8fd32a237f43804ba3b834f52409d81cf3fbb287e97cfbab73f00",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002048"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002124.csv",
+    "records": 1,
+    "bytes": 126,
+    "sha256": "5154f63f4d08990db1d6e39dcc51361fc2b66050453c28cdec82c856a6b75a47",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002124"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002124.json",
+    "records": 1,
+    "bytes": 197,
+    "sha256": "f9087b7ec5f306c206677518036527415707062bc8c9a006599dbc722350aa74",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002124"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002149.csv",
+    "records": 1,
+    "bytes": 132,
+    "sha256": "646b5ffa74db6c13cc00caf50058cf029cec0eb4f6fc20a3fdf40e58463cd44b",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002149"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002149.json",
+    "records": 1,
+    "bytes": 203,
+    "sha256": "82c3426e3d10bc16592670ead71866ae1676ddb00cf25dfc84991af348fedcc1",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002149"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002160.csv",
+    "records": 1,
+    "bytes": 124,
+    "sha256": "6ec408d148c2c8c86366c3bb3c8104f99d544c5879baeb814aa788f87d1de9b0",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002160"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002160.json",
+    "records": 1,
+    "bytes": 195,
+    "sha256": "898265108f17584888b28097062a272e8fbe3c5dce7a0f76619e2ebe0a3b2447",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002160"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002172.csv",
+    "records": 1,
+    "bytes": 129,
+    "sha256": "9e0298cea5d0e6e3f1f9e885048d424a44de967067661a2476d0fc744e7a1f99",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002172"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002172.json",
+    "records": 1,
+    "bytes": 200,
+    "sha256": "bab52b1920640b242880ef283d9a01f8a0298c796e252abc29c5a77baba7d337",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002172"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002209.csv",
+    "records": 1,
+    "bytes": 129,
+    "sha256": "1f935c38b9021f837aa1927d8f7dd5f3838f0b67b8fdb69713138abdbb6ec682",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002209"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002209.json",
+    "records": 1,
+    "bytes": 200,
+    "sha256": "0b418e7582e89b2d7f3990ce510f3320efb2668f33b82d93eb6e11f2672b90a6",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002209"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002238.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "f163136c82b990ee85a67931e0369b9809a569308c2bfa27f01af14e488a39e6",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002238"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002238.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "0bb46f5162890221045b3e1fd914f342e4db72e3f1bef7db2d9ec874d48de78a",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002238"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002303.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "7e0198a61538105f6553ca01fb47dccbba3a0eed5ed227778e02010a0b1988df",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002303"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002303.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "e50683520c7f63aaebb2a87b32aea1b0cc7a8d184a956d15c293c45058084a37",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002303"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002313.csv",
+    "records": 1,
+    "bytes": 129,
+    "sha256": "6e7b0fa0b409e58c5e47b05f65812bc3c1fc1cadc1bacdbe1cfae00ac042f5d6",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002313"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002313.json",
+    "records": 1,
+    "bytes": 200,
+    "sha256": "7b8256d6b9b86f31ec9e2c43770470bb57976dea9680c7158aefc0fd823a2c1d",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002313"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002324.csv",
+    "records": 1,
+    "bytes": 126,
+    "sha256": "bd6ce61009f7575bbd2d551b6bb1c6fe5979da725c431f9216df93553cd7e639",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002324"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002324.json",
+    "records": 1,
+    "bytes": 197,
+    "sha256": "77602dc0dabd09cd7efa944ddd1fd12c74351a950c9141a755019ccd04e5f6b5",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002324"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002343.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "8b471d04c246ce47762c71ffbfd9db397ae9f6d4c859163a3175abece8505aff",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002343"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002343.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "5af3ba0d0a0af925f2a59402c1b2b6e1a1d2e15732dd1746649670f8bf165195",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002343"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002347.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "45f9acbb8b469133692c1d2343cd57a57350ab87caf62cb8df77c2725d7842a2",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002347"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002347.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "4b88fa42fac82833cbb464bb11c64360ec3877cd4b9b342e174bcf8fdd62be21",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002347"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002376.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "3eefde3e863ad48d7484a0f5e05090264b07b68f3c48d802cadbd6062921abc7",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002376"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002376.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "1e1738db345e5f91f1e2e1802527f61b1b525d7e8ed367bf2b2d099528daab47",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002376"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002425.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "901450e853f4c438fe691b76894079d268ad10f24dcd6643b2ce2b4bbe0b9ec9",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002425"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002425.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "eb31572f936431bd70d56d11f6ea4d906974fb5b12d6570f8f5904a8b6d51719",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002425"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002432.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "7d1832811d65414c37b63ab9c7894b509847f18da90ac59f06f04d44118ddce8",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002432"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002432.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "0bcbb078ef95ff9124156aadb2439cb458e714810cdd9d076758836579f7226f",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002432"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002488.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "681e87b9e7f59c68b00ef04a96374a49b879a48d5cfed483e48b3f861fc76064",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002488"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002488.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "e75a1e5ce42fb2b81c27a1dc10202c2d0f3d70c8b7c61fd780c4362bb686dc90",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002488"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002535.csv",
+    "records": 1,
+    "bytes": 126,
+    "sha256": "59932705e68c3d79c52e6fe65c65f1b7e4116520fc264979f40e7f397c2e2771",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002535"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002535.json",
+    "records": 1,
+    "bytes": 197,
+    "sha256": "6b59fbb4bf37b92034fa32fce70dba7ef9889d82a030bdd5c2c48059b99d5739",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002535"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002565.csv",
+    "records": 1,
+    "bytes": 132,
+    "sha256": "5e2cea359f881cbc7d708198f071c6624f506584416bc03cb1a4dba1344e7420",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002565"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002565.json",
+    "records": 1,
+    "bytes": 203,
+    "sha256": "961770e17baf383e345644bcef24798f01cbd3c2f65b4eb41aa2c749a0371591",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002565"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002596.csv",
+    "records": 1,
+    "bytes": 133,
+    "sha256": "97bddf65ab56192dcb272f7addf5cbc8acd85fa2030cd4078a1de00a86225e39",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002596"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002596.json",
+    "records": 1,
+    "bytes": 204,
+    "sha256": "02bcf51fbf414041dd4cfd72b42eaaaa1fd7bcfe8a52bcb5156cf7c39b4bac36",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002596"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002614.csv",
+    "records": 1,
+    "bytes": 126,
+    "sha256": "a666d9f97c7758a89dc8c438fda0a095d135982c42af72cdd43be7f3925c92ae",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002614"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002614.json",
+    "records": 1,
+    "bytes": 197,
+    "sha256": "7e412fcaab728a357201e7a15d42afb56fabd3bdab2a6863b3c8b3298b44c028",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002614"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002631.csv",
+    "records": 1,
+    "bytes": 130,
+    "sha256": "9effd97f61f16bf3b5b472e4dcf9d8a4dbb21f5b573553186a175f8c310a023e",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002631"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002631.json",
+    "records": 1,
+    "bytes": 201,
+    "sha256": "44b3b7d5902346603ca3049ea31179008ded565a409c9faf87a1cac65f252280",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002631"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002638.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "abec206b6e7c8f7efea406bcc7bd0b6a5536d4139caee44f774146e7e2cf3f61",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002638"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002638.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "7c63858de586d996490c001e0dda25ba4e676b460c10756ee9641d9dd499f38b",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002638"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002639.csv",
+    "records": 1,
+    "bytes": 133,
+    "sha256": "fc251a48c9c7c2fddc2ba8b0776d6d925b65b4b3aacb1771dc5cc35b53e47fbc",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002639"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002639.json",
+    "records": 1,
+    "bytes": 204,
+    "sha256": "e88f763239c6d0773fc739e313d91f31b5de2af45280d0e3d365b94f1fcbe1a0",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002639"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002664.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "c11eddfceb45747a07091533b8cd6097a3b69f738e256fb014db40f4d891e3da",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002664"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002664.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "d3ed78e0c8934b66389af00886d7b58d35db0c81a3e8e1e8a042b0c3ac78d1d2",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002664"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002708.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "9b48d3cbb71f4d418a037e70e52ff51efdf2cd3d76a65bb6bc9c8fd4bf2010c0",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002708"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002708.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "4f8b2faa9132db7a82a9901838afd11ac8b9c2cf1e0f8670cf5f4893d394ebc8",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002708"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002811.csv",
+    "records": 1,
+    "bytes": 129,
+    "sha256": "f8a6cdfc10e3831164331182919b2f32e598d10b64553f50d59935bbb57fd771",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002811"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002811.json",
+    "records": 1,
+    "bytes": 200,
+    "sha256": "a17f1adfe07c13928a05fcdba8b355ae3a3911c7720773a3e33d4b9f8dee90d7",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002811"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002861.csv",
+    "records": 1,
+    "bytes": 129,
+    "sha256": "09792f056c49823586e172a384ee3d0fdead4466a7b4d11c5221bfedb98e75cd",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002861"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002861.json",
+    "records": 1,
+    "bytes": 200,
+    "sha256": "243c9b4ea70cef38a5131cdc2157917ecb587d06b31a43c875c95bffc20697bd",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002861"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002864.csv",
+    "records": 1,
+    "bytes": 138,
+    "sha256": "6301656ce47fe9f2a5f0ed89c220f4de681cc9613eaa060363a4747933219870",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002864"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002864.json",
+    "records": 1,
+    "bytes": 209,
+    "sha256": "b50d308465e7505103a5087be871a63af391699fbe58c4b2c83a3f3b96cf984e",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002864"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002865.csv",
+    "records": 1,
+    "bytes": 130,
+    "sha256": "67c79ebdc7be10b8090388002dbcec099c63f112194bd47bd3f2659c28f8f46e",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002865"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002865.json",
+    "records": 1,
+    "bytes": 201,
+    "sha256": "e89a0316b27ff46bfe70ba16752e14238f9e5fe2d507a743f1442d130a16cbb4",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002865"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002870.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "3e590884ef8fbdcffaf9fce4cc66f49c675fd995352ad5202c8fb4f99b352185",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002870"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002870.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "8443c573ab3c97df411837815a23f5ed47ed08c251634d9e482c333e61ad26b8",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002870"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002876.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "da5d7cccb17c1061f615f192b921a11de765d905fb5a90770837b09313415d76",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002876"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002876.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "09b08d9b8653a627b07032fb8769c13d3eeab79a1cff823e40af6ef9a6c4331e",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002876"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002905.csv",
+    "records": 1,
+    "bytes": 126,
+    "sha256": "a05e1f7036938a9360303f322b2b92bfa3681844ad5dbd855b97898b66ad415c",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002905"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002905.json",
+    "records": 1,
+    "bytes": 197,
+    "sha256": "2736c94ba90bd1e77eea434862a2671600e9b71f7719ea79b65e0c76145b81c8",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002905"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002913.csv",
+    "records": 1,
+    "bytes": 130,
+    "sha256": "29fd113be6ed14bc480c87855d70883b0330d7b05a489e18e6882834556bd216",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002913"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002913.json",
+    "records": 1,
+    "bytes": 201,
+    "sha256": "e74e831ce8befe2fe4b672f60bfcdc9bc0b0496a168262d76721e9014b92644b",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002913"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002931.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "29d46390caf41867b536ead07a9fa5c8d6fde2d9c6e30116126f526743102912",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002931"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002931.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "a6fe2ff5cea07d97411b253ff18a70f0abae32a6e7b2dd3adfbad79d7820c4cc",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002931"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002981.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "d934d18572b3ae50dd68af25a8d6a61ceae4262efcb65b6eb50f72b6aed5fe30",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002981"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002981.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "6ef0e7626591f76564d7cdafc3c863563dbaea3ba88f5ea0d08f291acd92d412",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002981"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002995.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "f6fe1f5c83ece67869a9ee5becc454568a409b9aa7fd465803813239ff4cecf3",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002995"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_002995.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "034740af3e38e4d916b687eee361568a97e4dce09448369b94fa52dd7f21b560",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_002995"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_003004.csv",
+    "records": 1,
+    "bytes": 130,
+    "sha256": "926a8e7efd575cb41e3477e5d75d256254b46cfa095514a4c20c1596efb5775d",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_003004"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_003004.json",
+    "records": 1,
+    "bytes": 201,
+    "sha256": "8582159c5f06b1b0561fbc0155c325a869f4a0782329d9b66d2b9b1599a9bdaa",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_003004"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600121.csv",
+    "records": 1,
+    "bytes": 134,
+    "sha256": "7151ea1459a7ed793e8acf0f25b6cfcffe2876290d208f75d53ac9a86dedcb3f",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600121"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600121.json",
+    "records": 1,
+    "bytes": 205,
+    "sha256": "3990d8d8f34d5d776abef9a32a15f9807845c1b38734ee70cde631ce4de63f68",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600121"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600261.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "5e7d57db86e374ff31704e99debcfee50a367697f58b91503dc552f495717bf9",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600261"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600261.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "96b194ff76e519320144e95609ddfd085a1c2511db98e58c4a3731bfd9551fc2",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600261"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600281.csv",
+    "records": 1,
+    "bytes": 134,
+    "sha256": "52082956eb3be6a7b2c4ad0154c991452a88ddadd9479f8568b649c0ae88ef63",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600281"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600281.json",
+    "records": 1,
+    "bytes": 205,
+    "sha256": "009725ef5de707c0e2c91736cc454ebfd781a2886e3a334ba56f3acea38f601a",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600281"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600408.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "bf95d537c2e353c72ccd59e3db04ceb0a55b5ab1d58d5a94417c65695dcc50be",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600408"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600408.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "2fcec9c705898ed50797cf27f5c4f14dc9cf6ba96516e6cd516119ec3c2898e9",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600408"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600510.csv",
+    "records": 1,
+    "bytes": 126,
+    "sha256": "67d0ce1b33419474de8b732c892df02e1aca36061da19ddf5b9182993850c7ee",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600510"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600510.json",
+    "records": 1,
+    "bytes": 197,
+    "sha256": "556dec424e6a286f834218169ea297a0d75f14055df997bf16efdda9c99d5552",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600510"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600609.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "912bb51558867d484de6bdda9bf7f75995599d48a0c018eed6bf8fda82c1f1be",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600609"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600609.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "36a23e7a314e6e3bf603c351eeb8836ea8e3a0867f1c08122a0db0f5e216496d",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600609"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600715.csv",
+    "records": 1,
+    "bytes": 129,
+    "sha256": "e78b8eabb28f6523f782c956dec6575315a94c0c1406dbce234e56a063942f25",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600715"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600715.json",
+    "records": 1,
+    "bytes": 200,
+    "sha256": "df50286df3ed648c84a05e88c7ec6220018d5844a528da697e946e19cd2f4931",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600715"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600776.csv",
+    "records": 1,
+    "bytes": 132,
+    "sha256": "4fb90f87f60a1e3f15889a29270a2baf5d92cd361e24bb1e4256db41b02a0f67",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600776"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600776.json",
+    "records": 1,
+    "bytes": 203,
+    "sha256": "360258b7a725cdf181c759d370d28e061bf1373d5ee4a096e6756558a66b1912",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600776"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600778.csv",
+    "records": 1,
+    "bytes": 125,
+    "sha256": "7c5ba49c1ebb50f8cff03ba4349f0283cf4dc96a4f70f82b0b753c9f488a3da9",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600778"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600778.json",
+    "records": 1,
+    "bytes": 196,
+    "sha256": "b5d42d6e72f9f07219ba9ef3b0c7a81bbec1a7b4c1d6125afaa8997f474e4752",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600778"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600792.csv",
+    "records": 1,
+    "bytes": 126,
+    "sha256": "1a870fe4a0f22404c9154da85ec0d59ec371fda8cafb654e13846060287d1861",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600792"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600792.json",
+    "records": 1,
+    "bytes": 197,
+    "sha256": "c573b7b9a04693ff5e0a6cf7b821b7c31518cf3dac583551f227184e74df3b0c",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600792"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600793.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "3bc1b978839b348462a634cdecfc6d72912a1f67f18a3801d4c5621e30f75b6f",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600793"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600793.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "3e2f117d7d3ba6dbeb51e1ffd0a6176d0706a0d518ebc8dbc51db55d3cb83270",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600793"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600829.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "d57c4f8f4008a0ac7d136657610c0ebe7f003cb67a328a7222cd0e1c2a49b92a",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600829"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600829.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "8841b62016225816de0c24b96e93df33b7e6118e11db62e6a8d9a919667d32d6",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600829"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600838.csv",
+    "records": 1,
+    "bytes": 133,
+    "sha256": "e863702e54f8e2914498c6f81ca00bfe0652bdba096f433d233c10dd65f42730",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600838"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600838.json",
+    "records": 1,
+    "bytes": 204,
+    "sha256": "ed74bfa5fa81107b518789ae160fa8bd6c274b9dbaca4a2c3b26ca578b695368",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600838"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600853.csv",
+    "records": 1,
+    "bytes": 127,
+    "sha256": "2c70a9086b86de88754de5f7fab11645abc61dd42ec1b85d1f7bbb636f2309e9",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600853"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600853.json",
+    "records": 1,
+    "bytes": 198,
+    "sha256": "7a372a000bb60e5144b4f1510fcad8aefe6ae0db88d6d8e3cba33834bc6b8255",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600853"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600892.csv",
+    "records": 1,
+    "bytes": 128,
+    "sha256": "5065b78de07d592e3ebf1f7452c44caba583728bde178e57cf2eaeeae80f2d49",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600892"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_600892.json",
+    "records": 1,
+    "bytes": 199,
+    "sha256": "85ad17296f80af62449e1269215ec67f3f4c08ca469e133b6ca6e0a1a476f993",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_600892"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_601595.csv",
+    "records": 1,
+    "bytes": 131,
+    "sha256": "4f8e86035ca6811b0ef5cb3200d655fd14abc61e38879b8069df9fe0e08181fd",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/price_601595.json",
+    "records": 1,
+    "bytes": 202,
+    "sha256": "cb7cda2c71907c9ada64a86e4d196c6199de932eb2b6d903d92462dbfa5e2ce0",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "turnover",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "price_601595"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/spot_fallback.csv",
+    "records": 5350,
+    "bytes": 542626,
+    "sha256": "dc308bfaa4eacb1b83e78bb29edfb1ffa5a222ea057259ee2085abb01d92fcb3",
+    "fields": [
+      "买入",
+      "今开",
+      "代码",
+      "卖出",
+      "名称",
+      "成交量",
+      "成交额",
+      "时间戳",
+      "昨收",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅",
+      "涨跌额"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "spot_fallback"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/spot_fallback.json",
+    "records": 5350,
+    "bytes": 1831858,
+    "sha256": "cc2443753cb3eb7ee13f35abea7a4517f79d7db3b15c633535f7f4178069bbf2",
+    "fields": [
+      "买入",
+      "今开",
+      "代码",
+      "卖出",
+      "名称",
+      "成交量",
+      "成交额",
+      "时间戳",
+      "昨收",
+      "最低",
+      "最新价",
+      "最高",
+      "涨跌幅",
+      "涨跌额"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "spot_fallback"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/yesterday_pool.csv",
+    "records": 93,
+    "bytes": 13471,
+    "sha256": "f599744cb11b80a4d9ec5402325df88502bee58ad90811d7771449facb1f6c2b",
+    "fields": [
+      "代码",
+      "名称",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "振幅",
+      "换手率",
+      "昨日封板时间",
+      "昨日连板数",
+      "最新价",
+      "流通市值",
+      "涨停价",
+      "涨停统计",
+      "涨跌幅",
+      "涨速"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "yesterday_pool"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/yesterday_pool.json",
+    "records": 93,
+    "bytes": 42502,
+    "sha256": "f5c413d44cf7ddab54bc90fd62ece4e21f5e178cfef445771e9fccc6b7d1deb1",
+    "fields": [
+      "代码",
+      "名称",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "振幅",
+      "换手率",
+      "昨日封板时间",
+      "昨日连板数",
+      "最新价",
+      "流通市值",
+      "涨停价",
+      "涨停统计",
+      "涨跌幅",
+      "涨速"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "yesterday_pool"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "report.md",
+    "records": null,
+    "bytes": 27952,
+    "sha256": "2aa8fcf28649e3f0bafbb347f5f6d0e5da95b1e15c9514a7a2c48ee628d3515a",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "spot_fallback",
+      "official_roster_sh_main",
+      "official_roster_sh_star",
+      "official_roster_sz_retry1",
+      "official_roster_bj",
+      "official_szse_summary",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595",
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "sources.json",
+    "records": 1,
+    "bytes": 69703,
+    "sha256": "40c262d987518fd5a62f421b3ebde3475939d9a152ff7e6e6dee9f5c9d51c90b",
+    "fields": [
+      "broken",
+      "calendar",
+      "index_csi932000",
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006",
+      "index_official_csi932000",
+      "index_retry_csi932000",
+      "index_retry_sh000001",
+      "index_retry_sz399001",
+      "index_retry_sz399006",
+      "index_sh000001",
+      "index_sz399001",
+      "index_sz399006",
+      "limit_down",
+      "limit_up",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "official_roster_bj",
+      "official_roster_sh_main",
+      "official_roster_sh_star",
+      "official_roster_sz",
+      "official_roster_sz_retry1",
+      "official_szse_summary",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595",
+      "spot",
+      "spot_fallback",
+      "yesterday_pool"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "spot_fallback",
+      "official_roster_sh_main",
+      "official_roster_sh_star",
+      "official_roster_sz_retry1",
+      "official_roster_bj",
+      "official_szse_summary",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595",
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "summary.json",
+    "records": 1,
+    "bytes": 124247,
+    "sha256": "4386d5aada5613edcba832c39285df30cd82e105fa10f3b3a470a4dddf998e03",
+    "fields": [
+      "calendar_covered",
+      "candidate_price_quality",
+      "collection_failures",
+      "collection_scope",
+      "collection_status",
+      "estimates",
+      "fetched_at",
+      "followup",
+      "followup_price_coverage",
+      "market_reconciliation",
+      "missing_data",
+      "price_coverage",
+      "promotion",
+      "research_status",
+      "run_id",
+      "schema_version",
+      "selected_as_latest",
+      "source_failures",
+      "status",
+      "theme",
+      "trade_date",
+      "trading_day",
+      "verified"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "spot_fallback",
+      "official_roster_sh_main",
+      "official_roster_sh_star",
+      "official_roster_sz_retry1",
+      "official_roster_bj",
+      "official_szse_summary",
+      "market_quote_001220",
+      "market_quote_001221",
+      "market_quote_001232",
+      "market_quote_001233",
+      "market_quote_001237",
+      "price_000026",
+      "price_000530",
+      "price_000593",
+      "price_000678",
+      "price_000782",
+      "price_000810",
+      "price_000823",
+      "price_001226",
+      "price_001232",
+      "price_001308",
+      "price_001314",
+      "price_001318",
+      "price_001331",
+      "price_001339",
+      "price_001379",
+      "price_001388",
+      "price_001390",
+      "price_002009",
+      "price_002021",
+      "price_002036",
+      "price_002037",
+      "price_002045",
+      "price_002048",
+      "price_002124",
+      "price_002149",
+      "price_002160",
+      "price_002172",
+      "price_002209",
+      "price_002238",
+      "price_002303",
+      "price_002313",
+      "price_002324",
+      "price_002343",
+      "price_002347",
+      "price_002376",
+      "price_002425",
+      "price_002432",
+      "price_002488",
+      "price_002535",
+      "price_002565",
+      "price_002596",
+      "price_002614",
+      "price_002631",
+      "price_002638",
+      "price_002639",
+      "price_002664",
+      "price_002708",
+      "price_002811",
+      "price_002861",
+      "price_002864",
+      "price_002865",
+      "price_002870",
+      "price_002876",
+      "price_002905",
+      "price_002913",
+      "price_002931",
+      "price_002981",
+      "price_002995",
+      "price_003004",
+      "price_600121",
+      "price_600261",
+      "price_600281",
+      "price_600408",
+      "price_600510",
+      "price_600609",
+      "price_600715",
+      "price_600776",
+      "price_600778",
+      "price_600792",
+      "price_600793",
+      "price_600829",
+      "price_600838",
+      "price_600853",
+      "price_600892",
+      "price_601595",
+      "index_fallback_sh000001",
+      "index_fallback_sz399001",
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  }
+]
