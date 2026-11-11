@@ -31,6 +31,10 @@ def make_files(root):
     values = {'latest.json': payload, 'leader_watch.json': watch, 'leader_prices.json': prices}
     for name in ('theme_catalog', 'theme_members', 'theme_coverage', 'theme_history', 'theme_lifecycle'):
         values[name + '.json'] = [{k:v for k,v in r.items() if k != 'origin_run'} for r in read(clean / (name + '.json'))]
+    evidence_path = clean / 'dated_theme_evidence.json'
+    if evidence_path.exists():
+        values['dated_theme_evidence.json'] = read(evidence_path)
+        payload['coverage'] = sorted(payload['coverage'] + ['evidence:'+r['theme_id']+':'+r['code'] for r in values['dated_theme_evidence.json']])
     result = {name:json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) for name,value in values.items()}
     result['README.md'] = (f'# 题材与龙头观察数据\n\n交易日：{payload["trade_date"]}；状态：{payload["status"]}。\n\n'
         '先检查日期与缺失。四板候选不是确认龙头；概念成分只证明抓取时归属。价格缺失不代表停牌，观察不保证成交，不计算真实收益。'

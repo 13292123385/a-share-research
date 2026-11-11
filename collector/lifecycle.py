@@ -247,15 +247,27 @@ def main():
         r['current_pool_status'] = 'missing_archive' if pools.get(target) is None else 'limit_up' if previous_up else 'not_in_limit_up_pool'
         watch.append(r)
         seen.add(r['code'])
+    theme_started = time.monotonic()
     catalog, members, theme_coverage, theme_status = collect_themes(c, target,
         datetime.now(TZ).date().isoformat(), a.theme_budget,
         prior_tables(a.output, target, 'theme_coverage'))
+    evidence = []
+    evidence_remaining = a.theme_budget - (time.monotonic() - theme_started) - c.delay
+    if not members and evidence_remaining > 1:
+        c.timeout = min(c.timeout, evidence_remaining)
+        evidence = c.call('dated_theme_evidence', 'dated_theme_evidence',
+            trade_date=target, archive_path=str(root / 'raw' / 'dated_theme_evidence.html')) or []
+        c.calls['dated_theme_evidence'].update(provider='打板客公开复盘',
+            documentation='https://www.dabanke.com/index-'+target.replace('-','')+'.html',
+            raw_format='日期核对后的网页解析表；HTML单独归档；第三方活跃股关联，非完整成分')
+        dump(root / 'sources.json', c.calls)
+    table(root / 'clean' / 'dated_theme_evidence', evidence)
     mapping = {}
-    for member in members:
+    for member in members + evidence:
         mapping.setdefault(member['code'], []).append(member['theme_id'])
     for r in watch:
         r['theme_ids'] = sorted(mapping.get(r['code'], []))
-        r['theme_status'] = 'observed_membership_only' if r['theme_ids'] else 'missing_evidence'
+        r['theme_status'] = ('observed_membership_only' if members else 'published_active_association_only') if r['theme_ids'] else 'missing_evidence'
     table(root / 'clean' / 'leader_watch', watch)
     prices = collect_prices(c, watch, days, target, a.budget, prior_tables(a.output, target, 'leader_prices'))
     table(root / 'clean' / 'leader_prices', prices)
@@ -287,6 +299,7 @@ def main():
         price_budget=a.budget, theme_budget=a.theme_budget,
         missing_archive_dates=[d for d in days if pools.get(d) is None],
         watch_count=len(watch), theme_status=theme_status,
+        dated_evidence_rows=len(evidence), evidence_scope='partial_selected_active_stocks' if evidence else 'missing',
         note='候选不是已确认龙头；逐日不复权OHLCV，缺失不推断停牌；持续保留候选，覆盖断板后至少20交易日；无成交或收益推断'))
     inventory(root, c.calls)
     print(root)

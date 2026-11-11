@@ -87,7 +87,9 @@ class LifecycleTests(unittest.TestCase):
     def test_end_to_end_append_only_replay_quality_public(self):
         # Synthetic provider fixtures belong only to tests, never production archives.
         def call(c, key, function, **kwargs):
-            if function == 'tool_trade_date_hist_sina':
+            if function == 'dated_theme_evidence':
+                rows = []
+            elif function == 'tool_trade_date_hist_sina':
                 rows = [dict(trade_date=d) for d in ('2026-10-09','2026-10-12')]
             else:
                 rows = [dict(date=d, open=10, high=11, low=9, close=10, volume=100)
