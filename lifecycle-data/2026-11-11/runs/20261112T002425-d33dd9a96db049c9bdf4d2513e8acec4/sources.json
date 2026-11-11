@@ -1,0 +1,33 @@
+{
+  "calendar": {
+    "function": "tool_trade_date_hist_sina",
+    "provider": "AKShare / 新浪",
+    "parameters": {},
+    "fetched_at": "2026-11-12T00:24:25.354105+08:00",
+    "status": "ok",
+    "rows": 8797,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": null,
+    "sha256": "552e6d424c049845be3d46eeddf0f82347140c35ba8c14ad9948831dff55d9aa",
+    "finished_at": "2026-11-12T00:24:29.590735+08:00"
+  },
+  "dated_theme_evidence": {
+    "function": "dated_theme_evidence",
+    "provider": "打板客公开复盘",
+    "parameters": {
+      "trade_date": "2026-11-11",
+      "archive_path": "lifecycle-data/2026-11-11/runs/20261112T002425-d33dd9a96db049c9bdf4d2513e8acec4/raw/dated_theme_evidence.html"
+    },
+    "fetched_at": "2026-11-12T00:24:29.615459+08:00",
+    "status": "ok",
+    "rows": 363,
+    "missing_fields": [],
+    "documentation": "https://www.dabanke.com/index-20261111.html",
+    "raw_format": "日期核对后的网页解析表；HTML单独归档；第三方活跃股关联，非完整成分",
+    "requested_trade_date": "2026-11-11",
+    "sha256": "1ac869294f5fde835bd692fccdf8a9c64f0487a3628e77cf8e9ae6feda7422b0",
+    "finished_at": "2026-11-12T00:24:33.796693+08:00"
+  }
+}

@@ -1,0 +1,543 @@
+[
+  {
+    "path": "archive_inputs.json",
+    "records": 14,
+    "bytes": 1479697,
+    "sha256": "4cfa9a85f6296ce334f27fbebb105da11c746be96cc309c7eae5c0a30ff36c90",
+    "fields": [
+      "date",
+      "raw_json",
+      "rows",
+      "run_id",
+      "sha256"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "calendar_inputs.json",
+    "records": 14,
+    "bytes": 226,
+    "sha256": "d950551e0f133c4b8ef5b21e1dd1479128de95131eabc06650a9ed567c536c6c",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/dated_theme_evidence.csv",
+    "records": 363,
+    "bytes": 166770,
+    "sha256": "ebcf541e762cd493cb0a0697458e85fa4d317c0a3bee8e830f97da148c0fd174",
+    "fields": [
+      "code",
+      "coverage",
+      "execution_verified",
+      "fetched_at",
+      "mapping_kind",
+      "name",
+      "note",
+      "observation_date",
+      "source",
+      "source_price_used",
+      "source_sha256",
+      "source_url",
+      "theme_id",
+      "theme_name"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/dated_theme_evidence.json",
+    "records": 363,
+    "bytes": 274425,
+    "sha256": "1ac869294f5fde835bd692fccdf8a9c64f0487a3628e77cf8e9ae6feda7422b0",
+    "fields": [
+      "code",
+      "coverage",
+      "execution_verified",
+      "fetched_at",
+      "mapping_kind",
+      "name",
+      "note",
+      "observation_date",
+      "source",
+      "source_price_used",
+      "source_sha256",
+      "source_url",
+      "theme_id",
+      "theme_name"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/leader_prices.csv",
+    "records": 179,
+    "bytes": 64207,
+    "sha256": "e50236bee39eeabedec695fa9459788c6ff5f5e9781dfbebd6fe9a213625d22d",
+    "fields": [
+      "attempted_at",
+      "code",
+      "entry_price",
+      "execution_verified",
+      "missing_reason",
+      "observation_date",
+      "origin_run",
+      "price",
+      "reused_from_prior_run",
+      "status",
+      "volume_unit"
+    ],
+    "missing_fields": {
+      "entry_price": 179,
+      "missing_reason": 179
+    },
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [
+      "20261111T235656-136faba6650449b98f633d88da31f761"
+    ],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/leader_prices.json",
+    "records": 179,
+    "bytes": 115618,
+    "sha256": "10d8759833fd047e2faa2aa61cbee374eb2adf771844493ff406f7f77a26fdcb",
+    "fields": [
+      "attempted_at",
+      "code",
+      "entry_price",
+      "execution_verified",
+      "missing_reason",
+      "observation_date",
+      "origin_run",
+      "price",
+      "reused_from_prior_run",
+      "status",
+      "volume_unit"
+    ],
+    "missing_fields": {
+      "entry_price": 179,
+      "missing_reason": 179
+    },
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [
+      "20261111T235656-136faba6650449b98f633d88da31f761"
+    ],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/leader_watch.csv",
+    "records": 17,
+    "bytes": 2509,
+    "sha256": "8300df31a7dcaca2ccf4c5bab53696182b5be3485d3248f81b9220adaaa8806a",
+    "fields": [
+      "candidate_basis",
+      "code",
+      "current_pool_status",
+      "entry_price",
+      "execution_verified",
+      "first_observed",
+      "last_confirmed_break_date",
+      "leader_confirmed",
+      "name",
+      "observation_date",
+      "sessions_after_break",
+      "theme_ids",
+      "theme_status"
+    ],
+    "missing_fields": {
+      "entry_price": 17,
+      "last_confirmed_break_date": 2,
+      "leader_confirmed": 17,
+      "sessions_after_break": 2
+    },
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/leader_watch.json",
+    "records": 17,
+    "bytes": 7998,
+    "sha256": "e8b04d7e10ff86cb969287fa5ba59ed87cee49095eef4ec05aa510b498c677e7",
+    "fields": [
+      "candidate_basis",
+      "code",
+      "current_pool_status",
+      "entry_price",
+      "execution_verified",
+      "first_observed",
+      "last_confirmed_break_date",
+      "leader_confirmed",
+      "name",
+      "observation_date",
+      "sessions_after_break",
+      "theme_ids",
+      "theme_status"
+    ],
+    "missing_fields": {
+      "entry_price": 17,
+      "last_confirmed_break_date": 2,
+      "leader_confirmed": 17,
+      "sessions_after_break": 2
+    },
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_catalog.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_catalog.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_coverage.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_coverage.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_history.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_history.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_lifecycle.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_lifecycle.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_members.csv",
+    "records": 0,
+    "bytes": 11,
+    "sha256": "845f8526eb1b99b597a31cb15f2ecd9377e6b73bf5bb40efa7a95131994d4e22",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/theme_members.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "implementation.json",
+    "records": 1,
+    "bytes": 656,
+    "sha256": "d58345ecdc5224e99cede4723cbc56724c2b7bd8206d9cf186bbfd7266ccf768",
+    "fields": [
+      "akshare",
+      "modules",
+      "price_budget",
+      "python",
+      "theme_budget"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "manual_inputs.json",
+    "records": 0,
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "raw/calendar.csv",
+    "records": 8797,
+    "bytes": 219940,
+    "sha256": "66017c2f2edb84cadd35813649a6c14179a618e97b9fb6919f3bd383a54df40f",
+    "fields": [
+      "trade_date"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/calendar.json",
+    "records": 8797,
+    "bytes": 466243,
+    "sha256": "552e6d424c049845be3d46eeddf0f82347140c35ba8c14ad9948831dff55d9aa",
+    "fields": [
+      "trade_date"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/dated_theme_evidence.csv",
+    "records": 363,
+    "bytes": 166770,
+    "sha256": "ebcf541e762cd493cb0a0697458e85fa4d317c0a3bee8e830f97da148c0fd174",
+    "fields": [
+      "code",
+      "coverage",
+      "execution_verified",
+      "fetched_at",
+      "mapping_kind",
+      "name",
+      "note",
+      "observation_date",
+      "source",
+      "source_price_used",
+      "source_sha256",
+      "source_url",
+      "theme_id",
+      "theme_name"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/dated_theme_evidence.html",
+    "records": null,
+    "bytes": 831039,
+    "sha256": "1dfc1218e816a098f826d644c441f76311c93d26278f405f165ce1377131433d",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/dated_theme_evidence.json",
+    "records": 363,
+    "bytes": 274425,
+    "sha256": "1ac869294f5fde835bd692fccdf8a9c64f0487a3628e77cf8e9ae6feda7422b0",
+    "fields": [
+      "code",
+      "coverage",
+      "execution_verified",
+      "fetched_at",
+      "mapping_kind",
+      "name",
+      "note",
+      "observation_date",
+      "source",
+      "source_price_used",
+      "source_sha256",
+      "source_url",
+      "theme_id",
+      "theme_name"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "sources.json",
+    "records": 1,
+    "bytes": 1343,
+    "sha256": "88880e73583dd30461655e5338e97fcce987a7e6be346aa2e3e6ad242ce89ccc",
+    "fields": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "summary.json",
+    "records": 1,
+    "bytes": 687,
+    "sha256": "283ab542978d4d6491944b429cdecca15ef0995fc4c7e21c2cab18e2f21112e9",
+    "fields": [
+      "dated_evidence_rows",
+      "evidence_scope",
+      "fetched_at",
+      "min_post_break_sessions",
+      "missing_archive_dates",
+      "missing_price_rows",
+      "note",
+      "price_budget",
+      "price_rows",
+      "run_id",
+      "schema_version",
+      "status",
+      "theme_budget",
+      "theme_status",
+      "trade_date",
+      "watch_count"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "dated_theme_evidence"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  }
+]
