@@ -91,6 +91,18 @@ def validate_run(root):
         for ident, r in coverage.items():
             if r['status'] == 'available' and r['member_count'] != sum(m['theme_id'] == ident for m in members):
                 errors.append('member count mismatch')
+        evidence_file = root / 'clean' / 'dated_theme_evidence.json'
+        if evidence_file.exists():
+            evidence = read(evidence_file)
+            evidence_pairs = set()
+            for r in evidence:
+                pair = (r['theme_id'], r['code'])
+                if pair in evidence_pairs or r['observation_date'] != target or r.get('coverage') != 'partial_selected_active_stocks' or r.get('source_price_used') is not False:
+                    errors.append('invalid dated theme evidence')
+                evidence_pairs.add(pair)
+                html = root / 'raw' / 'dated_theme_evidence.html'
+                if not html.exists() or hashlib.sha256(html.read_text(encoding='utf-8').encode('utf-8')).hexdigest() != r['source_sha256']:
+                    errors.append('dated evidence HTML mismatch')
         if summary.get('status') == 'complete' and (any(r['status'] != 'available' for r in rows) or summary['theme_status'] != 'available'):
             errors.append('false completeness')
     except (OSError, ValueError, KeyError, TypeError) as exc:
