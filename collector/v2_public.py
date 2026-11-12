@@ -124,6 +124,7 @@ def _markdown(payload):
         return '未知' if value is None else f'{value:.2f}' if isinstance(value, (int, float)) else str(value)
     lines = [f'# 题材与核心股 V2｜{payload["trade_date"]}', '',
         '普通沪深主板非ST；当前发布为研究观察。先检查日期、数据范围与缺失。',
+        '分数为0–100的样本观察活跃度，按5/10/20/40日加权；完整历史成分与正式市场强度仍缺失。',
         '部分活跃股关联不能证明全市场最强；价格涨幅不是可成交策略收益。', '']
     for seat, title in (('A', '最强主线'), ('B', '最强挑战者'), ('C', '新晋热点')):
         row = payload['selection']['seats'][seat]
@@ -143,9 +144,13 @@ def _markdown(payload):
                           f'领先要求 {pending.get("required_margin")}分。', '']
         cores = payload['core_by_theme'].get(row['theme_id'], [])
         for core in cores:
+            height = core.get('current_height')
+            height_text = f'{height:g}板' if isinstance(height, (int, float)) else '断板/未封板' if core.get('current_limit_up') is False else '未知'
             lines += [f'- **{core["name"]} {core["code"]}｜{"、".join(core.get("roles", []))}**：'
                 f'观察轮 {fmt(core.get("round_return_pct"))}%；5日 {fmt(core.get("return_5d_pct"))}%；'
-                f'当前回撤 {fmt(core.get("drawdown_pct"))}%；{core.get("lifecycle_stage", "未知")}。']
+                f'当前回撤 {fmt(core.get("drawdown_pct"))}%；{core.get("lifecycle_stage", "未知")}。'
+                f'当前{height_text}，窗口最高{fmt(core.get("max_height"))}板；'
+                f'观察段起点{core.get("round_start") or "未知"}；相对市场5日强度{fmt(core.get("relative_strength_5d_pct"))}。']
             bases = [r['basis'] for r in core.get('role_evidence', {}).values() if r.get('basis')]
             if bases:
                 lines += ['  依据：' + '；'.join(dict.fromkeys(bases)) + '。']
@@ -170,14 +175,22 @@ def _markdown(payload):
             proof = change.get('evidence', {})
             lines += [f'- 正式主线换位：{proof.get("incumbent")} → {proof.get("challenger")}；'
                       f'领先 {proof.get("score_gap")}分，已确认 {proof.get("sessions")}个相邻交易日。']
-        elif change.get('code'):
-            lines += [f'- {change["code"]} {change.get("name", "")}：{change["kind"]}；{change.get("reason", "")}。']
+        elif change['kind'] in ('new_core', 'initial_core_observation'):
+            label = '新晋核心' if change['kind'] == 'new_core' else '首次记录核心'
+            lines += [f'- {label}：{change.get("name", "")} {change.get("code", "")}｜' + '、'.join(change.get('roles', [])) + '。']
+        elif change['kind'] == 'core_role_change':
+            lines += [f'- {change.get("theme_id", "")} {change.get("code")}角色：' + '、'.join(change.get('previous', [])) + ' → ' + '、'.join(change.get('current', [])) + '。']
+        elif change['kind'] == 'removed_from_focus_pool':
+            lines += [f'- 移出重点池：{change.get("code")}；当日席位或角色证据未达要求。']
+        elif change['kind'] == 'challenger_pending':
+            lines += ['- 挑战者领先正在持续确认，尚未正式换位。']
     lines += ['']
     lines += ['## 实盘研究', '', f'符合已验证条件的候选 {len(payload["trading"]["candidates"])}只；持仓计划最多4只。',
         '观察池最多9只；一字板排队成交、次日入场与T+1退出需分别验证。', '', '## 数据覆盖与缺失', '']
     summary = payload['coverage']
     lines += [f'- 日期复盘 {summary.get("dated_review_days", 0)}/40；完整历史题材成分 {summary.get("complete_historical_membership_days", 0)}/40。',
-        f'- 已存全市场行情 {summary.get("archived_market_quote_days", 0)}/40；全部字段独立验证 {summary.get("verified_full_market_ohlcv_days", 0)}/40。']
+        f'- 已存全市场行情 {summary.get("archived_market_quote_days", 0)}/40；全部字段独立验证 {summary.get("verified_full_market_ohlcv_days", 0)}/40。',
+        f'- 重点股价格 {summary.get("core_price_valid_rows", 0)}/{summary.get("core_price_requested_rows", 0)}条；内部候选 {summary.get("core_price_stocks", 0)}/{summary.get("core_price_eligible_stocks", 0)}只已请求；输出观察 {summary.get("observed_focus_stocks", 0)}只。']
     lines += ['- ' + r for r in payload['missing_data']]
     return '\n'.join(lines) + '\n'
 
