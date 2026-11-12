@@ -1,0 +1,39 @@
+{
+  "trade_date": "2026-11-11",
+  "run_id": "20261112T133444-0b22bb993ff94bbbb6203a62c456f28d",
+  "status": "partial_research",
+  "coverage": {
+    "window_start": "2026-09-09",
+    "window_end": "2026-11-11",
+    "requested_trading_days": 40,
+    "dated_review_days": 40,
+    "complete_historical_membership_days": 0,
+    "archived_market_quote_days": 8,
+    "verified_full_market_ohlcv_days": 0,
+    "selected_limit_pool_days": 14,
+    "independent_pool_code_matches": "14/14",
+    "observed_stock_days": 4505,
+    "observed_themes_scanned": 2443,
+    "ranked_resonant_themes": 376,
+    "core_price_stocks": 95,
+    "core_price_eligible_stocks": 95,
+    "price_budget_truncated_stocks": 0,
+    "core_price_valid_rows": 3877,
+    "reused_lifecycle_unadjusted_rows": 78,
+    "core_price_requested_rows": 3895,
+    "minute_data_verified_stocks": 0,
+    "business_links_verified": 0,
+    "catalysts_verified": 0,
+    "observed_focus_stocks": 3,
+    "formal_full_market_rank_available": false
+  },
+  "missing_data": [
+    "完整历史题材成分未知，不能用当前成员倒填；正式全市场强度与相对市场收益为空",
+    "40日全主板轻量行情仅有8/40日已存快照，快照字段未全部独立核验",
+    "题材上涨广度、全成分成交份额及全成分炸板数缺少完整分母",
+    "第三方历史复盘可能修订，不是当时已知快照，不能用于无偏信号回测",
+    "真实业务和新催化未独立验证，C席位可空缺；带动关系待确认",
+    "分钟行情、盘口及次日可执行入场缺失，成交与真实策略收益未知",
+    "部分重点股票日线未补全，相关角色收益保留未知"
+  ]
+}
