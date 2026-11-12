@@ -93,12 +93,21 @@ def validate_run(root):
                 errors.append('core_theme_or_count')
             for row in cores:
                 total.add(row['code'])
-                if not ordinary(row['code'], row['name']) or row.get('execution_verified') is not False or row.get('entry_price') is not None:
+                if not ordinary(row['code'], row['name']) or row.get('execution_verified') is not False or row.get('entry_price') is not None or row.get('actual_return') is not None:
                     errors.append('unverified_core_execution_or_scope')
                 if '带动王' in row['roles'] and row.get('leadership_status') == 'pending_confirmation':
                     errors.append('unverified_influence_claim')
         if len(total) > 9 or len(report['trading']['candidates']) > 4:
             errors.append('observation_or_plan_limit')
+        trading = report['trading']
+        if trading.get('actual_positions') is not None or trading.get('actual_return') is not None:
+            errors.append('fabricated_positions_or_trading_return')
+        for field in ('candidates', 'research_setups', 'blocked'):
+            for row in trading.get(field, []):
+                if row.get('code') not in total:
+                    errors.append('trading_code_outside_observation_pool')
+                if field != 'blocked' and (row.get('execution_verified') is not False or row.get('entry_price') is not None or row.get('actual_return') is not None):
+                    errors.append('fabricated_candidate_execution')
         for filename in ('historical_active_associations', 'stock_observations', 'core_prices', 'review_coverage', 'market_coverage', 'price_coverage'):
             expected = inputs[{'historical_active_associations': 'observations', 'stock_observations': 'observations',
                 'core_prices': 'prices', 'review_coverage': 'review_coverage', 'market_coverage': 'market_coverage',

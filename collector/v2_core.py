@@ -291,7 +291,8 @@ def select_cores(theme_id, observations, prices, days, config=None):
                 latest_identity[code] = row
     identities = {code for (code, day), row in saved.items()
                   if day in days[-3:] and theme_id in (row.get('theme_ids') or [])
-                  and ordinary(code, latest_identity[code].get('name'))}
+                  and ordinary(code, latest_identity[code].get('name'))
+                  and code not in settings.get('current_ineligible_codes', [])}
     candidates = []
     for code in sorted(identities):
         stock = {day: row for (c, day), row in saved.items() if c == code}

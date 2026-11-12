@@ -6,7 +6,7 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 from collector.run import dump
-from collector.v2_public import FILENAMES, blob_sha, make_files, publish
+from collector.v2_public import FILENAMES, blob_sha, make_files, publish, _coverage, _not_worse
 
 
 DAY = '2026-11-11'
@@ -67,6 +67,19 @@ def tree_calls(session):
 
 
 class V2PublicTests(unittest.TestCase):
+    def test_same_day_amount_and_association_loss_cannot_promote(self):
+        report = dict(coverage={'core_price_valid_rows': 1})
+        inputs = dict(review_coverage=[], selected_inputs=[], market_coverage=[], price_coverage=[],
+                      prices=[dict(code='600001', date=DAY, adjustment='qfq', amount=100, volume=10, turnover_rate=.1)],
+                      observations=[dict(code='600001', date=DAY, theme_ids=['样例'])])
+        prior = _coverage(report, inputs)
+        inputs['prices'][0]['amount'] = None
+        current = _coverage(report, inputs)
+        self.assertFalse(_not_worse(current, prior))
+        inputs['prices'][0]['amount'] = 100
+        inputs['observations'][0]['theme_ids'] = []
+        self.assertFalse(_not_worse(_coverage(report, inputs), prior))
+
     def fixture(self, folder):
         run = Path(folder) / DAY / 'runs' / 'run1'
         seat = dict(theme_id='机器人', theme_name='机器人', as_of=DAY, rank=1, composite_score=80,
@@ -141,6 +154,28 @@ class V2PublicTests(unittest.TestCase):
         with patch('collector.v2_public.requests.Session', return_value=session):
             result = publish(files(run_id='run2', valid_rows=40), 'fixture/repository', 'test-token')
         self.assertFalse(result['promoted'])
+
+    def test_large_prior_coverage_uses_same_repository_blob_api(self):
+        old = files()
+        prior = json.loads(old['latest.json'])
+        coverage = json.loads(old['coverage.json'])
+        session = remote_session(prior, coverage)
+        original_get, original_request = session.get.side_effect, session.request.side_effect
+        def get(url, params=None, timeout=None):
+            if '/contents/research-v2/coverage.json' in url:
+                return Mock(status_code=200, **{'json.return_value': {'encoding': 'none', 'content': '', 'sha': 'large-coverage-blob', 'git_url': 'https://untrusted.invalid/'}})
+            return original_get(url, params=params, timeout=timeout)
+        def request(method, url, json=None, timeout=None):
+            if method == 'GET' and url.endswith('/git/blobs/large-coverage-blob'):
+                encoded_blob = base64.b64encode(__import__('json').dumps(coverage).encode()).decode()
+                return Mock(ok=True, **{'json.return_value': {'encoding': 'base64', 'content': encoded_blob}})
+            return original_request(method, url, json=json, timeout=timeout)
+        session.get.side_effect, session.request.side_effect = get, request
+        with patch('collector.v2_public.requests.Session', return_value=session):
+            result = publish(files(run_id='new-run'), 'fixture/repository', 'test-token')
+        self.assertTrue(result['promoted'])
+        self.assertTrue(any('/git/blobs/large-coverage-blob' in r.args[1] for r in session.request.call_args_list))
+        self.assertFalse(any('untrusted.invalid' in str(r) for r in session.request.call_args_list))
 
     def test_old_day_backfill_is_archived_without_changing_latest(self):
         session = remote_session({'trade_date': '2026-11-12'})

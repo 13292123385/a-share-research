@@ -16,6 +16,7 @@ from .v2_data import (get_reviews, selected_inputs, build_daily, core_price_cand
 from .v2_data import light_market_scan
 from .v2_scoring import rank_themes, select_seats
 from .v2_core import select_cores, trade_filter, render_report
+from .model import ordinary
 from .lifecycle import prior_tables
 
 
@@ -120,9 +121,12 @@ def compute(inputs):
 
 def previous_input(output, target):
     candidates = sorted(Path(output).glob('*/runs/*/report.json'), reverse=True)
+    best, best_quality, best_date = None, None, None
     for path in candidates:
         if path.parents[2].name >= target:
             continue
+        if best_date is not None and path.parents[2].name < best_date:
+            break
         manifest = path.parent / 'files.json'
         if not manifest.exists():
             continue
@@ -130,7 +134,13 @@ def previous_input(output, target):
         item = next((r for r in entries if r['path'] == 'report.json'), None)
         if item and hashlib.sha256(path.read_bytes()).hexdigest() == item['sha256']:
             report = read(path)
-            return report['selection']['state'], report['core_by_theme']
+            coverage = report['coverage']
+            quality = tuple(coverage.get(k, 0) for k in ('complete_historical_membership_days',
+                'dated_review_days', 'verified_full_market_ohlcv_days', 'archived_market_quote_days', 'core_price_valid_rows'))
+            if best_quality is None or quality > best_quality:
+                best, best_quality, best_date = report, quality, path.parents[2].name
+    if best:
+        return best['selection']['state'], best['core_by_theme']
     return None, {}
 
 
@@ -197,6 +207,11 @@ def main(argv=None):
         delay=config['history_request_delay'], timeout=config['history_timeout'], offline=args.offline)
     selected, market_coverage = selected_inputs(args.data, days)
     market_scan = light_market_scan(selected)
+    # Earlier non-ST labels must never override a known current ST identity.
+    today_input = next((r for r in selected if r['date'] == target), {})
+    current_quotes = upstream_table(today_input, 'clean/market_quotes.json')
+    config['current_ineligible_codes'] = sorted({str(r.get('代码', '')).zfill(6) for r in current_quotes
+        if r.get('名称') and not ordinary(str(r.get('代码', '')).zfill(6), r['名称'])})
     # Original archives already own the large raw snapshots. Keep exact hashes,
     # a normalized light scan and only the replay dependencies, without duplicating
     # every raw and cleaned full-market table into each analysis input JSON.
@@ -216,6 +231,7 @@ def main(argv=None):
     prior_state, prior_cores = previous_input(args.output, target)
     daily, _, _, selection, _ = selection_trace(observations, days, reviews, selected, config, prior_state)
     eligible_codes = core_price_candidates(selection, observations, days, 100000)
+    eligible_codes = [c for c in eligible_codes if c not in config['current_ineligible_codes']]
     codes = eligible_codes[:config['max_core_price_requests']]
     # Also keep recently active established lifecycle candidates within selected themes.
     price_days = ([baseline] if baseline else []) + days

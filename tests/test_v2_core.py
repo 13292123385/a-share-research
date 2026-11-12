@@ -56,6 +56,10 @@ class CoreSelectionTests(unittest.TestCase):
         self.assertEqual(row['round_baseline_date'], self.days[-2])
         self.assertAlmostEqual(row['round_return_pct'], 6)
 
+    def test_current_roster_exclusion_overrides_older_non_st_observation(self):
+        self.assertEqual(select_cores(self.theme, self.observations(), self.prices(), self.days,
+                                     {'current_ineligible_codes': ['600001']}), [])
+
     def test_future_and_unpermitted_names_never_enter(self):
         observations, prices = self.observations(), self.prices()
         for code, name in [('300001', '创业'), ('688001', '科创'), ('920001', '北交'), ('600003', '*ST样例')]:

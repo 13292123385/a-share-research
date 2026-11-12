@@ -111,6 +111,10 @@ def _coverage(report, inputs):
     keys.update('selected:' + r['date'] for r in inputs['selected_inputs'])
     keys.update('market:' + r['date'] for r in inputs['market_coverage'] if r.get('mainboard_quote_rows', 0) > 0)
     keys.update('price:' + r['code'] + ':' + r['date'] + ':' + r.get('adjustment', 'unknown') for r in inputs['prices'])
+    keys.update('price:' + r['code'] + ':' + r['date'] + ':' + r.get('adjustment', 'unknown') + ':' + field
+        for r in inputs['prices'] for field in ('volume', 'amount', 'turnover_rate') if r.get(field) is not None)
+    keys.update('association:' + r['date'] + ':' + r['code'] + ':' + theme
+        for r in inputs.get('observations', []) for theme in r.get('theme_ids', []))
     result['coverage_keys'] = sorted(keys)
     return result
 
@@ -249,6 +253,12 @@ def publish(files, repository, token):
         value = response.json()
         if isinstance(value, list):
             return value
+        if value.get('encoding') == 'none' or (not value.get('content') and value.get('sha')):
+            # Contents API omits base64 for files above 1MB. Stay on this repo's
+            # authenticated API endpoint, rather than following a remote git_url.
+            value = api('/git/blobs/' + value['sha'])
+            if value.get('encoding') != 'base64':
+                raise ValueError('unsupported V2 public blob encoding')
         return json.loads(base64.b64decode(value['content']))
 
     for attempt in range(3):

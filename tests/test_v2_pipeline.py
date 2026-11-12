@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 from collector.run import dump
+from collector.inventory import inventory
 from collector.v2 import main, read, selection_trace
 from collector.v2_data import build_daily
 from collector.v2_validate import validate_run
@@ -72,5 +73,17 @@ class V2PipelineTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(sentinel.read_bytes()).hexdigest(), before)
             with patch('builtins.print'):
                 self.assertEqual(main(['--date', days[-1], '--replay', str(first)]), 0)
+            original = read(first / 'report.json')
+            changed = read(first / 'report.json')
+            changed['trading']['actual_positions'] = ['600999']
+            changed['trading']['candidates'] = [dict(code='600999', execution_verified=True, entry_price=10, actual_return=.1)]
+            dump(first / 'report.json', changed)
+            inventory(first, read(first / 'sources.json'))
+            errors = validate_run(first)
+            self.assertIn('fabricated_positions_or_trading_return', errors)
+            self.assertIn('trading_code_outside_observation_pool', errors)
+            self.assertIn('fabricated_candidate_execution', errors)
+            dump(first / 'report.json', original)
+            inventory(first, read(first / 'sources.json'))
             (first / 'report.md').write_text('tampered', encoding='utf-8')
             self.assertTrue(any('checksum' in e for e in validate_run(first)))

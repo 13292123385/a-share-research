@@ -107,7 +107,9 @@ def get_reviews(days, run, aliases, caches=(), budget=480, delay=1.5, timeout=18
     run = Path(run)
     deadline = time.monotonic() + max(0, budget)
     observations, evidence, coverage = [], [], []
-    for day in days:
+    # Latest signals have the largest weight. An outage must not spend the whole
+    # shared budget on old pages and starve the current 5-session window.
+    for day in reversed(days):
         url = 'https://www.dabanke.com/index-' + day.replace('-', '') + '.html'
         now = datetime.now(TZ).isoformat()
         meta = dict(date=day, source_url=url, status='missing', fetched_at=None,
@@ -157,7 +159,9 @@ def get_reviews(days, run, aliases, caches=(), budget=480, delay=1.5, timeout=18
             meta['error'] = meta.get('error', 'offline_cache_miss' if offline else 'budget_exhausted')
         coverage.append(meta)
         print('v2_review', day, meta['status'], flush=True)
-    return observations, evidence, coverage
+    return (sorted(observations, key=lambda r: (r['date'], r['code'])),
+            sorted(evidence, key=lambda r: (r['observation_date'], r['theme_id'], r['code'])),
+            sorted(coverage, key=lambda r: r['date']))
 
 
 def selected_inputs(data, days):
