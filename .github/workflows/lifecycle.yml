@@ -8,6 +8,11 @@ on:
         description: 交易日YYYY-MM-DD；留空为北京时间今天
         required: false
         type: string
+      analysis_v2:
+        description: 仅运行独立V2分析验证；不重复执行生命周期采集
+        required: false
+        default: false
+        type: boolean
 permissions:
   contents: write
 concurrency:
@@ -15,6 +20,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   lifecycle:
+    if: inputs.analysis_v2 != true
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
@@ -74,3 +80,68 @@ jobs:
       - name: 缺失保持可见
         if: always() && steps.collect.outcome == 'failure'
         run: exit 1
+  analysis-v2:
+    needs: lifecycle
+    if: always() && (inputs.analysis_v2 == true || (github.event_name == 'schedule' && vars.ENABLE_V2_ANALYSIS == 'true'))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -q
+      - name: 独立V2分析（完整性另列）
+        id: v2
+        env:
+          REQUEST_DATE: ${{ inputs.date }}
+        shell: bash
+        run: |
+          target="${REQUEST_DATE:-$(TZ=Asia/Shanghai date +%F)}"
+          python -m collector.v2 --date "$target" --allow-partial
+      - name: V2质量与离线重放
+        if: always() && steps.v2.outputs.run_path != ''
+        id: v2-quality
+        env:
+          RUN_PATH: ${{ steps.v2.outputs.run_path }}
+          REQUEST_DATE: ${{ inputs.date }}
+        run: |
+          python -m collector.v2_validate "$RUN_PATH"
+          target="${REQUEST_DATE:-$(TZ=Asia/Shanghai date +%F)}"
+          python -m collector.v2 --date "$target" --replay "$RUN_PATH"
+          cat "$RUN_PATH/report.md" >> "$GITHUB_STEP_SUMMARY"
+      - name: 保存V2独立归档
+        if: steps.v2-quality.outcome == 'success' && github.ref == 'refs/heads/main'
+        id: v2-archive
+        env:
+          RUN_PATH: ${{ steps.v2.outputs.run_path }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3; do
+            git fetch origin main
+            parent=$(git rev-parse origin/main)
+            export GIT_INDEX_FILE="$RUNNER_TEMP/v2-index-$GITHUB_RUN_ID-$attempt"
+            git read-tree "$parent"
+            git add -- "$RUN_PATH"
+            if git diff --cached --quiet "$parent"; then exit 0; fi
+            tree=$(git write-tree)
+            commit=$(printf 'data: archive isolated V2 research\n' | git commit-tree "$tree" -p "$parent")
+            if git push origin "$commit:refs/heads/main"; then exit 0; fi
+          done
+          exit 1
+      - name: 发布独立V2观察入口
+        if: steps.v2-quality.outcome == 'success'
+        env:
+          RUN_PATH: ${{ steps.v2.outputs.run_path }}
+          PUBLIC_FEED_REPOSITORY: ${{ vars.PUBLIC_FEED_REPOSITORY }}
+          PUBLIC_FEED_TOKEN: ${{ secrets.PUBLIC_FEED_TOKEN }}
+        run: python -m collector.v2_public "$RUN_PATH" --publish
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: analysis-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ steps.v2.outputs.run_path }}
+          retention-days: 7

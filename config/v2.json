@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "window_weights": {"5": 0.5, "10": 0.25, "20": 0.2, "40": 0.05},
+  "normalization_method": "percentile_minmax_blend",
+  "swap_margin": 5.0,
+  "swap_confirm_sessions": 2,
+  "min_mainline_sessions": 10,
+  "min_recent_active_days": 3,
+  "max_core_price_requests": 60,
+  "history_request_delay": 1.5,
+  "history_timeout": 18,
+  "price_budget_seconds": 420,
+  "history_budget_seconds": 480,
+  "aliases": {
+    "机器人": ["机器人", "减速器", "机器视觉", "人形"],
+    "影视内容": ["影视", "电影", "院线", "短剧", "漫剧"],
+    "光通信": ["光模块", "光通信", "CPO", "NPO", "光器件", "光纤", "光缆"],
+    "PCB": ["PCB", "印制电路"],
+    "游戏": ["游戏"]
+  },
+  "alias_note": "显式研究分组；匹配原标签，不证明公司业务。未匹配标签按原文保留，不限于这五组。多题材股票各组内去重，组间不可直接相加。",
+  "allow_provisional_seats": true,
+  "excluded_seat_themes": ["国企改革", "国资改革", "业绩增长", "业绩预增", "三季报增长", "三季报预增", "央企改革"],
+  "exclusion_note": "这些泛属性仍扫描并存档；初版不因跨行业共同财报或国资标签授予业务题材席位。名单可配置，不固定任何题材名次。",
+  "auto_publish_to_close_report": false
+}
