@@ -1,11 +1,11 @@
 # 2026-10-23 A股收盘复盘
 
-状态：complete_with_limitations；抓取时间：2026-11-10T01:18:31.872950+08:00
+状态：complete_with_limitations；抓取时间：2026-11-13T04:52:19.099755+08:00
 
 采集范围：historical_pools_candidate_prices_indices；采集状态：complete；研究状态：limited
 
 ## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）
-{"mainboard_limit_up_count": 64, "mainboard_height": 6.0, "first_board_candidates": 53, "all_day_one_word_excluded": 4, "one_word_unknown": 0, "broken_count": 11, "limit_down_count": 6, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-10-23", "open": 3623.57, "close": 3690.48, "high": 3691.4, "low": 3574.27, "volume": 552842912, "amount": 898666874902.3}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-10-23", "open": 11187.55, "close": 11673.83, "high": 11707.15, "low": 11043.31, "volume": 690752095, "amount": 1057616973532.88}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-10-23", "open": 2534.16, "close": 2684.1, "high": 2695.08, "low": 2494.22, "volume": 228509724, "amount": 536851086246.35}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-10-23", "open": 2758.7, "close": 2856.27, "high": 2864.06, "low": 2649.26, "volume": 338354476, "amount": 408648689321.0}]}
+{"mainboard_limit_up_count": 64, "mainboard_height": 6.0, "first_board_candidates": 53, "all_day_one_word_excluded": 4, "one_word_unknown": 0, "broken_count": 11, "limit_down_count": 6, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-10-23", "open": 3623.57, "close": 3690.48, "high": 3691.4, "low": 3574.27, "volume": 552842912, "amount": 898666874902.3}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-10-23", "open": 11187.55, "close": 11673.83, "high": 11707.15, "low": 11043.31, "volume": 690752095, "amount": 1057616973532.88}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-10-23T00:00:00.000", "open": 2534.16, "close": 2684.1, "high": 2695.08, "low": 2494.22, "amount": 222875998.0}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-10-23T00:00:00.000", "close": 2856.27, "source": "中证指数官网", "index_code": "932000"}]}
 
 ## 估算值
 {}
@@ -39,5 +39,9 @@
 - limit_down: ok，行数=6
 - index_sh000001: ok，行数=1
 - index_sz399001: ok，行数=1
-- index_sz399006: ok，行数=1
-- index_csi932000: ok，行数=1
+- index_sz399006: error，行数=None
+- index_retry_sz399006: error，行数=None
+- index_fallback_sz399006: ok，行数=1
+- index_csi932000: error，行数=None
+- index_retry_csi932000: error，行数=None
+- index_official_csi932000: ok，行数=1
