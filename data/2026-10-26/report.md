@@ -1,23 +1,22 @@
 # 2026-10-26 A股收盘复盘
 
-状态：partial；抓取时间：2026-11-10T02:51:25.409874+08:00
+状态：complete_with_limitations；抓取时间：2026-11-13T09:52:16.587046+08:00
 
-采集范围：closing_snapshot；采集状态：partial；研究状态：limited
+采集范围：closing_snapshot；采集状态：complete；研究状态：limited
 
 ## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）
-{"broken_count": 18, "limit_down_count": 25, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-10-26T00:00:00.000", "open": 3671.0, "close": 3697.52, "high": 3699.01, "low": 3664.82, "amount": 432794318.0}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-10-26T00:00:00.000", "open": 11560.36, "close": 11534.38, "high": 11638.79, "low": 11432.29, "amount": 542597712.0}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-10-26T00:00:00.000", "open": 2645.74, "close": 2638.23, "high": 2671.81, "low": 2601.09, "amount": 177585733.0}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-10-26T00:00:00.000", "close": 2818.98, "source": "中证指数官网", "index_code": "932000"}]}
+{"mainboard_limit_up_count": 47, "mainboard_height": 4.0, "first_board_candidates": 33, "all_day_one_word_excluded": 2, "one_word_unknown": 0, "broken_count": 18, "limit_down_count": 25, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-10-26", "open": 3671.0, "close": 3697.52, "high": 3699.01, "low": 3664.82, "volume": 432794318, "amount": 746528025716.4}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-10-26", "open": 11560.36, "close": 11534.38, "high": 11638.79, "low": 11432.29, "volume": 542597712, "amount": 862265345861.26}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-10-26", "open": 2645.74, "close": 2638.23, "high": 2671.81, "low": 2601.09, "volume": 181253260, "amount": 429671909980.41}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-10-26", "open": 2833.79, "close": 2818.98, "high": 2853.3, "low": 2798.82, "volume": 258895572, "amount": 332005798240.0}]}
 
 ## 估算值
 {"market": {"up": 2252, "down": 3157, "flat": 168, "turnover_yuan": 1623091874110.0, "records": 5577, "unknown_direction": 0, "unknown_amount": 0, "source": "新浪", "scope": "沪深北候选范围（以官方名单核验结果为准）", "note": "收盘后实时快照汇总；分页完整性和行情日期未获独立验证，可能含停牌平盘"}}
 
 ## 一进二
-{"status": "missing_dependency", "observation_rate": null, "verified_tradable_rate": null}
+{"status": "observation_only", "denominator": 52, "promoted_count": 8, "broken_count": 7, "observation_rate": 0.15384615384615385, "verified_tradable_rate": null}
 
 观察样本仅排除已知一字板，T字/短暂开板不保证成交。实际可交易晋级率与真实策略收益均缺失。
 
 ## 缺失数据
 - 首板后续跟踪存在历史名单或价格缺失，详见followup
-- limit_up:error
 
 ## 候选股价格覆盖
 {"historical_available": 0, "historical_fetched": 0, "reused": 0, "missing_codes": [], "budget_seconds": 420, "note": "首板优先；历史价格为不复权日线，不能证明实际成交；实时快照仍为未独立核验估算"}
@@ -32,21 +31,13 @@
 
 ## 接口状态
 - calendar: ok，行数=8797
-- limit_up: error，行数=None
+- limit_up: ok，行数=55
 - yesterday_pool: ok，行数=82
 - broken: ok，行数=23
 - limit_down: ok，行数=26
 - official_szse_summary: error，行数=None
 - official_szse_summary_retry: ok，行数=14
-- index_sh000001: error，行数=None
-- index_retry_sh000001: error，行数=None
-- index_fallback_sh000001: ok，行数=1
-- index_sz399001: error，行数=None
-- index_retry_sz399001: error，行数=None
-- index_fallback_sz399001: ok，行数=1
-- index_sz399006: error，行数=None
-- index_retry_sz399006: error，行数=None
-- index_fallback_sz399006: ok，行数=1
-- index_csi932000: error，行数=None
-- index_retry_csi932000: error，行数=None
-- index_official_csi932000: ok，行数=1
+- index_sh000001: ok，行数=1
+- index_sz399001: ok，行数=1
+- index_sz399006: ok，行数=1
+- index_csi932000: ok，行数=1
