@@ -1,6 +1,6 @@
 # 2026-11-13 A股收盘复盘
 
-状态：partial；抓取时间：2026-11-13T17:37:18.723685+08:00
+状态：partial；抓取时间：2026-11-13T23:12:48.314630+08:00
 
 采集范围：closing_snapshot；采集状态：partial；研究状态：limited
 
@@ -23,10 +23,10 @@
 {"historical_available": 0, "historical_fetched": 0, "reused": 0, "missing_codes": [], "budget_seconds": 420, "note": "首板优先；历史价格为不复权日线，不能证明实际成交；实时快照仍为未独立核验估算"}
 
 ## 前两交易日首板后续跟踪
-{"rows": 83, "prices_available": 67, "missing_archive_dates": [], "missing_price_codes": ["000635", "603042", "603083", "603135", "603175", "603228", "603258", "603289", "603330", "603396", "603586", "603725", "603730", "603958", "605169", "605222"], "budget_seconds": 300, "note": "按交易日追踪首板后第1/2个交易日，不推断成交或策略收益"}
+{"rows": 83, "prices_available": 82, "missing_archive_dates": [], "missing_price_codes": ["000635"], "budget_seconds": 300, "note": "按交易日追踪首板后第1/2个交易日，不推断成交或策略收益"}
 
 ## 市场交叉核验
-{"trade_date": "2026-11-13", "status": "code_coverage_matched", "expected_count": 5579, "observed_count": 5579, "missing_codes": [], "unexpected_codes": [], "duplicate_codes": [], "unavailable_rosters": [], "exchanges": {"sh_main": {"expected": 1700, "observed": 1700, "missing_codes": []}, "sh_star": {"expected": 619, "observed": 619, "missing_codes": []}, "sz": {"expected": 2905, "observed": 2905, "missing_codes": []}, "bj": {"expected": 355, "observed": 355, "missing_codes": []}}, "all_market_verified": false, "note": "官方当前上市名单核对代码覆盖，不独立证明每只行情日期/收盘时点；停牌仍应保留且不能把缺失当平盘", "szse_turnover_check": {"status": "within_tolerance", "date_basis": "官方接口请求日期；返回表无独立日期列", "tolerance": 0.005, "official_yuan": 885698956320.94, "snapshot_yuan": 885006883726.0, "relative_difference": 0.0007813858083503979}, "initial_missing_codes": ["689009"], "daily_supplement_codes": ["689009"], "archived_roster_sources": {}}
+{"trade_date": "2026-11-13", "status": "code_coverage_matched", "expected_count": 5579, "observed_count": 5579, "missing_codes": [], "unexpected_codes": [], "duplicate_codes": [], "unavailable_rosters": [], "exchanges": {"sh_main": {"expected": 1700, "observed": 1700, "missing_codes": []}, "sh_star": {"expected": 619, "observed": 619, "missing_codes": []}, "sz": {"expected": 2905, "observed": 2905, "missing_codes": []}, "bj": {"expected": 355, "observed": 355, "missing_codes": []}}, "all_market_verified": false, "note": "官方当前上市名单核对代码覆盖，不独立证明每只行情日期/收盘时点；停牌仍应保留且不能把缺失当平盘", "szse_turnover_check": {"status": "within_tolerance", "date_basis": "官方接口请求日期；返回表无独立日期列", "tolerance": 0.005, "official_yuan": 885698956320.94, "snapshot_yuan": 885006883726.0, "relative_difference": 0.0007813858083503979}, "initial_missing_codes": [], "daily_supplement_codes": [], "archived_roster_sources": {"sh_main": "20261113T173718723685+0800/raw/official_roster_sh_main.json", "sh_star": "20261113T173718723685+0800/raw/official_roster_sh_star.json", "sz": "20261113T173718723685+0800/raw/official_roster_sz_retry1.json", "bj": "20261113T173718723685+0800/raw/official_roster_bj.json"}}
 
 主观题材三问及新鲜度均待人工证据与评分；总分限制0–15。收益字段待验证买入与第三交易日行情后补充。
 
@@ -36,83 +36,24 @@
 - yesterday_pool: ok，行数=37
 - broken: ok，行数=21
 - limit_down: ok，行数=33
-- spot: error，行数=None
-- spot_fallback: ok，行数=5578
-- official_roster_sh_main: ok，行数=1700
-- official_roster_sh_star: ok，行数=619
-- official_roster_sz: error，行数=None
-- official_roster_sz_retry1: ok，行数=2905
-- official_roster_bj: ok，行数=355
-- official_szse_summary: ok，行数=14
-- market_quote_689009: ok，行数=1
-- price_000026: ok，行数=1
-- price_000407: ok，行数=1
-- price_000545: ok，行数=1
-- price_000573: ok，行数=1
-- price_000631: ok，行数=1
+- official_szse_summary: error，行数=None
+- official_szse_summary_retry: ok，行数=14
 - price_000635: empty_unverified，行数=0
-- price_000995: ok，行数=1
-- price_001282: ok，行数=1
-- price_001331: ok，行数=1
-- price_001358: ok，行数=1
-- price_002021: ok，行数=1
-- price_002076: ok，行数=1
-- price_002086: ok，行数=1
-- price_002110: ok，行数=1
-- price_002148: ok，行数=1
-- price_002154: ok，行数=1
-- price_002164: ok，行数=1
-- price_002172: ok，行数=1
-- price_002187: ok，行数=1
-- price_002205: ok，行数=1
-- price_002278: ok，行数=1
-- price_002281: ok，行数=1
-- price_002362: ok，行数=1
-- price_002384: ok，行数=1
-- price_002463: ok，行数=1
-- price_002520: ok，行数=1
-- price_002529: ok，行数=1
-- price_002593: ok，行数=1
-- price_002628: ok，行数=1
-- price_002633: ok，行数=1
-- price_002693: ok，行数=1
-- price_002696: ok，行数=1
-- price_002703: ok，行数=1
-- price_002713: ok，行数=1
-- price_002765: ok，行数=1
-- price_002779: ok，行数=1
-- price_002795: ok，行数=1
-- price_002837: ok，行数=1
-- price_002886: ok，行数=1
-- price_002913: ok，行数=1
-- price_002916: ok，行数=1
-- price_002919: ok，行数=1
-- price_002957: ok，行数=1
-- price_002975: ok，行数=1
-- price_002980: ok，行数=1
-- price_003032: ok，行数=1
-- price_600076: ok，行数=1
-- price_600103: ok，行数=1
-- price_600162: ok，行数=1
-- price_600228: ok，行数=1
-- price_600293: ok，行数=1
-- price_600467: ok，行数=1
-- price_600558: ok，行数=1
-- price_600569: ok，行数=1
-- price_600629: ok，行数=1
-- price_600776: ok，行数=1
-- price_600802: ok，行数=1
-- price_600853: ok，行数=1
-- price_600857: ok，行数=1
-- price_600876: ok，行数=1
-- price_601091: ok，行数=1
-- price_601188: ok，行数=1
-- price_601566: ok，行数=1
-- price_601606: ok，行数=1
-- price_601869: ok，行数=1
-- price_601929: ok，行数=1
-- price_603028: ok，行数=1
-- price_603040: ok，行数=1
+- price_603042: ok，行数=1
+- price_603083: ok，行数=1
+- price_603135: ok，行数=1
+- price_603175: ok，行数=1
+- price_603228: ok，行数=1
+- price_603258: ok，行数=1
+- price_603289: ok，行数=1
+- price_603330: ok，行数=1
+- price_603396: ok，行数=1
+- price_603586: ok，行数=1
+- price_603725: ok，行数=1
+- price_603730: ok，行数=1
+- price_603958: ok，行数=1
+- price_605169: ok，行数=1
+- price_605222: ok，行数=1
 - index_sh000001: error，行数=None
 - index_retry_sh000001: error，行数=None
 - index_fallback_sh000001: ok，行数=1
