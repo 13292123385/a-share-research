@@ -1,11 +1,11 @@
 # 2026-11-10 A股收盘复盘
 
-状态：partial；抓取时间：2026-11-10T23:29:09.419160+08:00
+状态：partial；抓取时间：2026-11-14T07:37:35.281379+08:00
 
 采集范围：closing_snapshot；采集状态：partial；研究状态：limited
 
 ## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）
-{"mainboard_limit_up_count": 84, "mainboard_height": 7.0, "first_board_candidates": 64, "all_day_one_word_excluded": 3, "one_word_unknown": 0, "broken_count": 15, "limit_down_count": null, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-10", "open": 3682.04, "close": 3663.72, "high": 3683.73, "low": 3660.72, "volume": 404865177, "amount": 673951893240.3}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-10", "open": 11313.32, "close": 11241.54, "high": 11315.53, "low": 11217.01, "volume": 526862998, "amount": 830863077298.74}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-10", "open": 2518.44, "close": 2494.4, "high": 2520.01, "low": 2487.56, "volume": 180385788, "amount": 418447832760.79}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-10", "open": 2778.61, "close": 2804.56, "high": 2806.86, "low": 2777.91, "volume": 274072910, "amount": 332584539514.0}]}
+{"mainboard_limit_up_count": 84, "mainboard_height": 7.0, "first_board_candidates": 64, "all_day_one_word_excluded": 3, "one_word_unknown": 0, "broken_count": 15, "limit_down_count": null, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-10", "open": 3682.04, "close": 3663.72, "high": 3683.73, "low": 3660.72, "volume": 404865177, "amount": 673951893240.3}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-10", "open": 11313.32, "close": 11241.54, "high": 11315.53, "low": 11217.01, "volume": 526862998, "amount": 830863077298.74}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-10T00:00:00.000", "open": 2518.44, "close": 2494.4, "high": 2520.01, "low": 2487.56, "amount": 174497586.0}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-10T00:00:00.000", "close": 2804.55, "source": "中证指数官网", "index_code": "932000"}]}
 
 ## 估算值
 {"market": {"up": 4273, "down": 1149, "flat": 158, "turnover_yuan": 1516745141638.0, "records": 5580, "unknown_direction": 0, "unknown_amount": 0, "source": "新浪", "scope": "沪深北候选范围（以官方名单核验结果为准）", "note": "收盘后实时快照汇总；分页完整性和行情日期未获独立验证，可能含停牌平盘"}}
@@ -39,5 +39,9 @@
 - official_szse_summary_retry: ok，行数=14
 - index_sh000001: ok，行数=1
 - index_sz399001: ok，行数=1
-- index_sz399006: ok，行数=1
-- index_csi932000: ok，行数=1
+- index_sz399006: error，行数=None
+- index_retry_sz399006: error，行数=None
+- index_fallback_sz399006: ok，行数=1
+- index_csi932000: error，行数=None
+- index_retry_csi932000: error，行数=None
+- index_official_csi932000: ok，行数=1
