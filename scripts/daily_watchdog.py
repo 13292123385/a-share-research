@@ -3,6 +3,7 @@ from datetime import datetime
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import time
 from zoneinfo import ZoneInfo
@@ -17,7 +18,8 @@ def main():
     if now.weekday() >= 5 or now.hour < 15:
         print('Outside weekday closing window; no dispatch.')
         return
-    credential = subprocess.run(['git', 'credential', 'fill'],
+    git = shutil.which('git') or str(Path(os.environ.get('ProgramFiles', 'C:/Program Files')) / 'Git/cmd/git.exe')
+    credential = subprocess.run([git, 'credential', 'fill'],
         input='protocol=https\nhost=github.com\n\n', capture_output=True, text=True,
         cwd=ROOT, env=dict(os.environ, GIT_TERMINAL_PROMPT='0', GCM_INTERACTIVE='never'), timeout=30)
     fields = dict(line.split('=', 1) for line in credential.stdout.splitlines() if '=' in line)

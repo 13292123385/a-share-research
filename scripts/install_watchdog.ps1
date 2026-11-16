@@ -1,18 +1,19 @@
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $pythonExe = (& python -c 'import sys; print(sys.executable)').Trim()
-$watchdogFile = Join-Path $PSScriptRoot 'daily_watchdog.py'
-$taskAction = New-ScheduledTaskAction -Execute $pythonExe -Argument ('"' + $watchdogFile + '"') -WorkingDirectory $repoRoot
+$watchdogFile = Join-Path $PSScriptRoot 'watchdog_service.py'
+$pythonWindowless = Join-Path (Split-Path -Parent $pythonExe) 'pythonw.exe'
+$taskAction = New-ScheduledTaskAction -Execute $pythonWindowless -Argument ('"' + $watchdogFile + '"') -WorkingDirectory $repoRoot
 $taskTriggers = @()
-foreach ($taskTime in @('15:12','15:35','16:15','18:15','21:15')) {
+foreach ($taskTime in @('11:30','11:40','11:50','12:00','12:10','12:20','12:30','12:40','12:50','15:00','15:10','15:20','15:30','15:40','15:50','16:00','16:30','17:00','18:15','21:15')) {
     $taskTriggers += New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday,Tuesday,Wednesday,Thursday,Friday -At $taskTime
 }
 $taskTriggers += New-ScheduledTaskTrigger -AtLogOn
-$taskSettings = New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Minutes 5) -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
+$taskSettings = New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit ([TimeSpan]::Zero) -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
 $taskUser = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 $taskPrincipal = New-ScheduledTaskPrincipal -UserId $taskUser -LogonType Interactive -RunLevel Limited
 try {
-    Register-ScheduledTask -TaskName 'A-share-research closing watchdog' -Action $taskAction -Trigger $taskTriggers -Settings $taskSettings -Principal $taskPrincipal -Description 'Check current closing archive and trigger original GitHub workflow only if missing; no stored token/password.' -Force | Select-Object TaskName,State
+    Register-ScheduledTask -TaskName 'A-share-research closing watchdog' -Action $taskAction -Trigger $taskTriggers -Settings $taskSettings -Principal $taskPrincipal -Description 'Capture and verify midday/closing full-market snapshots; use existing local login without storing tokens.' -Force | Select-Object TaskName,State
 } catch {
     # A user-level login shortcut needs no Task Scheduler/administrator privileges.
     $pythonWindowless = Join-Path (Split-Path -Parent $pythonExe) 'pythonw.exe'

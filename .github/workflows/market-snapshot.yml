@@ -1,0 +1,82 @@
+name: 全市场午盘与收盘快照
+on:
+  schedule:
+    - cron: '30,40,50 3 * * 1-5' # 北京时间11:30起，午休期间重试
+    - cron: '0,10,20,30,40,50 4 * * 1-5'
+    - cron: '0,5,15,25,35,45,55 7-9 * * 1-5' # 北京时间15:00起收盘重试
+  workflow_dispatch:
+    inputs:
+      session:
+        description: 午盘midday或收盘close；auto按当前北京时间选择
+        required: false
+        default: auto
+        type: choice
+        options: [auto, midday, close]
+permissions:
+  contents: write
+concurrency:
+  group: full-market-snapshot
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -p 'test_*snapshot*.py' -v
+      - name: 采集全市场快照并逐股核验
+        id: collect
+        continue-on-error: true
+        env:
+          REQUEST_SESSION: ${{ inputs.session || 'auto' }}
+        run: python -m collector.market_snapshot --session "$REQUEST_SESSION"
+      - name: 保存不可变快照及独立午盘收盘指针
+        id: archive
+        if: always() && steps.collect.outputs.run_path != '' && (steps.collect.outputs.status == 'complete' || steps.collect.outputs.status == 'partial')
+        env:
+          RUN_PATH: ${{ steps.collect.outputs.run_path }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          session_path=$(dirname "$(dirname "$RUN_PATH")")
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            parent=$(git rev-parse origin/main)
+            export GIT_INDEX_FILE="$RUNNER_TEMP/snapshot-index-$GITHUB_RUN_ID-$attempt"
+            git read-tree "$parent"
+            git add -- "$RUN_PATH" "$session_path/latest.json"
+            if git diff --cached --quiet "$parent"; then exit 0; fi
+            tree=$(git write-tree)
+            commit=$(printf 'data: archive full-market snapshot\n' | git commit-tree "$tree" -p "$parent")
+            if git push origin "$commit:refs/heads/main"; then exit 0; fi
+          done
+          exit 1
+      - name: 发布全部逐股行情及网页读取分片
+        id: publish
+        if: always() && steps.collect.outputs.run_path != '' && steps.archive.outcome == 'success'
+        env:
+          RUN_PATH: ${{ steps.collect.outputs.run_path }}
+          PUBLIC_FEED_REPOSITORY: ${{ vars.PUBLIC_FEED_REPOSITORY }}
+          PUBLIC_FEED_TOKEN: ${{ secrets.PUBLIC_FEED_TOKEN }}
+        run: python -m collector.snapshot_public "$RUN_PATH" --publish
+      - name: 匿名下载核对公开文件字节与股票数
+        if: always() && steps.publish.outcome == 'success'
+        env:
+          RUN_PATH: ${{ steps.collect.outputs.run_path }}
+        run: |
+          read -r day session run_id < <(python -c 'import json,os; from pathlib import Path; p=json.loads((Path(os.environ["RUN_PATH"])/"manifest.json").read_text()); print(p["trade_date"],p["session"],p["run_id"])')
+          python -m collector.snapshot_verify --session "$session" --date "$day" --run-id "$run_id"
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.collect.outputs.run_path != ''
+        with:
+          name: market-snapshot-${{ github.run_id }}
+          path: ${{ steps.collect.outputs.run_path }}
+          retention-days: 7
+      - name: 不完整或发布失败时明确标红
+        if: always() && (steps.collect.outcome == 'failure' || steps.publish.outcome == 'failure')
+        run: exit 1
