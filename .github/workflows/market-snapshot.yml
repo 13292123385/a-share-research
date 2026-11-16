@@ -1,6 +1,8 @@
 name: 全市场午盘与收盘快照
 on:
   schedule:
+    - cron: '13,23 3 * * 1-5' # 北京时间11:13/11:23提前申请云端执行器
+    - cron: '43,53 6 * * 1-5' # 北京时间14:43/14:53提前申请云端执行器
     - cron: '30,40,50 3 * * 1-5' # 北京时间11:30起，午休期间重试
     - cron: '0,10,20,30,40,50 4 * * 1-5'
     - cron: '0,5,15,25,35,45,55 7-9 * * 1-5' # 北京时间15:00起收盘重试
@@ -20,7 +22,7 @@ concurrency:
 jobs:
   snapshot:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,6 +31,10 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: python -m unittest discover -s tests -p 'test_*snapshot*.py' -v
+      - run: python -m unittest discover -s tests -p 'test_cloud_wait.py' -v
+      - name: 提前就绪的云端执行器等待采集时点
+        if: github.event_name == 'schedule'
+        run: python -m collector.cloud_wait
       - name: 采集全市场快照并逐股核验
         id: collect
         continue-on-error: true
