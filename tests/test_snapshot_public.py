@@ -26,6 +26,12 @@ class SnapshotPublicTests(unittest.TestCase):
         self.assertEqual(sum(counts), 201)
         self.assertNotIn('PRIVATE_SENTINEL', ''.join(files.values()))
         self.assertEqual(len(json.loads(files['market/midday/snapshot.json'])['rows']), 201)
+        archive = 'market/archive/2026-11-16/midday/sample/'
+        archived = json.loads(files[archive + 'manifest.json'])
+        for entry in list(archived['files'].values()) + archived['chunks']:
+            path = entry['url'].split('/main/')[1]
+            self.assertTrue(path.startswith(archive))
+            self.assertEqual(digest(files[path]), entry['sha256'])
 
     def test_partial_cannot_replace_complete_same_day_but_new_date_remains_visible(self):
         old = self.fixture(2)

@@ -74,9 +74,15 @@ def make_files(snapshot, repository):
     lines += ['- [' + str(i + 1) + '（' + str(c['records']) + '只）](' + c['url'] + ')' for i, c in enumerate(manifest['chunks'])]
     files[prefix + 'index.md'] = '\n'.join(lines) + '\n'
     archive = 'market/archive/' + payload['trade_date'] + '/' + session + '/' + payload['run_id'] + '/'
-    # These immutable files retain their run metadata; manifest links use stable entry points.
-    files[archive + 'snapshot.json'] = files[prefix + 'snapshot.json']
-    files[archive + 'manifest.json'] = files[prefix + 'latest.json']
+    archived_manifest = json.loads(encode(manifest))
+    for name, meta in archived_manifest['files'].items():
+        meta['url'] = base + archive + name
+        files[archive + name] = files[prefix + name]
+    for chunk in archived_manifest['chunks']:
+        relative = chunk['url'].split('/main/' + prefix, 1)[1]
+        chunk['url'] = base + archive + relative
+        files[archive + relative] = files[prefix + relative]
+    files[archive + 'manifest.json'] = encode(archived_manifest)
     return files, manifest
 
 
