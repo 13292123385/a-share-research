@@ -18,7 +18,8 @@ def main():
     if now.weekday() >= 5 or now.hour < 15:
         print('Outside weekday closing window; no dispatch.')
         return
-    git = shutil.which('git') or str(Path(os.environ.get('ProgramFiles', 'C:/Program Files')) / 'Git/cmd/git.exe')
+    from snapshot_watchdog import find_git
+    git = find_git()
     credential = subprocess.run([git, 'credential', 'fill'],
         input='protocol=https\nhost=github.com\n\n', capture_output=True, text=True,
         cwd=ROOT, env=dict(os.environ, GIT_TERMINAL_PROMPT='0', GCM_INTERACTIVE='never'), timeout=30)

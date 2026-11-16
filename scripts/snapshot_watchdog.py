@@ -15,16 +15,22 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 
-def local_token():
+def find_git():
     git = shutil.which('git')
     if not git:
         for candidate in (Path(os.environ.get('ProgramFiles', 'C:/Program Files')) / 'Git/cmd/git.exe',
-                          Path(os.environ.get('LOCALAPPDATA', '')) / 'Programs/Git/cmd/git.exe'):
+                          Path(os.environ.get('LOCALAPPDATA', '')) / 'Programs/Git/cmd/git.exe',
+                          Path.home() / '.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/git.exe'):
             if candidate.is_file():
                 git = str(candidate)
                 break
     if not git:
         raise RuntimeError('Git executable missing')
+    return git
+
+
+def local_token():
+    git = find_git()
     result = subprocess.run([git, 'credential', 'fill'], input='protocol=https\nhost=github.com\n\n',
         cwd=ROOT, capture_output=True, text=True, timeout=30,
         env=dict(os.environ, GIT_TERMINAL_PROMPT='0', GCM_INTERACTIVE='never'),
