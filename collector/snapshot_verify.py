@@ -8,6 +8,7 @@ import json
 import time
 
 import requests
+from .delivery_http import request, checked_download
 
 
 def verify(repository, session, expected_day=None, expected_run=None):
@@ -15,7 +16,7 @@ def verify(repository, session, expected_day=None, expected_run=None):
     # A clean session: never attach private GitHub credentials to public URLs.
     client = requests.Session()
     for attempt in range(6):
-        response = client.get(base + 'latest.json', params={'v': time.time_ns()}, timeout=30)
+        response = request(client, 'GET', base + 'latest.json', params={'v': time.time_ns()}, timeout=30)
         if response.ok:
             manifest = response.json()
             if (not expected_day or manifest['trade_date'] == expected_day) and (not expected_run or manifest['run_id'] == expected_run):
@@ -28,7 +29,7 @@ def verify(repository, session, expected_day=None, expected_run=None):
     counts = {}
     complete_codes = None
     for name, meta in manifest['files'].items():
-        data = client.get(meta['url'], params={'v': time.time_ns()}, timeout=45)
+        data = checked_download(client, meta['url'], meta['sha256'], params={'v': time.time_ns()}, timeout=45)
         data.raise_for_status()
         if hashlib.sha256(data.content).hexdigest() != meta['sha256']:
             raise ValueError('public bytes checksum mismatch: ' + name)
@@ -43,7 +44,7 @@ def verify(repository, session, expected_day=None, expected_run=None):
     if sum(c['records'] for c in manifest['chunks']) != manifest['records']:
         raise ValueError('public chunk record count mismatch')
     def check_chunk(chunk):
-        data = requests.get(chunk['url'], params={'v': time.time_ns()}, timeout=30)
+        data = checked_download(requests.Session(), chunk['url'], chunk['sha256'], params={'v': time.time_ns()}, timeout=30)
         data.raise_for_status()
         if hashlib.sha256(data.content).hexdigest() != chunk['sha256']:
             raise ValueError('public chunk checksum mismatch')

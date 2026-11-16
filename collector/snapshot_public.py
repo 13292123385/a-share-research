@@ -9,6 +9,7 @@ from pathlib import Path
 import time
 
 import requests
+from .delivery_http import request
 
 FIELDS = ('代码', '名称', '最新价', '今开', '最高', '最低', '昨收', '涨跌额', '涨跌幅',
           '成交量', '成交额', '换手率', '市盈率', '市盈率-动态', '市净率', '总市值', '流通市值',
@@ -107,11 +108,7 @@ def publish(snapshot, repository, token):
     base = 'https://api.github.com/repos/' + repository
 
     def api(path, method='GET', body=None):
-        for attempt in range(3):
-            response = client.request(method, base + path, json=body, timeout=45)
-            if response.status_code not in (429, 500, 502, 503, 504):
-                break
-            time.sleep(2 ** attempt)
+        response = request(client, method, base + path, json=body, timeout=45)
         if not response.ok:
             raise RuntimeError(f'public snapshot {method} HTTP {response.status_code}')
         return response.json()
@@ -124,7 +121,7 @@ def publish(snapshot, repository, token):
     for attempt in range(4):
         head = api('/git/ref/heads/main')['object']['sha']
         previous = api('/git/commits/' + head)
-        old_response = client.get(base + '/contents/' + prefix + 'latest.json', params={'ref': head}, timeout=30)
+        old_response = request(client, 'GET', base + '/contents/' + prefix + 'latest.json', params={'ref': head}, timeout=30)
         old = None
         if old_response.status_code == 200:
             import base64
@@ -150,7 +147,7 @@ def publish(snapshot, repository, token):
         tree = api('/git/trees', 'POST', {'base_tree': previous['tree']['sha'], 'tree': entries})
         commit = api('/git/commits', 'POST', {'message': 'data: publish full-market ' + snapshot['trade_date'] + ' ' + session_name,
             'tree': tree['sha'], 'parents': [head]})
-        response = client.patch(base + '/git/refs/heads/main', json={'sha': commit['sha'], 'force': False}, timeout=45)
+        response = request(client, 'PATCH', base + '/git/refs/heads/main', json={'sha': commit['sha'], 'force': False}, timeout=45)
         if response.ok:
             print('Published public market snapshot:', snapshot['trade_date'], session_name, manifest['records'], commit['sha'], flush=True)
             return manifest

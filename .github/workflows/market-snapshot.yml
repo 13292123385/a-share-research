@@ -32,6 +32,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m unittest discover -s tests -p 'test_*snapshot*.py' -v
       - run: python -m unittest discover -s tests -p 'test_cloud_wait.py' -v
+      - run: python -m unittest discover -s tests -p 'test_delivery_resilience.py' -v
       - name: 提前就绪的云端执行器等待采集时点
         if: github.event_name == 'schedule'
         run: python -m collector.cloud_wait
@@ -41,6 +42,12 @@ jobs:
         env:
           REQUEST_SESSION: ${{ inputs.session || 'auto' }}
         run: python -m collector.market_snapshot --session "$REQUEST_SESSION"
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.collect.outputs.run_path != ''
+        with:
+          name: market-snapshot-${{ github.run_id }}
+          path: ${{ steps.collect.outputs.run_path }}
+          retention-days: 7
       - name: 保存不可变快照及独立午盘收盘指针
         id: archive
         if: always() && steps.collect.outputs.run_path != '' && (steps.collect.outputs.status == 'complete' || steps.collect.outputs.status == 'partial')
@@ -77,12 +84,6 @@ jobs:
         run: |
           read -r day session run_id < <(python -c 'import json,os; from pathlib import Path; p=json.loads((Path(os.environ["RUN_PATH"])/"manifest.json").read_text()); print(p["trade_date"],p["session"],p["run_id"])')
           python -m collector.snapshot_verify --session "$session" --date "$day" --run-id "$run_id"
-      - uses: actions/upload-artifact@v4
-        if: always() && steps.collect.outputs.run_path != ''
-        with:
-          name: market-snapshot-${{ github.run_id }}
-          path: ${{ steps.collect.outputs.run_path }}
-          retention-days: 7
       - name: 不完整或发布失败时明确标红
         if: always() && (steps.collect.outcome == 'failure' || steps.publish.outcome == 'failure')
         run: exit 1
