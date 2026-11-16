@@ -1,0 +1,1515 @@
+{
+  "calendar": {
+    "function": "tool_trade_date_hist_sina",
+    "provider": "AKShare / 新浪",
+    "parameters": {},
+    "fetched_at": "2026-11-16T19:30:54.557427+08:00",
+    "status": "ok",
+    "rows": 8797,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": null,
+    "sha256": "552e6d424c049845be3d46eeddf0f82347140c35ba8c14ad9948831dff55d9aa",
+    "finished_at": "2026-11-16T19:30:57.098538+08:00"
+  },
+  "limit_up": {
+    "function": "stock_zt_pool_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:30:57.103324+08:00",
+    "status": "ok",
+    "rows": 32,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "04c1a5bc5bba7debab0da454696c0c1497cc74d643321324d1c706b5390b5194",
+    "finished_at": "2026-11-16T19:31:00.586580+08:00"
+  },
+  "yesterday_pool": {
+    "function": "stock_zt_pool_previous_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:31:00.586938+08:00",
+    "status": "ok",
+    "rows": 36,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "812667abb078940452ead14558cd69507d870fce123c839d57d199c803a96be4",
+    "finished_at": "2026-11-16T19:31:04.090815+08:00"
+  },
+  "broken": {
+    "function": "stock_zt_pool_zbgc_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:31:04.091045+08:00",
+    "status": "ok",
+    "rows": 16,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "333015b21263c59fa5b8b39a40a7f585bac9d823f7a3bbcd3c642f05c580db90",
+    "finished_at": "2026-11-16T19:31:07.579922+08:00"
+  },
+  "limit_down": {
+    "function": "stock_zt_pool_dtgc_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:31:07.580131+08:00",
+    "status": "ok",
+    "rows": 60,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "f4bfbd2af051b2c75f5d64374bb38511a900406e5b58e62fa39091792b873b25",
+    "finished_at": "2026-11-16T19:31:11.060354+08:00"
+  },
+  "spot": {
+    "function": "stock_zh_a_spot_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {},
+    "fetched_at": "2026-11-16T19:31:11.060640+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": null,
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:31:22.485747+08:00"
+  },
+  "spot_fallback": {
+    "function": "stock_zh_a_spot",
+    "provider": "AKShare / 新浪",
+    "parameters": {},
+    "fetched_at": "2026-11-16T19:31:22.486165+08:00",
+    "status": "ok",
+    "rows": 5578,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": null,
+    "sha256": "f93589bedd9004f0e20f1864e8528686fa93f62310778919b503dab4a69c2934",
+    "finished_at": "2026-11-16T19:32:25.222931+08:00"
+  },
+  "official_roster_sh_main": {
+    "function": "stock_info_sh_name_code",
+    "provider": "AKShare / 上海证券交易所",
+    "parameters": {
+      "symbol": "主板A股"
+    },
+    "fetched_at": "2026-11-16T19:32:25.234488+08:00",
+    "status": "ok",
+    "rows": 1700,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": null,
+    "sha256": "bb4d38fe98f5b2859d739037d5ef74bf82be38f71d4e41576b9bab0942804894",
+    "finished_at": "2026-11-16T19:32:31.848831+08:00"
+  },
+  "official_roster_sh_star": {
+    "function": "stock_info_sh_name_code",
+    "provider": "AKShare / 上海证券交易所",
+    "parameters": {
+      "symbol": "科创板"
+    },
+    "fetched_at": "2026-11-16T19:32:31.850967+08:00",
+    "status": "ok",
+    "rows": 619,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": null,
+    "sha256": "b475fe305661526f521d16230cbb28e0dc9345d027a40de5b9ab9bb1b34821ea",
+    "finished_at": "2026-11-16T19:32:37.711532+08:00"
+  },
+  "official_roster_sz": {
+    "function": "stock_info_sz_name_code",
+    "provider": "AKShare / 深圳证券交易所",
+    "parameters": {
+      "symbol": "A股列表"
+    },
+    "fetched_at": "2026-11-16T19:32:37.712610+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": null,
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:32:41.924816+08:00"
+  },
+  "official_roster_sz_retry1": {
+    "function": "stock_info_sz_name_code",
+    "provider": "AKShare / 深圳证券交易所",
+    "parameters": {
+      "symbol": "A股列表"
+    },
+    "fetched_at": "2026-11-16T19:32:41.925235+08:00",
+    "status": "ok",
+    "rows": 2905,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": null,
+    "sha256": "b83143eada242e6d44ec43d002447e65d20dd596f6850a131f44907be50caa8c",
+    "finished_at": "2026-11-16T19:32:47.449356+08:00"
+  },
+  "official_roster_bj": {
+    "function": "stock_info_bj_name_code",
+    "provider": "AKShare / 北京证券交易所",
+    "parameters": {},
+    "fetched_at": "2026-11-16T19:32:47.452592+08:00",
+    "status": "ok",
+    "rows": 355,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": null,
+    "sha256": "d2e4da0ef32eac88cbc4810a0cbc9c0b842cba49954d59c9172f81ab5f8360e0",
+    "finished_at": "2026-11-16T19:33:10.872938+08:00"
+  },
+  "official_szse_summary": {
+    "function": "stock_szse_summary",
+    "provider": "AKShare / 深圳证券交易所",
+    "parameters": {
+      "date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:33:10.873643+08:00",
+    "status": "ok",
+    "rows": 14,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "a5c6c313e242ac11d8e83183fe77ebc04f4e11904bd1a5e18bb9ac420392141b",
+    "finished_at": "2026-11-16T19:33:13.832783+08:00"
+  },
+  "market_quote_689009": {
+    "function": "tencent_quote",
+    "provider": "直接请求 / 腾讯",
+    "parameters": {
+      "symbol": "sh689009",
+      "trade_date": "2026-11-16"
+    },
+    "fetched_at": "2026-11-16T19:33:13.846183+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://gu.qq.com/sh689009/gp",
+    "raw_format": "腾讯免费报价解析表（非HTTP原文）",
+    "requested_trade_date": "2026-11-16",
+    "sha256": "e376f59ed41a950f086cdeac81a480d1da016ffe84e44787cc0e2d53f14a2e29",
+    "finished_at": "2026-11-16T19:33:17.429952+08:00"
+  },
+  "price_000573": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz000573",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:33:17.542198+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "17be40b75a49d914539835c70857dcfb50178158511fe6c7b2a1ee7a6ea1fa27",
+    "finished_at": "2026-11-16T19:33:23.562185+08:00"
+  },
+  "price_000595": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz000595",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:33:23.562506+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "2a7793c7b19bf140d6ef68d1afc45f608bc6bb2a48d86d0d7906cef0f0c54dc6",
+    "finished_at": "2026-11-16T19:33:28.100211+08:00"
+  },
+  "price_000665": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz000665",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:33:28.100558+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "78b06d219c763deb7fdb5f177cb278047ebad00847c8058eca88c8fe66b4449c",
+    "finished_at": "2026-11-16T19:33:32.627496+08:00"
+  },
+  "price_000766": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz000766",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:33:32.627870+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "e8ac0bdd03c5ca6a6023f0fa86bc24be30d0e27679cc7dea6e3a6ea9fdccfcb4",
+    "finished_at": "2026-11-16T19:33:37.130540+08:00"
+  },
+  "price_000819": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz000819",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:33:37.130928+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "72b4d22e5e03faa2f4bc27709f625eab69c2123f565447532ef0a2d6ca855c09",
+    "finished_at": "2026-11-16T19:33:44.109534+08:00"
+  },
+  "price_000995": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz000995",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:33:44.109920+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "6c0757f9ec8f43429535f66bab16653c60c319d6a794bba69a01447b62864927",
+    "finished_at": "2026-11-16T19:33:48.647446+08:00"
+  },
+  "price_001358": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz001358",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:33:48.647870+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "a754338877c9c34961d9e291c6c1d862f4a8c985b6c1d4a5323020e65ae5ed53",
+    "finished_at": "2026-11-16T19:33:53.058222+08:00"
+  },
+  "price_001393": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz001393",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:33:53.059202+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "4a18061518051f510fd9423d6b340286c0f9519d1f306553f425aa9a093ca93c",
+    "finished_at": "2026-11-16T19:33:57.134388+08:00"
+  },
+  "price_002021": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002021",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:33:57.134822+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "531b48eac577b40a3a5cc2eb28c503f811989b7d0cfae7d51dff65641d8d192a",
+    "finished_at": "2026-11-16T19:34:01.638330+08:00"
+  },
+  "price_002042": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002042",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:01.638753+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "7ccb4d70cfba8016f1b3368f746fd5a0f84de72e27a10eceb64f9d915fe89d49",
+    "finished_at": "2026-11-16T19:34:06.134286+08:00"
+  },
+  "price_002086": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002086",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:06.134714+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "09979fbdb0029bda52b8d3f15d6d2ac9da7b6e77a965323191815d76f1ba58f9",
+    "finished_at": "2026-11-16T19:34:10.612142+08:00"
+  },
+  "price_002124": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002124",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:10.612550+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "b66875229736e91f6f19e4ccb80a73fbbe3d6243529afdfea81fed26d93efb1f",
+    "finished_at": "2026-11-16T19:34:15.126146+08:00"
+  },
+  "price_002172": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002172",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:15.126573+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "c4bfc8ddba60db63cdb0d75d5f8020f6351da6479eaf226363a6f58ef7908311",
+    "finished_at": "2026-11-16T19:34:19.836807+08:00"
+  },
+  "price_002187": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002187",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:19.837273+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "c922d720878298c84fecc4d886d930f701dac155009667d1481b8445c9420141",
+    "finished_at": "2026-11-16T19:34:24.952626+08:00"
+  },
+  "price_002205": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002205",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:24.953126+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "c3f32df44669475b9a9623a88a5426479b2f759374e7e4bc3703dc6650baa915",
+    "finished_at": "2026-11-16T19:34:29.430331+08:00"
+  },
+  "price_002425": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002425",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:29.430791+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "6387df4058d93ebf0bba273d47cad34d6202c67256d03d5b4934a418ef2e194c",
+    "finished_at": "2026-11-16T19:34:34.217884+08:00"
+  },
+  "price_002520": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002520",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:34.218355+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "bb2b187480f81602ac670017c8dfb766787b638789d73aee77b447be8f5f2aff",
+    "finished_at": "2026-11-16T19:34:39.360310+08:00"
+  },
+  "price_002548": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002548",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:39.360827+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "7e072a87facc94a3eccaf2e3a1f66e89a8d4cda4fdff36b013dbfcc905c16682",
+    "finished_at": "2026-11-16T19:34:44.044917+08:00"
+  },
+  "price_002628": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002628",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:44.045422+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "d028e00f5f62ed044d54feaaf4bbcf2539d6f465389e58218a5efbc907798c53",
+    "finished_at": "2026-11-16T19:34:48.528998+08:00"
+  },
+  "price_002685": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002685",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:48.529508+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "42b054a7948b15f24026f9e6bfc246eaa44d75d7f4996312faf18cfaaba80d43",
+    "finished_at": "2026-11-16T19:34:52.981462+08:00"
+  },
+  "price_002693": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002693",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:52.982043+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "1844d133f39217d493c0ffc2ed5561f0f28354a558823a0e9a50f3dadc27bda0",
+    "finished_at": "2026-11-16T19:34:57.435260+08:00"
+  },
+  "price_002696": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002696",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:34:57.435857+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "2d4a04eb065f43b897b54790fcff969e8f161b612041e07c53fcceef5753f1d6",
+    "finished_at": "2026-11-16T19:35:01.887903+08:00"
+  },
+  "price_002739": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002739",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:01.888461+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "7c6806bc5e0976e8804fb8ae22221a3898890785c8b69922b1f5d955c0446902",
+    "finished_at": "2026-11-16T19:35:06.309785+08:00"
+  },
+  "price_002748": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002748",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:06.310319+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "def2463624d98ec36a422878683a05d7df0beb7a049b7679903de4d1f7339a41",
+    "finished_at": "2026-11-16T19:35:10.750528+08:00"
+  },
+  "price_002819": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002819",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:10.751145+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "877d6db1e5ab9d32c37f3f3dd935b4c9d48bef077d78b77177b3c4425fa5b0e5",
+    "finished_at": "2026-11-16T19:35:15.177832+08:00"
+  },
+  "price_002853": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002853",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:15.178424+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "c023a254c7447d513fe5a34136c9c575d755deb6803d6d9e047926884732a9af",
+    "finished_at": "2026-11-16T19:35:19.631379+08:00"
+  },
+  "price_002905": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz002905",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:19.631985+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "1f4ed5e1b45e7bdd74833da0091d8b1fc642e9b77ccc19ebba84f071e029a28d",
+    "finished_at": "2026-11-16T19:35:25.732541+08:00"
+  },
+  "price_600410": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600410",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:25.733206+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "caa6d702c42fd223a94512806dd532d93f946755454ce9f0c1660231fbfef7f1",
+    "finished_at": "2026-11-16T19:35:30.893728+08:00"
+  },
+  "price_600467": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600467",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:30.894468+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "8caebb98a91e259ac0aad851444837ac1480aac1e1323f61cf423df02a2c5da3",
+    "finished_at": "2026-11-16T19:35:35.371194+08:00"
+  },
+  "price_600558": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600558",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:35.371886+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "01ca2c3b51bed23d55dd3e0ddce508b26d07388a2634df7a01ed98d02bc477ca",
+    "finished_at": "2026-11-16T19:35:39.882219+08:00"
+  },
+  "price_600569": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600569",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:39.882900+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "133a85d7cebf9f54d447eb8c4294fef4819e5208dcfa4fcb2cf9769ddb1a1d84",
+    "finished_at": "2026-11-16T19:35:44.819421+08:00"
+  },
+  "price_600651": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600651",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:44.820132+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "ab95f4bb02dc740cbd432b046fce981ddc732b55dac6171432b08db9afca7259",
+    "finished_at": "2026-11-16T19:35:49.598242+08:00"
+  },
+  "price_600715": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600715",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:49.598916+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "71c9bea89b971e0e46b11ee5f7101fa8b07d25b4bf0688f01bb09fe6360e60cb",
+    "finished_at": "2026-11-16T19:35:54.563696+08:00"
+  },
+  "price_600802": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600802",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:54.564368+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "bd7e1bef9cbe4b9fc075f03c4cfba27577232e4059d14904ed1aef59f7598bd8",
+    "finished_at": "2026-11-16T19:35:59.329647+08:00"
+  },
+  "price_600853": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600853",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:35:59.330354+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "969e1ac71430c2215b2d0ac2bfd57b34b6c22d9571aff4330a6d233814201fe7",
+    "finished_at": "2026-11-16T19:36:05.327453+08:00"
+  },
+  "price_600857": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600857",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:05.328205+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "8a1be8c31e58c8ce669a69b62c141d1cd967f73ebeb6fe8b7cc17cd24892f6e5",
+    "finished_at": "2026-11-16T19:36:11.172501+08:00"
+  },
+  "price_600977": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh600977",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:11.173215+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "d3d796af3eed0225796dc543bfc4f0ee65d39671ad5fbc29929f56e4c5e2b93b",
+    "finished_at": "2026-11-16T19:36:15.619672+08:00"
+  },
+  "price_601091": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh601091",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:15.620407+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "519ac35239bdcf0ba4673c780f215a7397f6318ecd9e2991dc002adbe5c1e5bf",
+    "finished_at": "2026-11-16T19:36:19.705841+08:00"
+  },
+  "price_601188": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh601188",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:19.706565+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "4033ab15d77f2eac0c8403c07857058dc6d4912fe0a325b9d78aee8c7c01f710",
+    "finished_at": "2026-11-16T19:36:24.155292+08:00"
+  },
+  "price_601566": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh601566",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:24.156024+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "04a50dbd9b9ae2467c56fbe6efd2c3478bddedaafdaf57fbcc56a2978dfd3bd9",
+    "finished_at": "2026-11-16T19:36:28.628702+08:00"
+  },
+  "price_601606": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh601606",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:28.629435+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "4c9ad98c00bf2700c8c0e9017a7aa87454cabf71b0796405eab5cddc8d4f5231",
+    "finished_at": "2026-11-16T19:36:34.095054+08:00"
+  },
+  "price_601929": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh601929",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:34.095826+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "fc22fd9180c78c201f9d0d9816d044fc6b89a17ac97fb164cd0cd773ff3cb117",
+    "finished_at": "2026-11-16T19:36:38.537577+08:00"
+  },
+  "price_603103": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh603103",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:38.538372+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "b83ce3ea0d7189bd06905b6c66608f2fd708203342b5c0ceb866e324beb743c3",
+    "finished_at": "2026-11-16T19:36:42.978804+08:00"
+  },
+  "price_603166": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh603166",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:42.979600+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "00c7ed9ffe5583f4db651c522723d90dac565aaaaada2d8a823fb815ce7d9400",
+    "finished_at": "2026-11-16T19:36:47.398236+08:00"
+  },
+  "price_603175": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh603175",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:47.399049+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "2de651dd60d2592802799c7e906fac10089cbc608ab519486a5ac90fb7b7beb9",
+    "finished_at": "2026-11-16T19:36:51.489559+08:00"
+  },
+  "price_603286": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh603286",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:51.490383+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "f4a82d75a1d69a341079ed6e546583a928fc391f2a66123de234b4db78f55da4",
+    "finished_at": "2026-11-16T19:36:55.915145+08:00"
+  },
+  "price_603636": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh603636",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:36:55.915998+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "274cc8a52fa21a1e7967e95fd06b74f194002239545aeadfc3d6c853ef29cee7",
+    "finished_at": "2026-11-16T19:37:00.353659+08:00"
+  },
+  "price_603686": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh603686",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:37:00.354465+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "9ba074094000f3648adf76d0052526b1809a6e16b777dc1d37cb0f90fed2a461",
+    "finished_at": "2026-11-16T19:37:05.450562+08:00"
+  },
+  "price_603767": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh603767",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:37:05.451462+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "a7974884f6f794a70009c5e2b95b3f464c48eaa259fd7b69143251c053908f81",
+    "finished_at": "2026-11-16T19:37:10.070785+08:00"
+  },
+  "price_603928": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh603928",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:37:10.071643+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "1be7d33bd48e71d3b4f7c75088121e2213d428b1926cb7ad8f03b56ba589082b",
+    "finished_at": "2026-11-16T19:37:14.496069+08:00"
+  },
+  "price_603958": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh603958",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:37:14.496876+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "d71422f99da0c5570ea3903b197966108bc09c6661324e43121b6d81b852c112",
+    "finished_at": "2026-11-16T19:37:18.918624+08:00"
+  },
+  "price_605169": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh605169",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:37:18.919540+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "9e69dca57e4a11af094a883e0f44b6add1e01f09d0c50b2fdffcc489f9bac42e",
+    "finished_at": "2026-11-16T19:37:23.336805+08:00"
+  },
+  "price_605222": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh605222",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:37:23.337661+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "3fa0ae5b089994d6659bc13505d0daba1734bd568a35385855a900c115dcce84",
+    "finished_at": "2026-11-16T19:37:28.762216+08:00"
+  },
+  "price_605318": {
+    "function": "stock_zh_a_hist_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh605318",
+      "start_date": "20261116",
+      "end_date": "20261116",
+      "adjust": "",
+      "timeout": 10
+    },
+    "fetched_at": "2026-11-16T19:37:28.763141+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "2e466ec3de1245b2d02252c123ecec1e9b2b93277d722ce361f6ac0c7c7da07e",
+    "finished_at": "2026-11-16T19:37:33.162204+08:00"
+  },
+  "index_sh000001": {
+    "function": "stock_zh_index_daily_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "symbol": "sh000001",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:37:33.170816+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:37:38.612258+08:00"
+  },
+  "index_retry_sh000001": {
+    "function": "stock_zh_index_daily_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "symbol": "sh000001",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:37:38.613272+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:37:41.780079+08:00"
+  },
+  "index_fallback_sh000001": {
+    "function": "stock_zh_index_daily_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sh000001",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:37:41.781106+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "08769f935b8490da290fc0f33de7fb839cecaf9b840ba098db98dad0bd61f39c",
+    "finished_at": "2026-11-16T19:37:45.905131+08:00"
+  },
+  "index_sz399001": {
+    "function": "stock_zh_index_daily_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "symbol": "sz399001",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:37:45.906095+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:37:49.108563+08:00"
+  },
+  "index_retry_sz399001": {
+    "function": "stock_zh_index_daily_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "symbol": "sz399001",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:37:49.109926+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:37:52.267471+08:00"
+  },
+  "index_fallback_sz399001": {
+    "function": "stock_zh_index_daily_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz399001",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:37:52.268591+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "88d52f4b61b81b90a047c50c6a27a4b52699bf15e725c144b1a592b8b5e7f1c8",
+    "finished_at": "2026-11-16T19:37:55.974747+08:00"
+  },
+  "index_sz399006": {
+    "function": "stock_zh_index_daily_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "symbol": "sz399006",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:37:55.975734+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:37:59.971613+08:00"
+  },
+  "index_retry_sz399006": {
+    "function": "stock_zh_index_daily_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "symbol": "sz399006",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:37:59.972698+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:38:03.394267+08:00"
+  },
+  "index_fallback_sz399006": {
+    "function": "stock_zh_index_daily_tx",
+    "provider": "AKShare / 腾讯",
+    "parameters": {
+      "symbol": "sz399006",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:38:03.395429+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "8be81ba57956aab7f4422b45f99bdfed22b4a1996988c6e8635e4e62aa753ce0",
+    "finished_at": "2026-11-16T19:38:06.889572+08:00"
+  },
+  "index_csi932000": {
+    "function": "stock_zh_index_daily_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "symbol": "csi932000",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:38:06.890575+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:38:10.046155+08:00"
+  },
+  "index_retry_csi932000": {
+    "function": "stock_zh_index_daily_em",
+    "provider": "AKShare / 东方财富",
+    "parameters": {
+      "symbol": "csi932000",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:38:10.047285+08:00",
+    "status": "error",
+    "rows": null,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "error": "requests.exceptions.ConnectionError",
+    "finished_at": "2026-11-16T19:38:13.189017+08:00"
+  },
+  "index_official_csi932000": {
+    "function": "stock_zh_index_hist_csindex",
+    "provider": "AKShare / 中证指数官网",
+    "parameters": {
+      "symbol": "932000",
+      "start_date": "20261116",
+      "end_date": "20261116"
+    },
+    "fetched_at": "2026-11-16T19:38:13.190161+08:00",
+    "status": "ok",
+    "rows": 1,
+    "missing_fields": [],
+    "documentation": "https://akshare.akfamily.xyz/data/stock/stock.html",
+    "raw_format": "AKShare返回表（非原始HTTP响应）",
+    "requested_trade_date": "20261116",
+    "sha256": "adc62914adc8de3e78ec07a4dd0aff9f28dc04e9ca901b96e700a14795431b93",
+    "finished_at": "2026-11-16T19:38:16.573890+08:00"
+  }
+}
