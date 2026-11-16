@@ -10,7 +10,8 @@ class SnapshotPublicTests(unittest.TestCase):
     def fixture(self, count=201):
         return dict(schema_version=1, trade_date='2026-11-16', session='midday', run_id='sample',
                     fetched_at='2026-11-16T11:31:00+08:00', finished_at='2026-11-16T11:32:00+08:00',
-                    status='complete', records=count, expected_count=count, coverage={}, quality={}, units={},
+                    status='complete', records=count, expected_count=count,
+                    coverage={'private_path': 'PRIVATE_SENTINEL'}, quality={'secret': 'PRIVATE_SENTINEL'}, units={},
                     rows=[{'代码': str(i).zfill(6), '名称': 'sample', '最新价': 3, 'secret': 'PRIVATE_SENTINEL'} for i in range(count)])
 
     def test_all_rows_exported_once_across_shards_and_checksums_match(self):

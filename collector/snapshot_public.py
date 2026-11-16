@@ -15,6 +15,10 @@ FIELDS = ('代码', '名称', '最新价', '今开', '最高', '最低', '昨收
           'quote_timestamp', 'quote_status')
 META = ('schema_version', 'trade_date', 'session', 'run_id', 'fetched_at', 'finished_at',
         'status', 'records', 'expected_count', 'coverage', 'quality', 'units')
+COVERAGE_FIELDS = ('status', 'expected_count', 'observed_count', 'missing_codes', 'unexpected_codes',
+                   'duplicate_codes', 'unavailable_rosters', 'all_market_verified')
+QUALITY_FIELDS = ('invalid_codes', 'stale_codes', 'suspended_codes', 'missing_fields',
+                  'required_fields', 'nullable_fields', 'issues', 'timestamp_status')
 
 
 def encode(value):
@@ -41,6 +45,8 @@ def make_files(snapshot, repository):
     if len(rows) != snapshot['records']:
         raise ValueError('snapshot record count mismatch')
     payload = {key: snapshot.get(key) for key in META}
+    for key, fields in (('coverage', COVERAGE_FIELDS), ('quality', QUALITY_FIELDS)):
+        payload[key] = {name: value for name, value in (payload[key] or {}).items() if name in fields}
     payload['rows'] = rows
     session = snapshot['session']
     prefix = 'market/' + session + '/'
