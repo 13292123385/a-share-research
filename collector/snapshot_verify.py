@@ -12,14 +12,23 @@ from .delivery_http import request, checked_download
 
 
 def verify(repository, session, expected_day=None, expected_run=None):
-    base = 'https://raw.githubusercontent.com/' + repository + '/main/market/' + session + '/'
+    root = 'https://raw.githubusercontent.com/' + repository + '/main/'
+    path = ('market/archive/' + expected_day + '/' + session + '/' + expected_run + '/manifest.json'
+            if expected_day and expected_run else 'market/' + session + '/latest.json')
+    urls = ['https://' + repository.split('/')[0] + '.github.io/' + repository.split('/')[1] + '/' + path,
+            root + path]
     # A clean session: never attach private GitHub credentials to public URLs.
     client = requests.Session()
+    manifest = None
     for attempt in range(6):
-        response = request(client, 'GET', base + 'latest.json', params={'v': time.time_ns()}, timeout=30)
-        if response.ok:
-            manifest = response.json()
-            if (not expected_day or manifest['trade_date'] == expected_day) and (not expected_run or manifest['run_id'] == expected_run):
+        for url in urls:
+            response = request(client, 'GET', url, params={'v': time.time_ns()}, timeout=30)
+            if response.ok:
+                candidate = response.json()
+                if (not expected_day or candidate['trade_date'] == expected_day) and (not expected_run or candidate['run_id'] == expected_run):
+                    manifest = candidate
+                    break
+        if manifest is not None:
                 break
         time.sleep(5)
     else:
