@@ -1,7 +1,7 @@
 name: 已归档全市场数据补发
 on:
   workflow_run:
-    workflows: ['全市场午盘与收盘快照']
+    workflows: ['沪深主板午盘与收盘快照', '全市场午盘与收盘快照']
     types: [completed]
   schedule:
     - cron: '7 5,8,10 * * 1-5' # 北京时间13:07/16:07/18:07，不跨时段重采
@@ -18,6 +18,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

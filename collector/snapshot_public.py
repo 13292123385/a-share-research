@@ -14,8 +14,8 @@ from .delivery_http import request
 FIELDS = ('代码', '名称', '最新价', '今开', '最高', '最低', '昨收', '涨跌额', '涨跌幅',
           '成交量', '成交额', '换手率', '市盈率', '市盈率-动态', '市净率', '总市值', '流通市值',
           'quote_timestamp', 'quote_status')
-META = ('schema_version', 'trade_date', 'session', 'run_id', 'fetched_at', 'finished_at',
-        'status', 'records', 'expected_count', 'coverage', 'quality', 'units')
+META = ('schema_version', 'universe', 'universe_label', 'trade_date', 'session', 'run_id', 'fetched_at', 'finished_at',
+        'status', 'records', 'expected_count', 'coverage', 'quality', 'units', 'source_run_id', 'scope_adjusted_at')
 COVERAGE_FIELDS = ('status', 'expected_count', 'observed_count', 'missing_codes', 'unexpected_codes',
                    'duplicate_codes', 'unavailable_rosters', 'all_market_verified')
 QUALITY_FIELDS = ('invalid_codes', 'stale_codes', 'suspended_codes', 'missing_fields',
@@ -43,6 +43,10 @@ def make_files(snapshot, repository):
         raise ValueError('not a publishable market snapshot')
     # Rows never inherit arbitrary provider/private archive fields.
     rows = [{key: row.get(key) for key in FIELDS} for row in snapshot['rows']]
+    if snapshot.get('universe') == 'cn_main_board':
+        from .market_snapshot import is_main_board
+        if any(not is_main_board(row.get('代码')) for row in rows):
+            raise ValueError('main-board snapshot contains out-of-scope stocks')
     if len(rows) != snapshot['records']:
         raise ValueError('snapshot record count mismatch')
     payload = {key: snapshot.get(key) for key in META}
@@ -67,7 +71,7 @@ def make_files(snapshot, repository):
         '下载snapshot.json或quotes.csv读取全部股票；网页工具若截断，按chunks逐片读取并核对条数与SHA256。'
         '缺失/null不可当作零；partial不可称为完整快照。午盘与收盘独立保存。')
     files[prefix + 'latest.json'] = encode(manifest)
-    lines = ['# 全市场' + ('午盘' if session == 'midday' else '收盘') + '快照', '',
+    lines = ['# ' + (payload.get('universe_label') or '全市场') + ('午盘' if session == 'midday' else '收盘') + '快照', '',
              f"交易日：{payload['trade_date']}；状态：{payload['status']}；股票数：{len(rows)}/{payload['expected_count']}。",
              f"采集：{payload['fetched_at']}；完成：{payload['finished_at']}。", '',
              '[完整性清单](' + base + prefix + 'latest.json) · [全部股票CSV](' + base + prefix + 'quotes.csv) · [全部股票JSON](' + base + prefix + 'snapshot.json)',
@@ -90,6 +94,8 @@ def make_files(snapshot, repository):
 def should_promote(new, old):
     if not old or old.get('trade_date') is None:
         return True
+    if old.get('universe') == 'cn_main_board' and new.get('universe') != 'cn_main_board':
+        return False
     if new['trade_date'] != old['trade_date']:
         return new['trade_date'] > old['trade_date']
     if old.get('status') == 'complete' and new['status'] != 'complete':
@@ -136,7 +142,7 @@ def publish(snapshot, repository, token):
             'close': 'https://raw.githubusercontent.com/' + repository + '/main/market/close/latest.json',
             'note': '午盘11:30后、收盘15:00后独立采集。先核对日期和完整性；超过午休时间不能补造午盘。'})
         public_base = 'https://raw.githubusercontent.com/' + repository + '/main/'
-        exported['market/index.md'] = '# 全市场快照读取入口\n\n' + '\n'.join(
+        exported['market/index.md'] = '# 沪深主板快照读取入口\n\n' + '\n'.join(
             '- [' + label + '](' + public_base + 'market/' + name + '/index.md)；[完整性清单](' + public_base + 'market/' + name + '/latest.json)'
             for name, label in [('midday', '午盘全部股票'), ('close', '收盘全部股票')]) + '\n\n每个时段都提供完整JSON、CSV与每片100只的分片。核对日期、status、coverage、quality后再分析。\n'
         entries = []

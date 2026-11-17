@@ -17,10 +17,18 @@ from zoneinfo import ZoneInfo
 import requests
 
 from .model import number
-from .reconcile import ROSTERS, roster_codes
+from .reconcile import ROSTERS as ALL_ROSTERS, roster_codes
 from .run import Collector
 
 TZ = ZoneInfo('Asia/Shanghai')
+UNIVERSE = 'cn_main_board'
+UNIVERSE_LABEL = '沪深主板A股'
+ROSTERS = [entry for entry in ALL_ROSTERS if entry[0] in ('sh_main', 'sz')]
+
+
+def is_main_board(code):
+    return isinstance(code, str) and re.fullmatch(r'(?:60|00)\d{4}', code) is not None
+
 NUMERIC_FIELDS = {
     '最新价': (3, 1), '昨收': (4, 1), '今开': (5, 1),
     '成交量': (6, 100), '涨跌额': (31, 1), '涨跌幅': (32, 1),
@@ -178,8 +186,6 @@ def load_rosters(collector, output, trade_date):
             for attempt in range(3):
                 prior_timeout = collector.timeout
                 try:
-                    if name == 'bj':
-                        collector.timeout = max(prior_timeout, 90)
                     rows = collector.call(f'snapshot_roster_{name}_{attempt}', function, **kwargs)
                 finally:
                     collector.timeout = prior_timeout
@@ -188,7 +194,12 @@ def load_rosters(collector, output, trade_date):
         if roster_codes(rows, code_key, date_key, trade_date) is None:
             unavailable.append(name)
         else:
-            rosters[name] = rows
+            # SZSE's official A-share list includes ChiNext; never request its quotes.
+            rows = [row for row in rows if is_main_board(str(row.get(code_key, '')))]
+            if roster_codes(rows, code_key, date_key, trade_date) is None:
+                unavailable.append(name)
+            else:
+                rosters[name] = rows
     if rosters:
         write_json(cache, rosters)
     symbols = []
@@ -266,9 +277,9 @@ def capture(output='snapshot-data', session='auto', now=None, collector_factory=
     if selected_pointer.exists():
         previous = read_json(selected_pointer)
         existing = selected_pointer.parent / 'runs' / previous['run_id']
-        if previous.get('status') == 'complete' and (existing / 'snapshot.json').exists():
+        if previous.get('status') == 'complete' and previous.get('universe') == UNIVERSE and (existing / 'snapshot.json').exists():
             content = (existing / 'snapshot.json').read_bytes()
-            if hashlib.sha256(content).hexdigest() == previous.get('snapshot_sha256'):
+            if hashlib.sha256(content).hexdigest() == previous.get('snapshot_sha256') and all(is_main_board(r.get('代码')) for r in json.loads(content).get('rows', [])):
                 print('Reusing verified complete snapshot:', trade_date, selected, flush=True)
                 if os.environ.get('GITHUB_OUTPUT'):
                     with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as stream:
@@ -286,7 +297,8 @@ def capture(output='snapshot-data', session='auto', now=None, collector_factory=
         days = []
     covered = bool(days and days[0] <= trade_date <= days[-1])
     status = 'calendar_unknown' if not covered else 'skipped' if trade_date not in days else None
-    snapshot = dict(schema_version=1, trade_date=trade_date, session=selected,
+    snapshot = dict(schema_version=1, universe=UNIVERSE, universe_label=UNIVERSE_LABEL,
+                    trade_date=trade_date, session=selected,
                     run_id=run_id, fetched_at=now.isoformat(), status=status,
                     units=UNITS, source='Tencent qt.gtimg.cn; official SSE/SZSE/BSE rosters', rows=[])
     if status is None:

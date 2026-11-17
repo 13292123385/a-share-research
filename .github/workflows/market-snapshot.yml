@@ -1,4 +1,4 @@
-name: 全市场午盘与收盘快照
+name: 沪深主板午盘与收盘快照
 on:
   schedule:
     - cron: '13,23 3 * * 1-5' # 北京时间11:13/11:23提前申请云端执行器
@@ -35,7 +35,7 @@ jobs:
       - run: python -m unittest discover -s tests -p 'test_*snapshot*.py' -v
       - run: python -m unittest discover -s tests -p 'test_cloud_wait.py' -v
       - run: python -m unittest discover -s tests -p 'test_delivery_resilience.py' -v
-      - run: python -m unittest discover -s tests -p 'test_bse_timeout.py' -v
+      - run: python -m unittest discover -s tests -p 'test_main_board_scope.py' -v
       - name: 固定本次任务应采集的时段，延迟的午盘任务不能冒充收盘
         env:
           SCHEDULE: ${{ github.event.schedule }}
@@ -50,7 +50,7 @@ jobs:
       - name: 提前就绪的云端执行器等待采集时点
         if: github.event_name == 'schedule'
         run: python -m collector.cloud_wait --session "$REQUEST_SESSION"
-      - name: 采集全市场快照并逐股核验
+      - name: 采集沪深主板快照并逐股核验
         id: collect
         continue-on-error: true
         run: python -m collector.market_snapshot --session "$REQUEST_SESSION"

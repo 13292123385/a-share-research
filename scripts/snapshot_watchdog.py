@@ -58,7 +58,7 @@ def main():
         payload = response.json() if response.ok else {}
     except (requests.RequestException, ValueError):
         payload = {}
-    if payload.get('trade_date') == today and payload.get('session') == selected and payload.get('status') == 'complete':
+    if payload.get('trade_date') == today and payload.get('session') == selected and payload.get('status') == 'complete' and payload.get('universe') == 'cn_main_board':
         # Verify bytes once per run before declaring success; no private credentials attached.
         try:
             verify(repository, selected, today)
