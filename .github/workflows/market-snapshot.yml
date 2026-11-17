@@ -25,6 +25,8 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -63,6 +65,8 @@ jobs:
             export GIT_INDEX_FILE="$RUNNER_TEMP/snapshot-index-$GITHUB_RUN_ID-$attempt"
             git read-tree "$parent"
             git add -- "$RUN_PATH" "$session_path/latest.json"
+            roster_path="$(dirname "$session_path")/rosters.json"
+            if [ -f "$roster_path" ]; then git add -- "$roster_path"; fi
             if git diff --cached --quiet "$parent"; then exit 0; fi
             tree=$(git write-tree)
             commit=$(printf 'data: archive full-market snapshot\n' | git commit-tree "$tree" -p "$parent")

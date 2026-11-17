@@ -176,7 +176,13 @@ def load_rosters(collector, output, trade_date):
         rows = cached.get(name)
         if roster_codes(rows, code_key, date_key, trade_date) is None:
             for attempt in range(3):
-                rows = collector.call(f'snapshot_roster_{name}_{attempt}', function, **kwargs)
+                prior_timeout = collector.timeout
+                try:
+                    if name == 'bj':
+                        collector.timeout = max(prior_timeout, 90)
+                    rows = collector.call(f'snapshot_roster_{name}_{attempt}', function, **kwargs)
+                finally:
+                    collector.timeout = prior_timeout
                 if roster_codes(rows, code_key, date_key, trade_date) is not None:
                     break
         if roster_codes(rows, code_key, date_key, trade_date) is None:

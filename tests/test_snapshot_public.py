@@ -46,6 +46,9 @@ class SnapshotPublicTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             make_files(dict(self.fixture(2), status='skipped'), '13292123385/a-share-market-data')
 
+    def test_first_real_snapshot_replaces_missing_date_placeholder(self):
+        self.assertTrue(should_promote(self.fixture(2), {'trade_date': None, 'status': 'missing'}))
+
 
 if __name__ == '__main__':
     unittest.main()

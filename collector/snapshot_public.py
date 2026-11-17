@@ -88,7 +88,7 @@ def make_files(snapshot, repository):
 
 
 def should_promote(new, old):
-    if not old:
+    if not old or old.get('trade_date') is None:
         return True
     if new['trade_date'] != old['trade_date']:
         return new['trade_date'] > old['trade_date']
