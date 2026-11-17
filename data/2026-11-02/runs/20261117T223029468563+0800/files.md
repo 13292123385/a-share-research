@@ -1,0 +1,41 @@
+# 文件清单
+
+| 路径 | 记录数 | 缺失字段（数量） |
+|---|---:|---|
+| clean/broken.csv | 22 | all_day_one_word:22, amount:22, close:22, entry_price:22, height:22, high:22, last_seal:22, low:22, max_adverse_excursion:22, open:22, price_date:22, price_source:22, third_day_return:22, volume:22 |
+| clean/broken.json | 22 | all_day_one_word:22, amount:22, close:22, entry_price:22, height:22, high:22, last_seal:22, low:22, max_adverse_excursion:22, open:22, price_date:22, price_source:22, third_day_return:22, volume:22 |
+| clean/candidate_prices.csv | 108 | 无 |
+| clean/candidate_prices.json | 108 | 无 |
+| clean/first_board_candidates.csv | 97 | entry_price:97, max_adverse_excursion:97, third_day_return:97 |
+| clean/first_board_candidates.json | 97 | entry_price:97, max_adverse_excursion:97, third_day_return:97 |
+| clean/first_board_followup.csv | 61 | entry_price:61, max_adverse_excursion:61, third_day_return:61 |
+| clean/first_board_followup.json | 61 | entry_price:61, max_adverse_excursion:61, third_day_return:61 |
+| clean/followup_prices.csv | 61 | 无 |
+| clean/followup_prices.json | 61 | 无 |
+| clean/indices.csv | 4 | 无 |
+| clean/indices.json | 4 | 无 |
+| clean/limit_up.csv | 108 | entry_price:108, max_adverse_excursion:108, third_day_return:108 |
+| clean/limit_up.json | 108 | entry_price:108, max_adverse_excursion:108, third_day_return:108 |
+| clean/promotion.json | 1 | verified_tradable_rate:1 |
+| clean/promotion_rows.csv | 33 | entry_price:33, max_adverse_excursion:33, third_day_return:33 |
+| clean/promotion_rows.json | 33 | entry_price:33, max_adverse_excursion:33, third_day_return:33 |
+| raw/broken.csv | 28 | 无 |
+| raw/broken.json | 28 | 无 |
+| raw/calendar.csv | 8797 | 无 |
+| raw/calendar.json | 8797 | 无 |
+| raw/index_csi932000.csv | 1 | 无 |
+| raw/index_csi932000.json | 1 | 无 |
+| raw/index_sh000001.csv | 1 | 无 |
+| raw/index_sh000001.json | 1 | 无 |
+| raw/index_sz399001.csv | 1 | 无 |
+| raw/index_sz399001.json | 1 | 无 |
+| raw/index_sz399006.csv | 1 | 无 |
+| raw/index_sz399006.json | 1 | 无 |
+| raw/limit_up.csv | 125 | 无 |
+| raw/limit_up.json | 125 | 无 |
+| report.md | — | 无 |
+| sources.json | 1 | 无 |
+| summary.json | 1 | 无 |
+
+来源及原始接口参数见 files.json 的 source_refs 与 sources.json；原始失败不视为空行情。
+entry_price、third_day_return、max_adverse_excursion等未验证成交字段有意保留为空。
