@@ -257,6 +257,9 @@ def capture(output='snapshot-data', session='auto', now=None, collector_factory=
     selected = session_for(now, session)
     if selected is None:
         print('Snapshot skipped: outside the requested session capture window.', flush=True)
+        if os.environ.get('GITHUB_OUTPUT'):
+            with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as stream:
+                stream.write('status=window_missed\n')
         return None
     trade_date = now.date().isoformat()
     selected_pointer = Path(output) / trade_date / selected / 'latest.json'
@@ -312,7 +315,7 @@ def main():
     parser.add_argument('--output', default='snapshot-data')
     args = parser.parse_args()
     snapshot = capture(args.output, args.session)
-    raise SystemExit(0 if snapshot is None or snapshot['status'] in ('complete', 'skipped') else 2)
+    raise SystemExit(0 if snapshot is not None and snapshot['status'] in ('complete', 'skipped') else 2)
 
 
 if __name__ == '__main__':

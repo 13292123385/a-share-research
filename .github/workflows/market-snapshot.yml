@@ -35,14 +35,24 @@ jobs:
       - run: python -m unittest discover -s tests -p 'test_*snapshot*.py' -v
       - run: python -m unittest discover -s tests -p 'test_cloud_wait.py' -v
       - run: python -m unittest discover -s tests -p 'test_delivery_resilience.py' -v
+      - run: python -m unittest discover -s tests -p 'test_bse_timeout.py' -v
+      - name: 固定本次任务应采集的时段，延迟的午盘任务不能冒充收盘
+        env:
+          SCHEDULE: ${{ github.event.schedule }}
+          INPUT_SESSION: ${{ inputs.session || 'auto' }}
+        run: |
+          case "$SCHEDULE" in
+            '13,23 3 * * 1-5'|'30,40,50 3 * * 1-5'|'0,10,20,30,40,50 4 * * 1-5') session=midday ;;
+            '') session="$INPUT_SESSION" ;;
+            *) session=close ;;
+          esac
+          echo "REQUEST_SESSION=$session" >> "$GITHUB_ENV"
       - name: 提前就绪的云端执行器等待采集时点
         if: github.event_name == 'schedule'
-        run: python -m collector.cloud_wait
+        run: python -m collector.cloud_wait --session "$REQUEST_SESSION"
       - name: 采集全市场快照并逐股核验
         id: collect
         continue-on-error: true
-        env:
-          REQUEST_SESSION: ${{ inputs.session || 'auto' }}
         run: python -m collector.market_snapshot --session "$REQUEST_SESSION"
       - uses: actions/upload-artifact@v4
         if: always() && steps.collect.outputs.run_path != ''

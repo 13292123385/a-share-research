@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from collector.market_snapshot import (TZ, archive_snapshot, capture, parse_batch, parse_quote,
                                        session_for, validate_snapshot)
@@ -19,6 +20,14 @@ def quote_fields(code='600000', stamp='20261116113000'):
 
 
 class MarketSnapshotTests(unittest.TestCase):
+    def test_missed_capture_window_is_not_a_successful_cli_run(self):
+        from collector.market_snapshot import main
+        with patch('sys.argv', ['market_snapshot', '--session', 'midday']), \
+                patch('collector.market_snapshot.capture', return_value=None), \
+                self.assertRaises(SystemExit) as result:
+            main()
+        self.assertEqual(result.exception.code, 2)
+
     def test_midday_has_strict_capture_and_quote_window(self):
         for hour, minute, requested, expected in [(11, 29, 'midday', None),
                 (11, 30, 'midday', 'midday'), (12, 59, 'auto', 'midday'),
