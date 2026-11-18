@@ -1,11 +1,11 @@
 # 2026-11-12 A股收盘复盘
 
-状态：partial；抓取时间：2026-11-16T01:47:01.789494+08:00
+状态：complete；抓取时间：2026-11-19T00:18:54.080088+08:00
 
-采集范围：closing_snapshot；采集状态：partial；研究状态：limited
+采集范围：closing_snapshot；采集状态：complete；研究状态：available
 
 ## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）
-{"mainboard_limit_up_count": 37, "mainboard_height": 5.0, "first_board_candidates": 26, "all_day_one_word_excluded": 3, "one_word_unknown": 0, "broken_count": 33, "limit_down_count": 5, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-12T00:00:00.000", "open": 3673.06, "close": 3655.83, "high": 3699.58, "low": 3647.44, "amount": 496533033.0}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-12T00:00:00.000", "open": 11361.82, "close": 11197.98, "high": 11515.65, "low": 11193.26, "amount": 632899416.0}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-12T00:00:00.000", "open": 2559.16, "close": 2509.43, "high": 2620.25, "low": 2508.29, "amount": 196927278.0}]}
+{"mainboard_limit_up_count": 37, "mainboard_height": 5.0, "first_board_candidates": 26, "all_day_one_word_excluded": 3, "one_word_unknown": 0, "broken_count": 33, "limit_down_count": 5, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-12T00:00:00.000", "open": 3673.06, "close": 3655.83, "high": 3699.58, "low": 3647.44, "amount": 496533033.0}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-12T00:00:00.000", "open": 11361.82, "close": 11197.98, "high": 11515.65, "low": 11193.26, "amount": 632899416.0}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-12T00:00:00.000", "open": 2559.16, "close": 2509.43, "high": 2620.25, "low": 2508.29, "amount": 196927278.0}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-12T00:00:00.000", "close": 2801.02, "source": "中证指数官网", "index_code": "932000"}]}
 
 ## 估算值
 {"market": {"up": 875, "down": 4635, "flat": 70, "turnover_yuan": 1945871950570.0, "records": 5580, "unknown_direction": 0, "unknown_amount": 0, "source": "新浪", "scope": "沪深北候选范围（以官方名单核验结果为准）", "note": "收盘后实时快照汇总；分页完整性和行情日期未获独立验证，可能含停牌平盘"}}
@@ -16,7 +16,6 @@
 观察样本仅排除已知一字板，T字/短暂开板不保证成交。实际可交易晋级率与真实策略收益均缺失。
 
 ## 缺失数据
-- 中证2000指定日期收盘值
 
 ## 候选股价格覆盖
 {"historical_available": 0, "historical_fetched": 0, "reused": 0, "missing_codes": [], "budget_seconds": 420, "note": "首板优先；历史价格为不复权日线，不能证明实际成交；实时快照仍为未独立核验估算"}
@@ -48,4 +47,4 @@
 - index_fallback_sz399006: ok，行数=1
 - index_csi932000: error，行数=None
 - index_retry_csi932000: error，行数=None
-- index_official_csi932000: error，行数=None
+- index_official_csi932000: ok，行数=1
