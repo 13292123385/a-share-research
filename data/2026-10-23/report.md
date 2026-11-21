@@ -1,6 +1,6 @@
 # 2026-10-23 A股收盘复盘
 
-状态：partial；抓取时间：2026-11-19T06:00:46.437532+08:00
+状态：partial；抓取时间：2026-11-22T07:23:20.862653+08:00
 
 采集范围：historical_pools_candidate_prices_indices；采集状态：partial；研究状态：limited
 
