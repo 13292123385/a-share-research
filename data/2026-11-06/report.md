@@ -1,6 +1,6 @@
 # 2026-11-06 A股收盘复盘
 
-状态：complete_with_limitations；抓取时间：2026-11-18T22:06:30.948133+08:00
+状态：complete_with_limitations；抓取时间：2026-11-22T02:00:38.206554+08:00
 
 采集范围：historical_pools_candidate_prices_indices；采集状态：complete；研究状态：limited
 

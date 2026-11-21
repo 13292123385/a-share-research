@@ -1,0 +1,1374 @@
+[
+  {
+    "path": "clean/broken.csv",
+    "records": 12,
+    "bytes": 4193,
+    "sha256": "8903395a08382f5b92aff01a5da6a22f51122c2b117c024d99dd6a443245603f",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 12,
+      "amount": 12,
+      "close": 12,
+      "entry_price": 12,
+      "height": 12,
+      "high": 12,
+      "last_seal": 12,
+      "low": 12,
+      "max_adverse_excursion": 12,
+      "open": 12,
+      "price_date": 12,
+      "price_source": 12,
+      "third_day_return": 12,
+      "volume": 12
+    },
+    "source_refs": [
+      "broken"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/broken.json",
+    "records": 12,
+    "bytes": 10756,
+    "sha256": "57a5faac2df44bb2a0aed420e6e7fd3d3f41b9d1fea0854e688eb99b7216f1dd",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 12,
+      "amount": 12,
+      "close": 12,
+      "entry_price": 12,
+      "height": 12,
+      "high": 12,
+      "last_seal": 12,
+      "low": 12,
+      "max_adverse_excursion": 12,
+      "open": 12,
+      "price_date": 12,
+      "price_source": 12,
+      "third_day_return": 12,
+      "volume": 12
+    },
+    "source_refs": [
+      "broken"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/candidate_prices.csv",
+    "records": 29,
+    "bytes": 3521,
+    "sha256": "9675a5f22cc876156b5172953645ec21709b3dc2945eb62f83229edae244c71f",
+    "fields": [
+      "adjustment",
+      "amount",
+      "close",
+      "code",
+      "date",
+      "high",
+      "low",
+      "open",
+      "origin_run",
+      "reused_from_prior_run",
+      "source",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [],
+    "origin_runs": [
+      "20261109T085707127162+0800"
+    ],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/candidate_prices.json",
+    "records": 29,
+    "bytes": 9456,
+    "sha256": "8ca1205748b063ae4555a38e6bbee79986e38f0a0a069a493052b10d5ec4e6da",
+    "fields": [
+      "adjustment",
+      "amount",
+      "close",
+      "code",
+      "date",
+      "high",
+      "low",
+      "open",
+      "origin_run",
+      "reused_from_prior_run",
+      "source",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [],
+    "origin_runs": [
+      "20261109T085707127162+0800"
+    ],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/first_board_candidates.csv",
+    "records": 19,
+    "bytes": 5175,
+    "sha256": "004ca82469d04787b95e320f1b340d1b86f52000454a51c6b091a4fa891f2f9c",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "entry_price": 19,
+      "max_adverse_excursion": 19,
+      "third_day_return": 19
+    },
+    "source_refs": [
+      "limit_up"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/first_board_candidates.json",
+    "records": 19,
+    "bytes": 14156,
+    "sha256": "377074ca2557401a59c0fe999cd761a7a57d09f598b0cb318ca3b82ce6ca07a6",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "entry_price": 19,
+      "max_adverse_excursion": 19,
+      "third_day_return": 19
+    },
+    "source_refs": [
+      "limit_up"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/first_board_followup.csv",
+    "records": 135,
+    "bytes": 46610,
+    "sha256": "0fc671cd0dcaaa73dc5fe8420f3e15463fb02f8b2fda904ba0245c93091b7466",
+    "fields": [
+      "code",
+      "entry_price",
+      "execution_verified",
+      "first_board_date",
+      "max_adverse_excursion",
+      "name",
+      "note",
+      "observation_date",
+      "original_eligible_observation",
+      "price",
+      "sessions_since_first",
+      "status",
+      "third_day_return"
+    ],
+    "missing_fields": {
+      "entry_price": 135,
+      "max_adverse_excursion": 135,
+      "third_day_return": 135
+    },
+    "source_refs": [],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/first_board_followup.json",
+    "records": 135,
+    "bytes": 93945,
+    "sha256": "48ec65c4a57fb768ae6fcc5a65d055ae3d08d3e69351cbc53adb315e0562643c",
+    "fields": [
+      "code",
+      "entry_price",
+      "execution_verified",
+      "first_board_date",
+      "max_adverse_excursion",
+      "name",
+      "note",
+      "observation_date",
+      "original_eligible_observation",
+      "price",
+      "sessions_since_first",
+      "status",
+      "third_day_return"
+    ],
+    "missing_fields": {
+      "entry_price": 135,
+      "max_adverse_excursion": 135,
+      "third_day_return": 135
+    },
+    "source_refs": [],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/followup_prices.csv",
+    "records": 135,
+    "bytes": 16183,
+    "sha256": "fa4516a65793bc0443ff293ddc47c77a7caf6141ed0025cd655b9193ffcdc09d",
+    "fields": [
+      "adjustment",
+      "amount",
+      "close",
+      "code",
+      "date",
+      "high",
+      "low",
+      "open",
+      "origin_run",
+      "reused_from_prior_run",
+      "source",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [],
+    "origin_runs": [
+      "20261109T085707127162+0800",
+      "20261112T064415446477+0800"
+    ],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/followup_prices.json",
+    "records": 135,
+    "bytes": 44166,
+    "sha256": "e5ef27c37706d8259b2e96b5aabbec07085c4d707d82c653997897401c0a2225",
+    "fields": [
+      "adjustment",
+      "amount",
+      "close",
+      "code",
+      "date",
+      "high",
+      "low",
+      "open",
+      "origin_run",
+      "reused_from_prior_run",
+      "source",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [],
+    "origin_runs": [
+      "20261109T085707127162+0800",
+      "20261112T064415446477+0800"
+    ],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/indices.csv",
+    "records": 4,
+    "bytes": 442,
+    "sha256": "3ba9e0b997746a0b150247b2dee9bd624c0ab2341c80761447dc81d15405da97",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "index_code",
+      "low",
+      "name",
+      "open",
+      "source",
+      "symbol",
+      "volume"
+    ],
+    "missing_fields": {
+      "amount": 1,
+      "high": 1,
+      "index_code": 3,
+      "low": 1,
+      "open": 1,
+      "source": 3,
+      "volume": 2
+    },
+    "source_refs": [
+      "index_sh000001",
+      "index_sz399001",
+      "index_fallback_sz399006",
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/indices.json",
+    "records": 4,
+    "bytes": 858,
+    "sha256": "110ff4fba937b396d70476086aef93f08b1ef2f6340b4ce536f11b532157c721",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "index_code",
+      "low",
+      "name",
+      "open",
+      "source",
+      "symbol",
+      "volume"
+    ],
+    "missing_fields": {
+      "amount": 1,
+      "high": 1,
+      "index_code": 3,
+      "low": 1,
+      "open": 1,
+      "source": 3,
+      "volume": 2
+    },
+    "source_refs": [
+      "index_sh000001",
+      "index_sz399001",
+      "index_fallback_sz399006",
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/limit_down.csv",
+    "records": 15,
+    "bytes": 5397,
+    "sha256": "639843a3fa8ce0b845a00c1b6489f61cf326341543643313868f2a035cc0d79c",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 15,
+      "amount": 15,
+      "close": 15,
+      "entry_price": 15,
+      "first_seal": 15,
+      "height": 15,
+      "high": 15,
+      "low": 15,
+      "max_adverse_excursion": 15,
+      "open": 15,
+      "open_count": 15,
+      "price_date": 15,
+      "price_source": 15,
+      "third_day_return": 15,
+      "volume": 15
+    },
+    "source_refs": [
+      "limit_down"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/limit_down.json",
+    "records": 15,
+    "bytes": 13784,
+    "sha256": "3de98060695de2b5d7349d8808870e70b3a12a08aeb0c6779996a846e6bfb989",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 15,
+      "amount": 15,
+      "close": 15,
+      "entry_price": 15,
+      "first_seal": 15,
+      "height": 15,
+      "high": 15,
+      "low": 15,
+      "max_adverse_excursion": 15,
+      "open": 15,
+      "open_count": 15,
+      "price_date": 15,
+      "price_source": 15,
+      "third_day_return": 15,
+      "volume": 15
+    },
+    "source_refs": [
+      "limit_down"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/limit_up.csv",
+    "records": 29,
+    "bytes": 7779,
+    "sha256": "e8236fb8e2e0395f056ccaf1e2195007e4aebfc7d698f2c3ee86a7051101195c",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "entry_price": 29,
+      "max_adverse_excursion": 29,
+      "third_day_return": 29
+    },
+    "source_refs": [
+      "limit_up"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/limit_up.json",
+    "records": 29,
+    "bytes": 21620,
+    "sha256": "4874d46b034f396ddd2ffbea6da16ea15a7f185599626b274124147b7d664511",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "entry_price": 29,
+      "max_adverse_excursion": 29,
+      "third_day_return": 29
+    },
+    "source_refs": [
+      "limit_up"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/promotion.json",
+    "records": 1,
+    "bytes": 13432,
+    "sha256": "267808742753b15773ded4e8bd6d08871ac8736ea74941a2f675994f6dd9317e",
+    "fields": [
+      "broken_count",
+      "denominator",
+      "observation_rate",
+      "promoted_count",
+      "rows",
+      "status",
+      "verified_tradable_rate"
+    ],
+    "missing_fields": {
+      "verified_tradable_rate": 1
+    },
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "limit_down",
+      "index_sh000001",
+      "index_sz399001",
+      "index_fallback_sz399006",
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/promotion_rows.csv",
+    "records": 51,
+    "bytes": 1854,
+    "sha256": "aca405f2f48ae694044327132e98f39926b0251edf44b66e4e75b488f638d19f",
+    "fields": [
+      "broken_at_close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "max_adverse_excursion",
+      "promoted",
+      "third_day_return"
+    ],
+    "missing_fields": {
+      "entry_price": 51,
+      "max_adverse_excursion": 51,
+      "third_day_return": 51
+    },
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "limit_down",
+      "index_sh000001",
+      "index_sz399001",
+      "index_fallback_sz399006",
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/promotion_rows.json",
+    "records": 51,
+    "bytes": 12237,
+    "sha256": "735ce16b083c51aa26340951e0b7a7de71d1181540a796d85746b768a8a68942",
+    "fields": [
+      "broken_at_close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "max_adverse_excursion",
+      "promoted",
+      "third_day_return"
+    ],
+    "missing_fields": {
+      "entry_price": 51,
+      "max_adverse_excursion": 51,
+      "third_day_return": 51
+    },
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "limit_down",
+      "index_sh000001",
+      "index_sz399001",
+      "index_fallback_sz399006",
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/yesterday_pool.csv",
+    "records": 71,
+    "bytes": 24685,
+    "sha256": "576f1ba3443c2f70d412734afe4b7a010b1b43983a833227bfb93c35f9c93a70",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 71,
+      "amount": 61,
+      "close": 61,
+      "entry_price": 71,
+      "first_seal": 71,
+      "height": 71,
+      "high": 61,
+      "last_seal": 71,
+      "low": 61,
+      "max_adverse_excursion": 71,
+      "open": 61,
+      "open_count": 71,
+      "price_date": 61,
+      "price_source": 61,
+      "third_day_return": 71,
+      "volume": 61
+    },
+    "source_refs": [
+      "yesterday_pool"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "clean/yesterday_pool.json",
+    "records": 71,
+    "bytes": 65114,
+    "sha256": "09522c580116c5cab5ffd0ffb72ca39e7635ed03cf2760816128217944c6524d",
+    "fields": [
+      "all_day_one_word",
+      "amount",
+      "close",
+      "code",
+      "eligible_observation",
+      "entry_price",
+      "execution_verified",
+      "first_seal",
+      "height",
+      "high",
+      "industry",
+      "last_seal",
+      "low",
+      "max_adverse_excursion",
+      "missing_fields",
+      "name",
+      "open",
+      "open_count",
+      "price_date",
+      "price_source",
+      "return_kind",
+      "third_day_return",
+      "volume"
+    ],
+    "missing_fields": {
+      "all_day_one_word": 71,
+      "amount": 61,
+      "close": 61,
+      "entry_price": 71,
+      "first_seal": 71,
+      "height": 71,
+      "high": 61,
+      "last_seal": 71,
+      "low": 61,
+      "max_adverse_excursion": 71,
+      "open": 61,
+      "open_count": 71,
+      "price_date": 61,
+      "price_source": 61,
+      "third_day_return": 71,
+      "volume": 61
+    },
+    "source_refs": [
+      "yesterday_pool"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "raw/broken.csv",
+    "records": 14,
+    "bytes": 2165,
+    "sha256": "ab670e012542dc7c75f26742bcc3f144f32781aed3a2c270684cd14309ae8937",
+    "fields": [
+      "代码",
+      "名称",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "振幅",
+      "换手率",
+      "最新价",
+      "流通市值",
+      "涨停价",
+      "涨停统计",
+      "涨跌幅",
+      "涨速",
+      "炸板次数",
+      "首次封板时间"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "broken"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/broken.json",
+    "records": 14,
+    "bytes": 6351,
+    "sha256": "2ce2247e2c0525bc55eafe7682c7c9403c2018dc3b4a68c712959dcf9a9df2be",
+    "fields": [
+      "代码",
+      "名称",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "振幅",
+      "换手率",
+      "最新价",
+      "流通市值",
+      "涨停价",
+      "涨停统计",
+      "涨跌幅",
+      "涨速",
+      "炸板次数",
+      "首次封板时间"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "broken"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/calendar.csv",
+    "records": 8797,
+    "bytes": 219940,
+    "sha256": "66017c2f2edb84cadd35813649a6c14179a618e97b9fb6919f3bd383a54df40f",
+    "fields": [
+      "trade_date"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/calendar.json",
+    "records": 8797,
+    "bytes": 466243,
+    "sha256": "552e6d424c049845be3d46eeddf0f82347140c35ba8c14ad9948831dff55d9aa",
+    "fields": [
+      "trade_date"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_fallback_sz399006.csv",
+    "records": 1,
+    "bytes": 105,
+    "sha256": "0e50ab3bacb7a8351b27403367e3737119e01f4e58b571a3b1ad05a22d37a9f5",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_fallback_sz399006.json",
+    "records": 1,
+    "bytes": 160,
+    "sha256": "bc7b6cddabdb2be19c157ed3b733a2b9626f0490370b0d218868f7d77f3d15b3",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_fallback_sz399006"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_official_csi932000.csv",
+    "records": 1,
+    "bytes": 361,
+    "sha256": "d09472d07284ae5d92a21a0dabf860bb4b7b2a10f2209dfb42aa6505de8ea91d",
+    "fields": [
+      "开盘",
+      "成交量",
+      "成交金额",
+      "指数中文全称",
+      "指数中文简称",
+      "指数代码",
+      "指数英文全称",
+      "指数英文简称",
+      "收盘",
+      "日期",
+      "最低",
+      "最高",
+      "样本数量",
+      "涨跌",
+      "涨跌幅",
+      "滚动市盈率"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_official_csi932000.json",
+    "records": 1,
+    "bytes": 506,
+    "sha256": "d0c9269f0530fc39ded405493ec2c9d7c2c6ca5e1421eb672c5f721dc8e4c066",
+    "fields": [
+      "开盘",
+      "成交量",
+      "成交金额",
+      "指数中文全称",
+      "指数中文简称",
+      "指数代码",
+      "指数英文全称",
+      "指数英文简称",
+      "收盘",
+      "日期",
+      "最低",
+      "最高",
+      "样本数量",
+      "涨跌",
+      "涨跌幅",
+      "滚动市盈率"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_sh000001.csv",
+    "records": 1,
+    "bytes": 111,
+    "sha256": "3941d26ab0238a2394a53d2644288988fae19224eff3c13c58d3e82f707cc876",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_sh000001"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_sh000001.json",
+    "records": 1,
+    "bytes": 174,
+    "sha256": "1eddbbd42911c444ef56e18f003b14882b7d45bc307fce912d941df68fb921c8",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_sh000001"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_sz399001.csv",
+    "records": 1,
+    "bytes": 117,
+    "sha256": "b32dcbf22c6412b38f5d2b50fd6d0609a51ee074df3b471f953b259924bdcb4c",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_sz399001"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/index_sz399001.json",
+    "records": 1,
+    "bytes": 180,
+    "sha256": "b15c2f3869e481acd7f52cd6d9ff59799092a0fb75d36de3a01563d6df3923bb",
+    "fields": [
+      "amount",
+      "close",
+      "date",
+      "high",
+      "low",
+      "open",
+      "volume"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "index_sz399001"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/limit_down.csv",
+    "records": 15,
+    "bytes": 2490,
+    "sha256": "7a087d43bbd01a8a5eaf50589b55455205c6e250d5284fadc66f5a4487261b4d",
+    "fields": [
+      "代码",
+      "动态市盈率",
+      "名称",
+      "封单资金",
+      "序号",
+      "开板次数",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "换手率",
+      "最后封板时间",
+      "最新价",
+      "板上成交额",
+      "流通市值",
+      "涨跌幅",
+      "连续跌停"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "limit_down"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/limit_down.json",
+    "records": 15,
+    "bytes": 7251,
+    "sha256": "cf7bd9f7744cf269b1f7fc073b455860edfb6a3836cf648cded6e1ec6d037647",
+    "fields": [
+      "代码",
+      "动态市盈率",
+      "名称",
+      "封单资金",
+      "序号",
+      "开板次数",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "换手率",
+      "最后封板时间",
+      "最新价",
+      "板上成交额",
+      "流通市值",
+      "涨跌幅",
+      "连续跌停"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "limit_down"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/limit_up.csv",
+    "records": 32,
+    "bytes": 4573,
+    "sha256": "97527475dfc259ee6914cb5cb76d331673fb0cef8f6f4f1a991d546ac5e7cfb8",
+    "fields": [
+      "代码",
+      "名称",
+      "封板资金",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "换手率",
+      "最后封板时间",
+      "最新价",
+      "流通市值",
+      "涨停统计",
+      "涨跌幅",
+      "炸板次数",
+      "连板数",
+      "首次封板时间"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "limit_up"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/limit_up.json",
+    "records": 32,
+    "bytes": 14979,
+    "sha256": "639dbcad0daab40041ec6fe988d616e6221108b8d325e8730b59741b263228ca",
+    "fields": [
+      "代码",
+      "名称",
+      "封板资金",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "换手率",
+      "最后封板时间",
+      "最新价",
+      "流通市值",
+      "涨停统计",
+      "涨跌幅",
+      "炸板次数",
+      "连板数",
+      "首次封板时间"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "limit_up"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/yesterday_pool.csv",
+    "records": 84,
+    "bytes": 12250,
+    "sha256": "6b99390827e1d8c810c1045c38b93d04de9947368da8e536f7f17e944c52f5f6",
+    "fields": [
+      "代码",
+      "名称",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "振幅",
+      "换手率",
+      "昨日封板时间",
+      "昨日连板数",
+      "最新价",
+      "流通市值",
+      "涨停价",
+      "涨停统计",
+      "涨跌幅",
+      "涨速"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "yesterday_pool"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "raw/yesterday_pool.json",
+    "records": 84,
+    "bytes": 38455,
+    "sha256": "2e53de9048ba4c7a3a76a742f57b8217d05fbbd9ff2f2707b4e15df7f72961cb",
+    "fields": [
+      "代码",
+      "名称",
+      "序号",
+      "总市值",
+      "成交额",
+      "所属行业",
+      "振幅",
+      "换手率",
+      "昨日封板时间",
+      "昨日连板数",
+      "最新价",
+      "流通市值",
+      "涨停价",
+      "涨停统计",
+      "涨跌幅",
+      "涨速"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "yesterday_pool"
+    ],
+    "origin_runs": [],
+    "provenance": "raw provider adapter result; see sources.json"
+  },
+  {
+    "path": "report.md",
+    "records": null,
+    "bytes": 2928,
+    "sha256": "a88f27b6347a1fc1f90eb82cfec6592f6d0a4d88af53a3c87dec91df1461caec",
+    "fields": [],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "limit_down",
+      "index_sh000001",
+      "index_sz399001",
+      "index_fallback_sz399006",
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "sources.json",
+    "records": 1,
+    "bytes": 8098,
+    "sha256": "c715bf28e634964081c03f1bd2cd58e10e0977157778f9616cf0d51f0eb4cf62",
+    "fields": [
+      "broken",
+      "calendar",
+      "index_csi932000",
+      "index_fallback_sz399006",
+      "index_official_csi932000",
+      "index_retry_csi932000",
+      "index_retry_sz399006",
+      "index_sh000001",
+      "index_sz399001",
+      "index_sz399006",
+      "limit_down",
+      "limit_up",
+      "yesterday_pool"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "limit_down",
+      "index_sh000001",
+      "index_sz399001",
+      "index_fallback_sz399006",
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  },
+  {
+    "path": "summary.json",
+    "records": 1,
+    "bytes": 8034,
+    "sha256": "31d8df349529ba622aa80e7042ccd51c2d81afdfff26eb2e3e4e0763595d772d",
+    "fields": [
+      "calendar_covered",
+      "candidate_price_quality",
+      "collection_failures",
+      "collection_scope",
+      "collection_status",
+      "estimates",
+      "fetched_at",
+      "followup",
+      "followup_price_coverage",
+      "market_reconciliation",
+      "missing_data",
+      "price_coverage",
+      "promotion",
+      "research_status",
+      "run_id",
+      "schema_version",
+      "selected_as_latest",
+      "source_failures",
+      "status",
+      "theme",
+      "trade_date",
+      "trading_day",
+      "verified"
+    ],
+    "missing_fields": {},
+    "source_refs": [
+      "calendar",
+      "limit_up",
+      "yesterday_pool",
+      "broken",
+      "limit_down",
+      "index_sh000001",
+      "index_sz399001",
+      "index_fallback_sz399006",
+      "index_official_csi932000"
+    ],
+    "origin_runs": [],
+    "provenance": "derived; reused prices carry origin_run; research-only nulls are intentional"
+  }
+]
