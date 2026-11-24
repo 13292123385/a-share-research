@@ -1,11 +1,11 @@
 # 2026-11-04 A股收盘复盘
 
-状态：complete_with_limitations；抓取时间：2026-11-21T10:22:15.993531+08:00
+状态：complete_with_limitations；抓取时间：2026-11-25T02:44:45.458126+08:00
 
 采集范围：historical_pools_candidate_prices_indices；采集状态：complete；研究状态：limited
 
 ## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）
-{"mainboard_limit_up_count": 96, "mainboard_height": 3.0, "first_board_candidates": 84, "all_day_one_word_excluded": 4, "one_word_unknown": 0, "broken_count": 30, "limit_down_count": 10, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-04", "open": 3605.39, "close": 3686.17, "high": 3686.17, "low": 3590.8, "volume": 599394361, "amount": 953265155867.1}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-04", "open": 10895.8, "close": 11335.69, "high": 11362.9, "low": 10826.83, "volume": 682108330, "amount": 1084429058169.67}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-04", "open": 2399.46, "close": 2544.73, "high": 2559.09, "low": 2376.28, "volume": 228849025, "amount": 549329528581.74}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-04T00:00:00.000", "close": 2713.36, "source": "中证指数官网", "index_code": "932000"}]}
+{"mainboard_limit_up_count": 96, "mainboard_height": 3.0, "first_board_candidates": 84, "all_day_one_word_excluded": 4, "one_word_unknown": 0, "broken_count": 30, "limit_down_count": 10, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-04", "open": 3605.39, "close": 3686.17, "high": 3686.17, "low": 3590.8, "volume": 599394361, "amount": 953265155867.1}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-04T00:00:00.000", "open": 10895.8, "close": 11335.69, "high": 11362.9, "low": 10826.83, "amount": 682108330.0}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-04T00:00:00.000", "open": 2399.46, "close": 2544.73, "high": 2559.09, "low": 2376.28, "amount": 223218325.0}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-04T00:00:00.000", "close": 2713.36, "source": "中证指数官网", "index_code": "932000"}]}
 
 ## 估算值
 {}
@@ -38,9 +38,12 @@
 - limit_down: ok，行数=10
 - price_002623: empty_unverified，行数=0
 - index_sh000001: ok，行数=1
-- index_sz399001: ok，行数=1
+- index_sz399001: error，行数=None
+- index_retry_sz399001: error，行数=None
+- index_fallback_sz399001: ok，行数=1
 - index_sz399006: error，行数=None
-- index_retry_sz399006: ok，行数=1
+- index_retry_sz399006: error，行数=None
+- index_fallback_sz399006: ok，行数=1
 - index_csi932000: error，行数=None
 - index_retry_csi932000: error，行数=None
 - index_official_csi932000: ok，行数=1
