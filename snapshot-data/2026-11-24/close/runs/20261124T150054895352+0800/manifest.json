@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "universe": "cn_main_board",
+  "universe_label": "沪深主板A股",
+  "trade_date": "2026-11-24",
+  "session": "close",
+  "run_id": "20261124T150054895352+0800",
+  "fetched_at": "2026-11-24T15:00:54.895352+08:00",
+  "status": "complete",
+  "units": {
+    "成交量": "股",
+    "成交额": "元",
+    "总市值": "元",
+    "流通市值": "元",
+    "换手率": "%",
+    "涨跌幅": "%",
+    "最新价": "元/股"
+  },
+  "source": "Tencent qt.gtimg.cn; official SSE/SZSE/BSE rosters",
+  "coverage": {
+    "status": "matched",
+    "expected_count": 3194,
+    "observed_count": 3194,
+    "missing_codes": [],
+    "unexpected_codes": [],
+    "duplicate_codes": [],
+    "unavailable_rosters": []
+  },
+  "quality": {
+    "invalid_codes": [],
+    "stale_codes": [],
+    "suspended_codes": [
+      "002717",
+      "600185",
+      "600567"
+    ],
+    "missing_fields": {},
+    "required_fields": [
+      "最新价",
+      "昨收",
+      "今开",
+      "最高",
+      "最低",
+      "涨跌额",
+      "涨跌幅",
+      "成交量",
+      "成交额"
+    ],
+    "nullable_fields": [
+      "市净率",
+      "市盈率",
+      "总市值",
+      "换手率",
+      "流通市值"
+    ],
+    "issues": [
+      "估值等非必需字段缺失保留null；完整表示名单和必需行情字段通过本次校验，不代表独立审计。"
+    ]
+  },
+  "request_errors": {},
+  "records": 3194,
+  "expected_count": 3194,
+  "finished_at": "2026-11-24T15:01:07.495945+08:00",
+  "snapshot_sha256": "c0c1a0a1f610cdbfd486991481c7c4c34f4e62c2de026c76ec644e2efb14bd49",
+  "snapshot_file": "snapshot.json"
+}
