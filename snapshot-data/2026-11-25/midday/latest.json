@@ -4,9 +4,9 @@
   "universe_label": "沪深主板A股",
   "trade_date": "2026-11-25",
   "session": "midday",
-  "run_id": "20261125T113103593133+0800",
-  "fetched_at": "2026-11-25T11:31:03.593133+08:00",
-  "status": "partial",
+  "run_id": "20261125T123443963658+0800",
+  "fetched_at": "2026-11-25T12:34:43.963658+08:00",
+  "status": "complete",
   "units": {
     "成交量": "股",
     "成交额": "元",
@@ -18,22 +18,23 @@
   },
   "source": "Tencent qt.gtimg.cn; official SSE/SZSE/BSE rosters",
   "coverage": {
-    "status": "incomplete",
-    "expected_count": null,
-    "observed_count": 1494,
+    "status": "matched",
+    "expected_count": 3194,
+    "observed_count": 3194,
     "missing_codes": [],
     "unexpected_codes": [],
     "duplicate_codes": [],
-    "unavailable_rosters": [
-      "sh_main"
-    ]
+    "unavailable_rosters": []
   },
   "quality": {
     "invalid_codes": [],
     "stale_codes": [],
     "suspended_codes": [
       "000820",
-      "002717"
+      "002717",
+      "600185",
+      "600567",
+      "603595"
     ],
     "missing_fields": {},
     "required_fields": [
@@ -59,10 +60,10 @@
     ]
   },
   "request_errors": {},
-  "records": 1494,
-  "expected_count": null,
-  "finished_at": "2026-11-25T11:31:26.403991+08:00",
-  "snapshot_sha256": "cfe1cdd12adc0a5c96921a6ef4ed75235b12b2769ba3f39cc05ecc1a60946dd6",
+  "records": 3194,
+  "expected_count": 3194,
+  "finished_at": "2026-11-25T12:35:02.025530+08:00",
+  "snapshot_sha256": "0f6d6658c4c007b1f04e86fd03df208e4705cd2948e86e9eaee1bdf97abbd708",
   "snapshot_file": "snapshot.json",
-  "run_path": "snapshot-data/2026-11-25/midday/runs/20261125T113103593133+0800"
+  "run_path": "snapshot-data/2026-11-25/midday/runs/20261125T123443963658+0800"
 }
