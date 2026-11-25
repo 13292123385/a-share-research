@@ -1,11 +1,11 @@
 # 2026-11-06 A股收盘复盘
 
-状态：complete_with_limitations；抓取时间：2026-11-22T02:00:38.206554+08:00
+状态：complete_with_limitations；抓取时间：2026-11-25T12:54:43.855338+08:00
 
 采集范围：historical_pools_candidate_prices_indices；采集状态：complete；研究状态：limited
 
 ## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）
-{"mainboard_limit_up_count": 29, "mainboard_height": 5.0, "first_board_candidates": 19, "all_day_one_word_excluded": 2, "one_word_unknown": 0, "broken_count": 12, "limit_down_count": 15, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-06", "open": 3612.15, "close": 3649.18, "high": 3660.49, "low": 3610.2, "volume": 477042561, "amount": 772634566231.1}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-06", "open": 11044.56, "close": 11175.78, "high": 11303.22, "low": 11044.56, "volume": 569400962, "amount": 885159900792.13}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-06T00:00:00.000", "open": 2438.72, "close": 2465.23, "high": 2506.97, "low": 2438.72, "amount": 181680656.0}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-06T00:00:00.000", "close": 2718.86, "source": "中证指数官网", "index_code": "932000"}]}
+{"mainboard_limit_up_count": 29, "mainboard_height": 5.0, "first_board_candidates": 19, "all_day_one_word_excluded": 2, "one_word_unknown": 0, "broken_count": 12, "limit_down_count": 15, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-06T00:00:00.000", "open": 3612.15, "close": 3649.18, "high": 3660.49, "low": 3610.2, "amount": 477042561.0}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-06T00:00:00.000", "open": 11044.56, "close": 11175.78, "high": 11303.22, "low": 11044.56, "amount": 569400962.0}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-06T00:00:00.000", "open": 2438.72, "close": 2465.23, "high": 2506.97, "low": 2438.72, "amount": 181680656.0}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-06T00:00:00.000", "close": 2718.86, "source": "中证指数官网", "index_code": "932000"}]}
 
 ## 估算值
 {}
@@ -35,8 +35,12 @@
 - yesterday_pool: ok，行数=84
 - broken: ok，行数=14
 - limit_down: ok，行数=15
-- index_sh000001: ok，行数=1
-- index_sz399001: ok，行数=1
+- index_sh000001: error，行数=None
+- index_retry_sh000001: error，行数=None
+- index_fallback_sh000001: ok，行数=1
+- index_sz399001: error，行数=None
+- index_retry_sz399001: error，行数=None
+- index_fallback_sz399001: ok，行数=1
 - index_sz399006: error，行数=None
 - index_retry_sz399006: error，行数=None
 - index_fallback_sz399006: ok，行数=1
