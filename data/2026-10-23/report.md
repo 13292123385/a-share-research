@@ -1,6 +1,6 @@
 # 2026-10-23 A股收盘复盘
 
-状态：partial；抓取时间：2026-11-22T07:23:20.862653+08:00
+状态：partial；抓取时间：2026-11-26T01:52:54.361990+08:00
 
 采集范围：historical_pools_candidate_prices_indices；采集状态：partial；研究状态：limited
 
@@ -20,8 +20,8 @@
 - 首板后续跟踪存在历史名单或价格缺失，详见followup
 - limit_up:empty_unverified
 - yesterday_pool:empty_unverified
-- broken:empty_unverified
-- limit_down:empty_unverified
+- broken:error
+- limit_down:error
 - 上一交易日已归档涨停池；昨日涨停接口不提供昨日连板高度，不能替代该依赖
 
 ## 候选股价格覆盖
@@ -39,8 +39,8 @@
 - calendar: ok，行数=8797
 - limit_up: empty_unverified，行数=0
 - yesterday_pool: empty_unverified，行数=0
-- broken: empty_unverified，行数=0
-- limit_down: empty_unverified，行数=0
+- broken: error，行数=None
+- limit_down: error，行数=None
 - index_sh000001: error，行数=None
 - index_retry_sh000001: error，行数=None
 - index_fallback_sh000001: ok，行数=1
