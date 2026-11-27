@@ -1,11 +1,11 @@
 # 2026-11-27 A股收盘复盘
 
-状态：partial；抓取时间：2026-11-27T21:33:48.703164+08:00
+状态：partial；抓取时间：2026-11-27T22:17:30.807540+08:00
 
 采集范围：closing_snapshot；采集状态：partial；研究状态：limited
 
 ## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）
-{"mainboard_limit_up_count": 314, "mainboard_height": 6.0, "first_board_candidates": 286, "all_day_one_word_excluded": 5, "one_word_unknown": 0, "broken_count": 34, "limit_down_count": null, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-27T00:00:00.000", "open": 3482.38, "close": 3606.49, "high": 3610.72, "low": 3467.41, "amount": 634626966.0}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-27T00:00:00.000", "open": 10121.14, "close": 10814.02, "high": 10814.19, "low": 10075.83, "amount": 761605757.0}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-27T00:00:00.000", "open": 2202.82, "close": 2443.96, "high": 2444.6, "low": 2199.23, "amount": 237230124.0}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-27T00:00:00.000", "close": 2531.8, "source": "中证指数官网", "index_code": "932000"}]}
+{"mainboard_limit_up_count": 314, "mainboard_height": 6.0, "first_board_candidates": 286, "all_day_one_word_excluded": 5, "one_word_unknown": 0, "broken_count": 34, "limit_down_count": null, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-27", "open": 3482.38, "close": 3606.49, "high": 3610.72, "low": 3467.41, "volume": 634626966, "amount": 929777242144.2}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-27", "open": 10121.14, "close": 10814.02, "high": 10814.19, "low": 10075.83, "volume": 761605757, "amount": 1070017207174.68}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-27", "open": 2202.82, "close": 2443.96, "high": 2444.6, "low": 2199.23, "volume": 248230064, "amount": 550334617306.16}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-27", "open": 2352.39, "close": 2531.8, "high": 2531.8, "low": 2342.82, "volume": 375224852, "amount": 402837915110.0}]}
 
 ## 估算值
 {"market": {"up": 5382, "down": 181, "flat": 18, "turnover_yuan": 2017282183341.0, "records": 5581, "unknown_direction": 0, "unknown_amount": 0, "source": "新浪", "scope": "沪深北候选范围（以官方名单核验结果为准）", "note": "收盘后实时快照汇总；分页完整性和行情日期未获独立验证，可能含停牌平盘"}}
@@ -37,30 +37,7 @@
 - limit_down: empty_unverified，行数=0
 - official_szse_summary: error，行数=None
 - official_szse_summary_retry: ok，行数=14
-- price_603166: ok，行数=1
-- price_603203: ok，行数=1
-- price_603278: ok，行数=1
-- price_603324: ok，行数=1
-- price_603373: ok，行数=1
-- price_603386: ok，行数=1
-- price_603396: ok，行数=1
-- price_603586: ok，行数=1
-- price_603687: ok，行数=1
-- price_603703: ok，行数=1
-- price_603708: ok，行数=1
-- price_603887: ok，行数=1
-- price_605058: ok，行数=1
-- price_605136: ok，行数=1
-- price_605577: ok，行数=1
-- index_sh000001: error，行数=None
-- index_retry_sh000001: error，行数=None
-- index_fallback_sh000001: ok，行数=1
-- index_sz399001: error，行数=None
-- index_retry_sz399001: error，行数=None
-- index_fallback_sz399001: ok，行数=1
-- index_sz399006: error，行数=None
-- index_retry_sz399006: error，行数=None
-- index_fallback_sz399006: ok，行数=1
-- index_csi932000: error，行数=None
-- index_retry_csi932000: error，行数=None
-- index_official_csi932000: ok，行数=1
+- index_sh000001: ok，行数=1
+- index_sz399001: ok，行数=1
+- index_sz399006: ok，行数=1
+- index_csi932000: ok，行数=1
