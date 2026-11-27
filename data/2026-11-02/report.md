@@ -1,11 +1,11 @@
 # 2026-11-02 A股收盘复盘
 
-状态：partial；抓取时间：2026-11-24T03:05:39.671253+08:00
+状态：partial；抓取时间：2026-11-28T01:20:32.259368+08:00
 
 采集范围：historical_pools_candidate_prices_indices；采集状态：partial；研究状态：limited
 
 ## 已验证数据（仅指公开接口指定日期返回值，不代表审计或可成交）
-{"broken_count": null, "limit_down_count": null, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-02", "open": 3614.31, "close": 3638.03, "high": 3648.13, "low": 3594.77, "volume": 565372836, "amount": 847459066880.8}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-02T00:00:00.000", "open": 10897.5, "close": 11010.68, "high": 11112.64, "low": 10813.16, "amount": 630746118.0}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-02T00:00:00.000", "open": 2439.08, "close": 2458.7, "high": 2500.14, "low": 2406.97, "amount": 206324226.0}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-02T00:00:00.000", "close": 2681.29, "source": "中证指数官网", "index_code": "932000"}]}
+{"broken_count": null, "limit_down_count": null, "indices": [{"name": "上证指数", "symbol": "sh000001", "date": "2026-11-02", "open": 3614.31, "close": 3638.03, "high": 3648.13, "low": 3594.77, "volume": 565372836, "amount": 847459066880.8}, {"name": "深证成指", "symbol": "sz399001", "date": "2026-11-02", "open": 10897.5, "close": 11010.68, "high": 11112.64, "low": 10813.16, "volume": 630746118, "amount": 936236271283.87}, {"name": "创业板指", "symbol": "sz399006", "date": "2026-11-02", "open": 2439.08, "close": 2458.7, "high": 2500.14, "low": 2406.97, "volume": 211432374, "amount": 468709211615.64}, {"name": "中证2000", "symbol": "csi932000", "date": "2026-11-02", "open": 2626.73, "close": 2681.29, "high": 2693.93, "low": 2576.02, "volume": 300109838, "amount": 354623963703.0}]}
 
 ## 估算值
 {}
@@ -40,12 +40,6 @@
 - broken: empty_unverified，行数=0
 - limit_down: empty_unverified，行数=0
 - index_sh000001: ok，行数=1
-- index_sz399001: error，行数=None
-- index_retry_sz399001: error，行数=None
-- index_fallback_sz399001: ok，行数=1
-- index_sz399006: error，行数=None
-- index_retry_sz399006: error，行数=None
-- index_fallback_sz399006: ok，行数=1
-- index_csi932000: error，行数=None
-- index_retry_csi932000: error，行数=None
-- index_official_csi932000: ok，行数=1
+- index_sz399001: ok，行数=1
+- index_sz399006: ok，行数=1
+- index_csi932000: ok，行数=1
